@@ -4,6 +4,17 @@ import 'package:flutter_linkify/flutter_linkify.dart';
 import 'package:provider/provider.dart';
 import 'dart:async';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:fina_points_calculator/main.dart';
+
+enum Language {
+  en('English', 'en'),
+  cs('Čeština', 'cs');
+
+  const Language(this.value, this.code);
+  final String value;
+  final String code;
+}
 
 class SettingsScreen extends StatefulWidget {
   const SettingsScreen({super.key});
@@ -13,6 +24,8 @@ class SettingsScreen extends StatefulWidget {
 }
 
 class _SettingsScreenState extends State<SettingsScreen> {
+  double containerHeight = 50.0 * Language.values.length;
+
   Future<void> _onOpen(LinkableElement link) async {
     if (!await launchUrl(Uri.parse(link.url))) {
       throw Exception('Could not launch ${link.url}');
@@ -28,19 +41,25 @@ class _SettingsScreenState extends State<SettingsScreen> {
     bool isDarkMode =
         Provider.of<ThemeProvider>(context, listen: false).isDarkMode();
 
+    String currentLanguageCode = Localizations.localeOf(context).languageCode;
+    String currentLanguage = Language.values
+        .firstWhere((element) => element.code == currentLanguageCode)
+        .value;
+
     return Scaffold(
       body: Center(
         child: ListView(
           children: <Widget>[
             ListTile(
-              title: const Text('Language'),
-              subtitle: const Text('English'),
+              title: Text(AppLocalizations.of(context)!.language),
+              subtitle: Text(currentLanguage),
               leading: const Icon(Icons.language_outlined),
-              onTap: () {},
-              enabled: false,
+              onTap: () {
+                openLanguageDialog(context);
+              },
             ),
             ListTile(
-              title: const Text('Dark Theme'),
+              title: Text(AppLocalizations.of(context)!.darkTheme),
               leading: const Icon(Icons.color_lens_outlined),
               trailing: Switch(
                 value: isDarkMode,
@@ -54,7 +73,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
               ),
             ),
             ListTile(
-              title: const Text('About app'),
+              title: Text(AppLocalizations.of(context)!.aboutApp),
               leading: const Icon(Icons.info_outline),
               onTap: () {
                 showDialog(
@@ -65,7 +84,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                       insetPadding: const EdgeInsets.only(top: 48),
                       child: SizedBox(
                         width: dialogWidth, // 80% of screen width
-                        height: 400, // 50% of screen height
+                        height: 450, // 50% of screen height
                         child: Padding(
                           padding: const EdgeInsets.symmetric(vertical: 12),
                           child: Column(
@@ -78,10 +97,10 @@ class _SettingsScreenState extends State<SettingsScreen> {
                                   children: [
                                     const Icon(Icons.info_outline),
                                     const SizedBox(width: 12),
-                                    const Expanded(
+                                    Expanded(
                                       child: Text(
-                                        'About app',
-                                        style: TextStyle(
+                                        AppLocalizations.of(context)!.aboutApp,
+                                        style: const TextStyle(
                                             fontWeight: FontWeight.bold,
                                             fontSize: 20),
                                       ),
@@ -131,5 +150,42 @@ class _SettingsScreenState extends State<SettingsScreen> {
         ),
       ),
     );
+  }
+
+  Future<void> openLanguageDialog(BuildContext context) {
+    String currentLanguageCode = Localizations.localeOf(context).languageCode;
+
+    return showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return AlertDialog(
+            title: Text(AppLocalizations.of(context)!.language),
+            content: SizedBox(
+              width: 300,
+              height: containerHeight,
+              child: ListView.builder(
+                  itemCount: Language.values.length,
+                  itemBuilder: (context, index) {
+                    return ListTile(
+                      title: Text(Language.values[index].value),
+                      trailing:
+                          Language.values[index].code == currentLanguageCode
+                              ? Icon(
+                                  Icons.check_circle,
+                                  color: Theme.of(context).colorScheme.primary,
+                                )
+                              : null,
+                      onTap: () {
+                        setState(() {
+                          MainApp.setLocale(
+                              context, Locale(Language.values[index].code));
+                          Navigator.of(context).pop();
+                        });
+                      },
+                    );
+                  }),
+            ),
+          );
+        });
   }
 }

@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'package:fina_points_calculator/model/record_data.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 enum Gender {
   men('Men', Icons.male_outlined, Color.fromARGB(255, 8, 62, 156)),
@@ -66,7 +67,7 @@ class _RecordsScreenState extends State<RecordsScreen> {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text('Records updated: 14. 07. 2024',
+            Text(AppLocalizations.of(context)!.recordUpdated('14. 07. 2024'),
                 style: TextStyle(
                   color: Theme.of(context).colorScheme.secondary,
                 )),
@@ -84,7 +85,7 @@ class _RecordsScreenState extends State<RecordsScreen> {
               DropdownMenu(
                 initialSelection: Gender.men,
                 label: Text(
-                  'Gender',
+                  AppLocalizations.of(context)!.gender,
                   style:
                       TextStyle(color: Theme.of(context).colorScheme.primary),
                 ),
@@ -106,7 +107,7 @@ class _RecordsScreenState extends State<RecordsScreen> {
               ),
               DropdownMenu(
                 initialSelection: Course.lcm,
-                label: Text('Course',
+                label: Text(AppLocalizations.of(context)!.course,
                     style: TextStyle(
                         color: Theme.of(context).colorScheme.primary)),
                 width: 150,

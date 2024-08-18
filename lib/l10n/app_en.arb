@@ -7,5 +7,21 @@
   "stroke": "Stroke",
   "men": "Men",
   "women": "Women",
-  "aquaPoints": "Aqua Points"
+  "aquaPoints": "Aqua Points",
+  "gender": "Gender",
+  "course": "Course",
+  "language": "Language",
+  "darkTheme": "Dark Theme",
+  "aboutApp": "About App",
+  "lcm": "LCM (50m)",
+  "scm": "SCM (25m)",
+  "min": "min",
+  "sec": "sec",
+  "hun": "hun",
+  "recordUpdated": "Records updated: {date}",
+  "@recordUpdated": {
+    "placeholders": {
+      "date": {}
+    }
+  }
 }

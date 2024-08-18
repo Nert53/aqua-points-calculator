@@ -194,7 +194,7 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text('Records updated: 14. 07. 2024',
+              Text(AppLocalizations.of(context)!.recordUpdated('14. 07. 2024'),
                   style: TextStyle(
                     color: Theme.of(context).colorScheme.secondary,
                   )),
@@ -221,14 +221,12 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
                     keyboardType: TextInputType.number,
                     inputFormatters: [FilteringTextInputFormatter.digitsOnly],
                     style: const TextStyle(
-                        color: Colors.black,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 24),
-                    decoration: const InputDecoration(
-                        labelText: 'Aqua Points',
-                        prefixIcon: Icon(Icons.pin_outlined),
-                        border: OutlineInputBorder(),
-                        contentPadding: EdgeInsets.all(16),
+                        fontWeight: FontWeight.bold, fontSize: 24),
+                    decoration: InputDecoration(
+                        labelText: AppLocalizations.of(context)!.aquaPoints,
+                        prefixIcon: const Icon(Icons.pin_outlined),
+                        border: const OutlineInputBorder(),
+                        contentPadding: const EdgeInsets.all(16),
                         isDense: true),
                   ),
                   const SizedBox(
@@ -241,7 +239,7 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
                         constraints:
                             const BoxConstraints(maxWidth: 180, minWidth: 100),
                         child: DropdownMenu<Distance>(
-                          label: Text('Length',
+                          label: Text(AppLocalizations.of(context)!.length,
                               style: TextStyle(
                                   color:
                                       Theme.of(context).colorScheme.primary)),
@@ -261,7 +259,7 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
                         constraints:
                             const BoxConstraints(maxWidth: 180, minWidth: 100),
                         child: DropdownMenu<Stroke>(
-                          label: Text('Stroke',
+                          label: Text(AppLocalizations.of(context)!.stroke,
                               style: TextStyle(
                                   color:
                                       Theme.of(context).colorScheme.primary)),
@@ -294,7 +292,7 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
                                   _gender = value;
                                 });
                               }),
-                          const Text('Men')
+                          Text(AppLocalizations.of(context)!.men)
                         ],
                       ),
                       Column(
@@ -307,7 +305,7 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
                                   _gender = value;
                                 });
                               }),
-                          const Text('Women')
+                          Text(AppLocalizations.of(context)!.women)
                         ],
                       ),
                       const SizedBox(
@@ -323,7 +321,7 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
                                   _course = value;
                                 });
                               }),
-                          const Text('LCM (50m)')
+                          Text(AppLocalizations.of(context)!.lcm)
                         ],
                       ),
                       Column(
@@ -336,7 +334,7 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
                                   _course = value;
                                 });
                               }),
-                          const Text('SCM (25m)')
+                          Text(AppLocalizations.of(context)!.scm)
                         ],
                       ),
                     ],
@@ -379,6 +377,7 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
                     height: 16,
                   ),
                   Row(
+                    crossAxisAlignment: CrossAxisAlignment.end,
                     children: [
                       Flexible(
                           child: TextField(
@@ -391,16 +390,19 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
                                 FilteringTextInputFormatter.digitsOnly
                               ],
                               style: const TextStyle(
-                                  color: Colors.black,
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 24),
-                              decoration: const InputDecoration(
-                                  labelText: 'min',
+                                  fontWeight: FontWeight.bold, fontSize: 24),
+                              decoration: InputDecoration(
+                                  labelText: AppLocalizations.of(context)!.min,
                                   border: OutlineInputBorder(),
                                   contentPadding: EdgeInsets.all(16),
                                   isDense: true))),
                       const SizedBox(
                         width: 16,
+                        child: Center(
+                          child: Text('.',
+                              style: TextStyle(
+                                  fontWeight: FontWeight.bold, fontSize: 28)),
+                        ),
                       ),
                       Flexible(
                           child: TextField(
@@ -413,16 +415,19 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
                                 FilteringTextInputFormatter.digitsOnly
                               ],
                               style: const TextStyle(
-                                  color: Colors.black,
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 24),
-                              decoration: const InputDecoration(
-                                  labelText: 'sec',
+                                  fontWeight: FontWeight.bold, fontSize: 24),
+                              decoration: InputDecoration(
+                                  labelText: AppLocalizations.of(context)!.sec,
                                   border: OutlineInputBorder(),
                                   contentPadding: EdgeInsets.all(16),
                                   isDense: true))),
                       const SizedBox(
                         width: 16,
+                        child: Center(
+                          child: Text('.',
+                              style: TextStyle(
+                                  fontWeight: FontWeight.bold, fontSize: 28)),
+                        ),
                       ),
                       Flexible(
                           child: TextField(
@@ -435,11 +440,9 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
                                 FilteringTextInputFormatter.digitsOnly
                               ],
                               style: const TextStyle(
-                                  color: Colors.black,
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 24),
-                              decoration: const InputDecoration(
-                                  labelText: 'hun',
+                                  fontWeight: FontWeight.bold, fontSize: 24),
+                              decoration: InputDecoration(
+                                  labelText: AppLocalizations.of(context)!.hun,
                                   border: OutlineInputBorder(),
                                   contentPadding: EdgeInsets.all(16),
                                   isDense: true))),

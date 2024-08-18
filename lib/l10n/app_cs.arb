@@ -1,3 +1,27 @@
 {
-    "calculate": "Vypočítat"
+    "calculate": "Vypočítat",
+    "calculator": "Kalkulačka",
+    "records": "Rekordy",
+    "settings": "Nastavení",
+    "length": "Vzdálenost",
+    "stroke": "Způsob",
+    "men": "Muži",
+    "women": "Ženy",
+    "aquaPoints": "Aqua Body",
+    "gender": "Pohlaví",
+    "course": "Bazén",
+    "language": "Jazyk",
+    "darkTheme": "Tmavý režim",
+    "aboutApp": "O aplikaci",
+    "lcm": "50m bazén",
+    "scm": "25m bazén",
+    "min": "min",
+    "sec": "sek",
+    "hun": "set",
+    "recordUpdated": "Rekordy aktualizovány: {date}",
+    "@recordUpdated": {
+        "placeholders": {
+        "date": {}
+        }
+    }
 }

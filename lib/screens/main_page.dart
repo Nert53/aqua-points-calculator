@@ -2,6 +2,7 @@ import 'package:fina_points_calculator/screens/calculator_screen.dart';
 import 'package:fina_points_calculator/screens/records_screen.dart';
 import 'package:fina_points_calculator/screens/settings_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({super.key});
@@ -41,23 +42,23 @@ class _MainPageState extends State<MainPage> {
                 height: 70,
                 selectedIndex: _selectedIndex,
                 onDestinationSelected: _selectScreen,
-                destinations: const [
+                destinations: [
                   NavigationDestination(
-                    icon: Icon(Icons.calculate_outlined),
-                    selectedIcon: Icon(Icons.calculate),
-                    label: 'Calculator',
+                    icon: const Icon(Icons.calculate_outlined),
+                    selectedIcon: const Icon(Icons.calculate),
+                    label: AppLocalizations.of(context)!.calculator,
                     tooltip: 'Opens calculator.',
                   ),
                   NavigationDestination(
                     icon: Icon(Icons.view_list_outlined),
                     selectedIcon: Icon(Icons.view_list),
-                    label: 'Records',
+                    label: AppLocalizations.of(context)!.records,
                     tooltip: 'Opens world records list.',
                   ),
                   NavigationDestination(
                     icon: Icon(Icons.settings_outlined),
                     selectedIcon: Icon(Icons.settings),
-                    label: 'Settings',
+                    label: AppLocalizations.of(context)!.settings,
                     tooltip: 'Opens settings.',
                   ),
                 ],
@@ -67,20 +68,20 @@ class _MainPageState extends State<MainPage> {
           children: [
             if (MediaQuery.of(context).size.width > 800)
               NavigationRail(
-                destinations: const [
+                destinations: [
                   NavigationRailDestination(
-                    icon: Icon(Icons.calculate_outlined),
-                    selectedIcon: Icon(Icons.calculate),
-                    label: Text('Calculator'),
+                    icon: const Icon(Icons.calculate_outlined),
+                    selectedIcon: const Icon(Icons.calculate),
+                    label: Text(AppLocalizations.of(context)!.calculator),
                   ),
                   NavigationRailDestination(
-                      icon: Icon(Icons.view_list_outlined),
-                      label: Text('Records'),
-                      selectedIcon: Icon(Icons.view_list)),
+                      icon: const Icon(Icons.view_list_outlined),
+                      label: Text(AppLocalizations.of(context)!.records),
+                      selectedIcon: const Icon(Icons.view_list)),
                   NavigationRailDestination(
-                      icon: Icon(Icons.settings_outlined),
-                      label: Text('Settings'),
-                      selectedIcon: Icon(Icons.settings)),
+                      icon: const Icon(Icons.settings_outlined),
+                      label: Text(AppLocalizations.of(context)!.settings),
+                      selectedIcon: const Icon(Icons.settings)),
                 ],
                 selectedIndex: _selectedIndex,
                 onDestinationSelected: _selectScreen,
