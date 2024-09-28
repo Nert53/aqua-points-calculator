@@ -11,7 +11,7 @@
     "gender": "Pohlaví",
     "course": "Bazén",
     "language": "Jazyk",
-    "darkTheme": "Tmavý režim",
+    "colorTheme": "Barevný režim",
     "aboutApp": "O aplikaci",
     "lcm": "50m bazén",
     "scm": "25m bazén",

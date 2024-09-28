@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'dart:math';
 import 'package:fina_points_calculator/model/record_data.dart';
+import 'package:fina_points_calculator/utils/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -196,7 +197,7 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text(AppLocalizations.of(context)!.tablesUpdated('14. 07. 2024'),
+              Text(AppLocalizations.of(context)!.tablesUpdated(lastTableUpdate),
                   style: TextStyle(
                     color: Theme.of(context).colorScheme.secondary,
                   )),
@@ -251,6 +252,15 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
                               MediaQuery.of(context).size.width * 0.38, 180),
                           controller: _distanceController,
                           initialSelection: Distance.fifty,
+                          inputDecorationTheme: const InputDecorationTheme(
+                              border: OutlineInputBorder(
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(12)))),
+                          menuStyle: MenuStyle(
+                              shape: WidgetStateProperty.all(
+                                  const RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.all(
+                                          Radius.circular(12))))),
                           dropdownMenuEntries: Distance.values
                               .map<DropdownMenuEntry<Distance>>(
                                   (Distance distance) {
@@ -271,6 +281,15 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
                               MediaQuery.of(context).size.width * 0.38, 180),
                           controller: _strokeController,
                           initialSelection: Stroke.free,
+                          inputDecorationTheme: const InputDecorationTheme(
+                              border: OutlineInputBorder(
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(12)))),
+                          menuStyle: MenuStyle(
+                              shape: WidgetStateProperty.all(
+                                  const RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.all(
+                                          Radius.circular(12))))),
                           dropdownMenuEntries: Stroke.values
                               .map<DropdownMenuEntry<Stroke>>((Stroke stroke) {
                             return DropdownMenuEntry<Stroke>(

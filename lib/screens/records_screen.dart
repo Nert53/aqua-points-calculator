@@ -91,6 +91,12 @@ class _RecordsScreenState extends State<RecordsScreen> {
                       TextStyle(color: Theme.of(context).colorScheme.primary),
                 ),
                 width: 150,
+                inputDecorationTheme: const InputDecorationTheme(
+                    border: OutlineInputBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(12)))),
+                menuStyle: MenuStyle(
+                    shape: WidgetStateProperty.all(const RoundedRectangleBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(12))))),
                 controller: genderController,
                 onSelected: (Gender? gender) {
                   setState(() {
@@ -112,6 +118,12 @@ class _RecordsScreenState extends State<RecordsScreen> {
                     style: TextStyle(
                         color: Theme.of(context).colorScheme.primary)),
                 width: 150,
+                inputDecorationTheme: const InputDecorationTheme(
+                    border: OutlineInputBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(12)))),
+                menuStyle: MenuStyle(
+                    shape: WidgetStateProperty.all(const RoundedRectangleBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(12))))),
                 controller: courseController,
                 onSelected: (Course? course) {
                   setState(() {
@@ -161,7 +173,7 @@ class _RecordsScreenState extends State<RecordsScreen> {
                           ),
                           trailing: model.data![index].isNew
                               ? SvgPicture.asset(
-                                  'assets/new.svg',
+                                  'assets/icons/new.svg',
                                   width: 18,
                                   height: 18,
                                 )

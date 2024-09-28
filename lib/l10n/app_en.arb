@@ -11,7 +11,7 @@
   "gender": "Gender",
   "course": "Course",
   "language": "Language",
-  "darkTheme": "Dark Theme",
+  "colorTheme": "Color Theme",
   "aboutApp": "About App",
   "lcm": "LCM (50m)",
   "scm": "SCM (25m)",

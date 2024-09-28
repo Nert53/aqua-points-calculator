@@ -1,4 +1,5 @@
-import 'package:fina_points_calculator/theme_provider.dart';
+import 'package:fina_points_calculator/theme/theme_provider.dart';
+import 'package:fina_points_calculator/utils/constants.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_linkify/flutter_linkify.dart';
@@ -36,7 +37,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
 
   Future<void> _onImageClick(String link) async {
     if (!await launchUrl(Uri.parse(link))) {
-      throw Exception('Could not launch www.instagram.com/umimplavat.cz');
+      throw Exception('Could not launch $link');
     }
   }
 
@@ -67,7 +68,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
               },
             ),
             ListTile(
-              title: Text(AppLocalizations.of(context)!.darkTheme),
+              title: Text(AppLocalizations.of(context)!.colorTheme),
               leading: const Icon(Icons.color_lens_outlined),
               trailing: Switch(
                 value: isDarkMode,
@@ -92,11 +93,11 @@ class _SettingsScreenState extends State<SettingsScreen> {
                       insetPadding: const EdgeInsets.only(top: 48),
                       child: SizedBox(
                         width: dialogWidth, // 80% of screen width
-                        height: 450, // 50% of screen height
                         child: Padding(
                           padding: const EdgeInsets.symmetric(vertical: 12),
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
+                            mainAxisSize: MainAxisSize.min,
                             children: [
                               Padding(
                                 padding:
@@ -187,10 +188,10 @@ class _SettingsScreenState extends State<SettingsScreen> {
                                             MainAxisAlignment.center,
                                         children: [
                                           GestureDetector(
-                                            onTap: () => _onImageClick(
-                                                'https://www.instagram.com/umimplavat.cz'),
+                                            onTap: () =>
+                                                _onImageClick(instagramUrl),
                                             child: SvgPicture.asset(
-                                              'assets/instagram_black.svg', // On click should redirect to an URL
+                                              'assets/icons/instagram_black.svg', // On click should redirect to an URL
                                               width: 32,
                                               height: 32,
                                               color: Theme.of(context)
@@ -201,10 +202,10 @@ class _SettingsScreenState extends State<SettingsScreen> {
                                           ),
                                           const SizedBox(width: 24),
                                           GestureDetector(
-                                            onTap: () => _onImageClick(
-                                                'https://www.facebook.com/umimplavat'),
+                                            onTap: () =>
+                                                _onImageClick(facebookUrl),
                                             child: Image.asset(
-                                              'assets/facebook_secondary.png', // On click should redirect to an URL
+                                              'assets/icons/facebook_secondary.png', // On click should redirect to an URL
                                               width: 32,
                                               height: 32,
                                               color: Theme.of(context)
@@ -215,8 +216,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
                                           ),
                                           const SizedBox(width: 24),
                                           GestureDetector(
-                                            onTap: () => _onImageClick(
-                                                'https://umimplavat.cz/'),
+                                            onTap: () =>
+                                                _onImageClick(websiteUrl),
                                             child: Icon(
                                               Icons
                                                   .web_outlined, // On click should redirect to an URL
@@ -228,7 +229,21 @@ class _SettingsScreenState extends State<SettingsScreen> {
                                             ),
                                           ),
                                         ],
-                                      )
+                                      ),
+                                      const SizedBox(height: 16),
+                                      Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                        children: [
+                                          const Text('Author:'),
+                                          Image.asset(
+                                            'assets/um_logo_long.png',
+                                            width: 125,
+                                          ),
+                                        ],
+                                      ),
+                                      const Text('Creator: Vojtech Netrh'),
+                                      const SizedBox(height: 16)
                                     ],
                                   ),
                                 ),
