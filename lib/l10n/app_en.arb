@@ -24,7 +24,7 @@
       "date": {}
     }
   },
-  "tablesUpdated": "Tables updated: {date}",
+  "tablesUpdated": "Valid for season: {date}",
   "@tablesUpdated": {
     "placeholders": {
       "date": {}

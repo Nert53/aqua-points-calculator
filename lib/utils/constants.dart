@@ -1,4 +1,4 @@
-String lastTableUpdate = '14. 07. 2024';
+String lastTableUpdate = '2023/2024';
 String lastRecordUpdate = '27. 09. 2024';
 
 String facebookUrl = 'https://www.facebook.com/umimplavat';

@@ -24,7 +24,7 @@
         "date": {}
         }
     },
-    "tablesUpdated": "Tabulky aktualizovány: {date}",
+    "tablesUpdated": "Platnost pro sezónu: {date}",
     "@tablesUpdated": {
         "placeholders": {
         "date": {}
