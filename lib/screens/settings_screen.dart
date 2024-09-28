@@ -137,7 +137,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                                       const SizedBox(height: 10),
                                       SelectableLinkify(
                                         onOpen: _onOpen,
-                                        style: const TextStyle(fontSize: 13),
+                                        style: const TextStyle(fontSize: 14),
                                         text:
                                             'If you have any questions or suggestions contact us directly through email umimplavat@gmail.com or visit our web (link below). ',
                                       ),
@@ -149,7 +149,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                                                   .textTheme
                                                   .bodyMedium!
                                                   .color,
-                                              fontSize: 13,
+                                              fontSize: 14,
                                               height: 1.5),
                                           children: [
                                             const TextSpan(
@@ -242,7 +242,9 @@ class _SettingsScreenState extends State<SettingsScreen> {
                                           ),
                                         ],
                                       ),
-                                      const Text('Creator: Vojtech Netrh'),
+                                      const Text(
+                                        'Creator: Vojtech Netrh',
+                                      ),
                                       const SizedBox(height: 16)
                                     ],
                                   ),
