@@ -1,6 +1,8 @@
 import 'package:fina_points_calculator/theme_provider.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_linkify/flutter_linkify.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:provider/provider.dart';
 import 'dart:async';
 import 'package:url_launcher/url_launcher.dart';
@@ -29,6 +31,12 @@ class _SettingsScreenState extends State<SettingsScreen> {
   Future<void> _onOpen(LinkableElement link) async {
     if (!await launchUrl(Uri.parse(link.url))) {
       throw Exception('Could not launch ${link.url}');
+    }
+  }
+
+  Future<void> _onImageClick(String link) async {
+    if (!await launchUrl(Uri.parse(link))) {
+      throw Exception('Could not launch www.instagram.com/umimplavat.cz');
     }
   }
 
@@ -118,21 +126,109 @@ class _SettingsScreenState extends State<SettingsScreen> {
                               ),
                               const Divider(),
                               Padding(
-                                padding: EdgeInsets.symmetric(horizontal: 16),
+                                padding:
+                                    const EdgeInsets.symmetric(horizontal: 16),
                                 child: SelectionArea(
                                   child: Column(
                                     children: [
                                       const Text(
-                                          'Unofficial app for calculating Aqua Points (previously named FINA points). This app is not affiliated with World Aquatics and it is project of one interested person. '),
-                                      const SizedBox(height: 12),
-                                      const Text(
-                                          'App is written in Flutter and Dart. It is available as web app (on www.finapoints.com) and in the future hopefully as mobile app (Google Play Store and Apple App Store).'),
-                                      const SizedBox(height: 12),
+                                          'Unofficial app for calculating Aqua Points (previously named FINA points). This app is not affiliated with World Aquatics. '),
+                                      const SizedBox(height: 10),
                                       SelectableLinkify(
                                         onOpen: _onOpen,
+                                        style: const TextStyle(fontSize: 13),
                                         text:
-                                            'If you have any questions or suggestions, feel free to contact me at: vojtanetrh@gmail.com. Or if you want to check the source code (or download .apk file for you android) visit the GitHub repository: -adding later-.',
+                                            'If you have any questions or suggestions contact us directly through email umimplavat@gmail.com or visit our web (link below). ',
                                       ),
+                                      const SizedBox(height: 10),
+                                      RichText(
+                                        text: TextSpan(
+                                          style: TextStyle(
+                                              color: Theme.of(context)
+                                                  .textTheme
+                                                  .bodyMedium!
+                                                  .color,
+                                              fontSize: 13,
+                                              height: 1.5),
+                                          children: [
+                                            const TextSpan(
+                                                text:
+                                                    'App is also available on the web browser ('),
+                                            TextSpan(
+                                              text: 'finapoints.com',
+                                              style: TextStyle(
+                                                  color: Colors.blue[700],
+                                                  decoration:
+                                                      TextDecoration.underline),
+                                              recognizer: TapGestureRecognizer()
+                                                ..onTap = () => _onImageClick(
+                                                    'https://finapoints.com/'),
+                                            ),
+                                            const TextSpan(
+                                                text:
+                                                    ') and as mobile app for Android and iOS. It is written in Flutter and Dart and is open source (visit the '),
+                                            TextSpan(
+                                              text: 'GitHub repository',
+                                              style: TextStyle(
+                                                  color: Colors.blue[700],
+                                                  decoration:
+                                                      TextDecoration.underline),
+                                              recognizer: TapGestureRecognizer()
+                                                ..onTap = () => _onImageClick(
+                                                    'https://github.com/Nert53/aqua-points-calculator'),
+                                            ),
+                                            const TextSpan(text: ').'),
+                                          ],
+                                        ),
+                                      ),
+                                      const SizedBox(height: 64),
+                                      Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                        children: [
+                                          GestureDetector(
+                                            onTap: () => _onImageClick(
+                                                'https://www.instagram.com/umimplavat.cz'),
+                                            child: SvgPicture.asset(
+                                              'assets/instagram_black.svg', // On click should redirect to an URL
+                                              width: 32,
+                                              height: 32,
+                                              color: Theme.of(context)
+                                                  .textTheme
+                                                  .bodyMedium!
+                                                  .color,
+                                            ),
+                                          ),
+                                          const SizedBox(width: 24),
+                                          GestureDetector(
+                                            onTap: () => _onImageClick(
+                                                'https://www.facebook.com/umimplavat'),
+                                            child: Image.asset(
+                                              'assets/facebook_secondary.png', // On click should redirect to an URL
+                                              width: 32,
+                                              height: 32,
+                                              color: Theme.of(context)
+                                                  .textTheme
+                                                  .bodyMedium!
+                                                  .color,
+                                            ),
+                                          ),
+                                          const SizedBox(width: 24),
+                                          GestureDetector(
+                                            onTap: () => _onImageClick(
+                                                'https://umimplavat.cz/'),
+                                            child: Icon(
+                                              Icons
+                                                  .web_outlined, // On click should redirect to an URL
+                                              size: 32,
+                                              color: Theme.of(context)
+                                                  .textTheme
+                                                  .bodyMedium!
+                                                  .color,
+                                            ),
+                                          ),
+                                        ],
+                                      )
                                     ],
                                   ),
                                 ),

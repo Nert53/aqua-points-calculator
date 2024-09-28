@@ -23,5 +23,11 @@
     "placeholders": {
       "date": {}
     }
+  },
+  "tablesUpdated": "Tables updated: {date}",
+  "@tablesUpdated": {
+    "placeholders": {
+      "date": {}
+    }
   }
 }

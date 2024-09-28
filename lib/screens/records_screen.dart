@@ -3,6 +3,7 @@ import 'package:fina_points_calculator/model/record_data.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:flutter_svg/svg.dart';
 
 enum Gender {
   men('Men', Icons.male_outlined, Color.fromARGB(255, 8, 62, 156)),
@@ -39,7 +40,7 @@ class _RecordsScreenState extends State<RecordsScreen> {
   @override
   void initState() {
     _getRecords(
-        'assets/data/${selectedGender!.name.toLowerCase()}_${selectedCourse!.value.toLowerCase().substring(0, 3)}.json');
+        'assets/wr_times/${selectedGender!.name.toLowerCase()}_${selectedCourse!.value.toLowerCase().substring(0, 3)}.json');
     super.initState();
   }
 
@@ -55,7 +56,7 @@ class _RecordsScreenState extends State<RecordsScreen> {
   void reloadRecords() {
     setState(() {
       _getRecords(
-          'assets/data/${selectedGender!.name.toLowerCase()}_${selectedCourse!.value.toLowerCase().substring(0, 3)}.json');
+          'assets/wr_times/${selectedGender!.name.toLowerCase()}_${selectedCourse!.value.toLowerCase().substring(0, 3)}.json');
     });
   }
 
@@ -67,7 +68,7 @@ class _RecordsScreenState extends State<RecordsScreen> {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(AppLocalizations.of(context)!.recordUpdated('14. 07. 2024'),
+            Text(AppLocalizations.of(context)!.recordUpdated('27. 09. 2024'),
                 style: TextStyle(
                   color: Theme.of(context).colorScheme.secondary,
                 )),
@@ -135,29 +136,36 @@ class _RecordsScreenState extends State<RecordsScreen> {
             child: SelectionArea(
               child: FutureBuilder<List<RecordData>>(
                 future: _getRecords(
-                    'assets/data/${selectedGender!.name.toLowerCase()}_${selectedCourse!.value.toLowerCase().substring(0, 3)}.json'),
-                builder: (context, snapshot) {
-                  if (snapshot.hasData) {
+                    'assets/wr_times/${selectedGender!.name.toLowerCase()}_${selectedCourse!.value.toLowerCase().substring(0, 3)}.json'),
+                builder: (context, model) {
+                  if (model.hasData) {
                     return ListView.separated(
                       separatorBuilder: (BuildContext context, int index) =>
                           const Divider(),
-                      itemCount: snapshot.data!.length,
+                      itemCount: model.data!.length,
                       itemBuilder: (context, index) {
                         return ListTile(
                           title: Text(
-                              '${snapshot.data![index].event} - ${snapshot.data![index].time}',
+                              '${model.data![index].event} - ${model.data![index].time}',
                               style:
                                   const TextStyle(fontWeight: FontWeight.bold)),
                           subtitle: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
-                                  '${snapshot.data![index].athlete} (${snapshot.data![index].nationality})'),
-                              Text(snapshot.data![index].competition),
+                                  '${model.data![index].athlete} (${model.data![index].nationality})'),
+                              Text(model.data![index].competition),
                               Text(
-                                  '${snapshot.data![index].date} ▪ ${snapshot.data![index].locationCountry}'),
+                                  '${model.data![index].date} ▪ ${model.data![index].locationCountry}'),
                             ],
                           ),
+                          trailing: model.data![index].isNew
+                              ? SvgPicture.asset(
+                                  'assets/new.svg',
+                                  width: 18,
+                                  height: 18,
+                                )
+                              : null,
                         );
                       },
                     );

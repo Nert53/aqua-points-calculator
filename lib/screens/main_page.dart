@@ -50,14 +50,14 @@ class _MainPageState extends State<MainPage> {
                     tooltip: 'Opens calculator.',
                   ),
                   NavigationDestination(
-                    icon: Icon(Icons.view_list_outlined),
-                    selectedIcon: Icon(Icons.view_list),
+                    icon: const Icon(Icons.view_list_outlined),
+                    selectedIcon: const Icon(Icons.view_list),
                     label: AppLocalizations.of(context)!.records,
                     tooltip: 'Opens world records list.',
                   ),
                   NavigationDestination(
-                    icon: Icon(Icons.settings_outlined),
-                    selectedIcon: Icon(Icons.settings),
+                    icon: const Icon(Icons.settings_outlined),
+                    selectedIcon: const Icon(Icons.settings),
                     label: AppLocalizations.of(context)!.settings,
                     tooltip: 'Opens settings.',
                   ),

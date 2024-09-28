@@ -14,7 +14,9 @@ dependencies:
   flutter_localizations:
     sdk: flutter
   flutter_native_splash: ^2.4.1
+  flutter_svg: ^2.0.10+1
   intl: any
+  material_symbols_icons: ^4.2785.1
   provider: ^6.1.2
   rename_app: ^1.6.1
   shared_preferences: ^2.2.3
@@ -28,7 +30,9 @@ dev_dependencies:
 flutter:
   uses-material-design: true
   assets:
-    - assets/data/
+    - assets/table_base_times/
+    - assets/wr_times/
+    - assets/
   generate: true
 
 flutter_launcher_icons:

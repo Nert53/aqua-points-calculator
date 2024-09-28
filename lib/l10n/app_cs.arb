@@ -23,5 +23,11 @@
         "placeholders": {
         "date": {}
         }
+    },
+    "tablesUpdated": "Tabulky aktualizovány: {date}",
+    "@tablesUpdated": {
+        "placeholders": {
+        "date": {}
+        }
     }
 }

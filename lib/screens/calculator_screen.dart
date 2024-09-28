@@ -87,6 +87,8 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
         _pointsController.text.isEmpty) {
       SnackBar snackBar = const SnackBar(
           behavior: SnackBarBehavior.floating,
+          shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.all(Radius.circular(12))),
           content: Text('Please enter a time or Aqua Points to calculate!'));
       ScaffoldMessenger.of(context).showSnackBar(snackBar);
       return;
@@ -194,7 +196,7 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text(AppLocalizations.of(context)!.recordUpdated('14. 07. 2024'),
+              Text(AppLocalizations.of(context)!.tablesUpdated('14. 07. 2024'),
                   style: TextStyle(
                     color: Theme.of(context).colorScheme.secondary,
                   )),
@@ -225,7 +227,9 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
                     decoration: InputDecoration(
                         labelText: AppLocalizations.of(context)!.aquaPoints,
                         prefixIcon: const Icon(Icons.pin_outlined),
-                        border: const OutlineInputBorder(),
+                        border: const OutlineInputBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(12)),
+                        ),
                         contentPadding: const EdgeInsets.all(16),
                         isDense: true),
                   ),
@@ -393,8 +397,11 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
                                   fontWeight: FontWeight.bold, fontSize: 24),
                               decoration: InputDecoration(
                                   labelText: AppLocalizations.of(context)!.min,
-                                  border: OutlineInputBorder(),
-                                  contentPadding: EdgeInsets.all(16),
+                                  border: const OutlineInputBorder(
+                                    borderRadius:
+                                        BorderRadius.all(Radius.circular(12)),
+                                  ),
+                                  contentPadding: const EdgeInsets.all(16),
                                   isDense: true))),
                       const SizedBox(
                         width: 16,
@@ -418,8 +425,11 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
                                   fontWeight: FontWeight.bold, fontSize: 24),
                               decoration: InputDecoration(
                                   labelText: AppLocalizations.of(context)!.sec,
-                                  border: OutlineInputBorder(),
-                                  contentPadding: EdgeInsets.all(16),
+                                  border: const OutlineInputBorder(
+                                    borderRadius:
+                                        BorderRadius.all(Radius.circular(12)),
+                                  ),
+                                  contentPadding: const EdgeInsets.all(16),
                                   isDense: true))),
                       const SizedBox(
                         width: 16,
@@ -443,8 +453,11 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
                                   fontWeight: FontWeight.bold, fontSize: 24),
                               decoration: InputDecoration(
                                   labelText: AppLocalizations.of(context)!.hun,
-                                  border: OutlineInputBorder(),
-                                  contentPadding: EdgeInsets.all(16),
+                                  border: const OutlineInputBorder(
+                                    borderRadius:
+                                        BorderRadius.all(Radius.circular(12)),
+                                  ),
+                                  contentPadding: const EdgeInsets.all(16),
                                   isDense: true))),
                     ],
                   )
@@ -459,7 +472,7 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
 Future<double> findRecordTime(
     String gender, String course, String distance, String stroke) async {
   var allRecords = await _getRecords(
-      'assets/data/${gender.toLowerCase()}_${course.toLowerCase().substring(0, 3)}.json');
+      'assets/table_base_times/${gender.toLowerCase()}_${course.toLowerCase().substring(0, 3)}.json');
   for (var record in allRecords) {
     if (record.eventDistance == distance && record.eventStroke == stroke) {
       double minutes, seconds, hundredths;
