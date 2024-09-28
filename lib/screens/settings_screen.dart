@@ -90,7 +90,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   builder: (BuildContext context) {
                     return Dialog(
                       alignment: Alignment.topCenter,
-                      insetPadding: const EdgeInsets.only(top: 48),
+                      insetPadding: const EdgeInsets.only(top: 56),
                       child: SizedBox(
                         width: dialogWidth, // 80% of screen width
                         child: Padding(
@@ -182,7 +182,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                                           ],
                                         ),
                                       ),
-                                      const SizedBox(height: 64),
+                                      const SizedBox(height: 32),
                                       Row(
                                         mainAxisAlignment:
                                             MainAxisAlignment.center,
@@ -230,7 +230,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                                           ),
                                         ],
                                       ),
-                                      const SizedBox(height: 16),
+                                      const SizedBox(height: 32),
                                       Row(
                                         mainAxisAlignment:
                                             MainAxisAlignment.center,
