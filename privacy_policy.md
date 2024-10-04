@@ -1,5 +1,5 @@
 <h1>Privacy Policy</h1>
-<p>Last updated: July 26, 2024</p>
+<p>Last updated: October 04, 2024</p>
 <p>This Privacy Policy describes Our policies and procedures on the collection, use and disclosure of Your information when You use the Service and tells You about Your privacy rights and how the law protects You.</p>
 <p>We use Your Personal data to provide and improve the Service. By using the Service, You agree to the collection and use of information in accordance with this Privacy Policy. This Privacy Policy has been created with the help of the <a href="https://www.freeprivacypolicy.com/free-privacy-policy-generator/" target="_blank">Free Privacy Policy Generator</a>.</p>
 <h2>Interpretation and Definitions</h2>
@@ -18,7 +18,7 @@
 <p><strong>Application</strong> refers to Aqua Points Calculator, the software program provided by the Company.</p>
 </li>
 <li>
-<p><strong>Company</strong> (referred to as either &quot;the Company&quot;, &quot;We&quot;, &quot;Us&quot; or &quot;Our&quot; in this Agreement) refers to Aqua Points Calculator.</p>
+<p><strong>Company</strong> (referred to as either &quot;the Company&quot;, &quot;We&quot;, &quot;Us&quot; or &quot;Our&quot; in this Agreement) refers to umimplavat.cz, Světova 523/1, Libeň (Praha 8), 180 00 Praha.</p>
 </li>
 <li>
 <p><strong>Country</strong> refers to:  Czechia</p>
@@ -132,5 +132,13 @@
 <h2>Contact Us</h2>
 <p>If you have any questions about this Privacy Policy, You can contact us:</p>
 <ul>
-<li>By email: vojtanetrh@gmail.com</li>
+<li>
+<p>By email: umimplavat@gmail.com</p>
+</li>
+<li>
+<p>By visiting this page on our website: <a href="https://umimplavat.cz/" rel="external nofollow noopener" target="_blank">https://umimplavat.cz/</a></p>
+</li>
+<li>
+<p>By mail: Světova 523/1, Libeň (Praha 8), 180 00 Praha</p>
+</li>
 </ul>
