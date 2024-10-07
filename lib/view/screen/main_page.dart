@@ -1,6 +1,6 @@
-import 'package:fina_points_calculator/screens/calculator_screen.dart';
-import 'package:fina_points_calculator/screens/records_screen.dart';
-import 'package:fina_points_calculator/screens/settings_screen.dart';
+import 'package:fina_points_calculator/view/screen/calculator_screen.dart';
+import 'package:fina_points_calculator/view/screen/records_screen.dart';
+import 'package:fina_points_calculator/view/screen/settings_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
@@ -39,7 +39,6 @@ class _MainPageState extends State<MainPage> {
         ),
         bottomNavigationBar: MediaQuery.of(context).size.width < 800
             ? NavigationBar(
-                height: 70,
                 selectedIndex: _selectedIndex,
                 onDestinationSelected: _selectScreen,
                 destinations: [
@@ -86,6 +85,14 @@ class _MainPageState extends State<MainPage> {
                 selectedIndex: _selectedIndex,
                 onDestinationSelected: _selectScreen,
                 extended: extendedNaviagtionRail,
+                minWidth: 96,
+                labelType: extendedNaviagtionRail
+                    ? NavigationRailLabelType.none
+                    : NavigationRailLabelType.all,
+                selectedLabelTextStyle: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  color: Theme.of(context).textTheme.bodyMedium!.color,
+                ),
                 backgroundColor: Theme.of(context).colorScheme.surfaceContainer,
                 // same color as background of bottom nav bar
               ),

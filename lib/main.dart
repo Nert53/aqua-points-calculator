@@ -1,4 +1,4 @@
-import 'package:fina_points_calculator/screens/main_page.dart';
+import 'package:fina_points_calculator/view/screen/main_page.dart';
 import 'package:fina_points_calculator/theme/theme_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
