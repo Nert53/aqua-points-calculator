@@ -49,6 +49,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
 
     bool isDarkMode =
         Provider.of<ThemeProvider>(context, listen: false).isDarkMode();
+    bool isSystemColorMode =
+        Provider.of<ThemeProvider>(context, listen: false).isSystemColorMode;
 
     String currentLanguageCode = Localizations.localeOf(context).languageCode;
     String currentLanguage = Language.values
@@ -67,7 +69,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 openLanguageDialog(context);
               },
             ),
-            ListTile(
+            /*ListTile(
               title: Text(AppLocalizations.of(context)!.colorTheme),
               leading: const Icon(Icons.color_lens_outlined),
               trailing: Switch(
@@ -79,6 +81,62 @@ class _SettingsScreenState extends State<SettingsScreen> {
                     isDarkMode = value;
                   });
                 },
+              ),
+            ),*/
+            ListTile(
+              title: Text(AppLocalizations.of(context)!.colorTheme),
+              leading: const Icon(Icons.color_lens_outlined),
+              trailing: DropdownMenu<String>(
+                menuStyle: MenuStyle(
+                  shape: WidgetStateProperty.all(
+                    RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(16),
+                    ),
+                  ),
+                  backgroundColor: WidgetStateProperty.all(
+                      Theme.of(context).colorScheme.primaryContainer),
+                ),
+                inputDecorationTheme: InputDecorationTheme(
+                  isDense: true,
+                  filled: true,
+                  fillColor: Theme.of(context).colorScheme.primaryContainer,
+                  contentPadding: const EdgeInsets.symmetric(horizontal: 16),
+                  constraints: BoxConstraints.tight(
+                    const Size.fromHeight(42),
+                  ),
+                  border: const OutlineInputBorder(
+                      borderSide: BorderSide.none,
+                      borderRadius: BorderRadius.all(Radius.circular(16))),
+                ),
+                initialSelection: isSystemColorMode
+                    ? 'system'
+                    : isDarkMode
+                        ? 'dark'
+                        : 'light',
+                onSelected: (String? value) {
+                  if (value == 'system') {
+                    Provider.of<ThemeProvider>(context, listen: false)
+                        .setSystemColorMode(true);
+                  } else {
+                    Provider.of<ThemeProvider>(context, listen: false)
+                        .setSystemColorMode(false);
+                    Provider.of<ThemeProvider>(context, listen: false)
+                        .setDarkMode(value == 'dark');
+                  }
+                },
+                dropdownMenuEntries: [
+                  DropdownMenuEntry(
+                      value: 'system',
+                      label: AppLocalizations.of(context)!.system),
+                  DropdownMenuEntry(
+                    value: 'light',
+                    label: AppLocalizations.of(context)!.light,
+                  ),
+                  DropdownMenuEntry(
+                    value: 'dark',
+                    label: AppLocalizations.of(context)!.dark,
+                  ),
+                ],
               ),
             ),
             ListTile(

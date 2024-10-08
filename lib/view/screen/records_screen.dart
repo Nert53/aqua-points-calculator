@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'package:fina_points_calculator/model/record_data.dart';
+import 'package:fina_points_calculator/utils/locale_func.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -17,11 +18,12 @@ enum Gender {
 }
 
 enum Course {
-  lcm('LCM (50m)'),
-  scm('SCM (25m)');
+  lcm('lcm', 'LCM (50m)'),
+  scm('scm', 'SCM (25m)');
 
-  const Course(this.value);
+  const Course(this.value, this.name);
   final String value;
+  final String name;
 }
 
 class RecordsScreen extends StatefulWidget {
@@ -40,7 +42,7 @@ class _RecordsScreenState extends State<RecordsScreen> {
   @override
   void initState() {
     _getRecords(
-        'assets/wr_times/${selectedGender!.name.toLowerCase()}_${selectedCourse!.value.toLowerCase().substring(0, 3)}.json');
+        'assets/wr_times/${selectedGender!.name.toLowerCase()}_${selectedCourse!.value.toLowerCase()}.json');
     super.initState();
   }
 
@@ -56,7 +58,7 @@ class _RecordsScreenState extends State<RecordsScreen> {
   void reloadRecords() {
     setState(() {
       _getRecords(
-          'assets/wr_times/${selectedGender!.name.toLowerCase()}_${selectedCourse!.value.toLowerCase().substring(0, 3)}.json');
+          'assets/wr_times/${selectedGender!.name.toLowerCase()}_${selectedCourse!.value.toLowerCase()}.json');
     });
   }
 
@@ -80,65 +82,90 @@ class _RecordsScreenState extends State<RecordsScreen> {
           const SizedBox(
             height: 16,
           ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              DropdownMenu(
-                initialSelection: Gender.men,
-                label: Text(
-                  AppLocalizations.of(context)!.gender,
-                  style:
-                      TextStyle(color: Theme.of(context).colorScheme.primary),
-                ),
-                width: 150,
-                inputDecorationTheme: const InputDecorationTheme(
-                    border: OutlineInputBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(12)))),
-                menuStyle: MenuStyle(
-                    shape: WidgetStateProperty.all(const RoundedRectangleBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(12))))),
-                controller: genderController,
-                onSelected: (Gender? gender) {
-                  setState(() {
-                    selectedGender = gender;
-                    reloadRecords();
-                  });
-                },
-                dropdownMenuEntries: Gender.values
-                    .map<DropdownMenuEntry<Gender>>((Gender gender) {
-                  return DropdownMenuEntry<Gender>(
-                    value: gender,
-                    label: gender.name,
-                  );
-                }).toList(),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 24),
+            child: ConstrainedBox(
+              constraints: const BoxConstraints(maxWidth: 400),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  Expanded(
+                    flex: 2,
+                    child: DropdownMenu(
+                      expandedInsets: EdgeInsets.zero,
+                      initialSelection: Gender.men,
+                      label: Text(
+                        AppLocalizations.of(context)!.gender,
+                        style: TextStyle(
+                            color: Theme.of(context).colorScheme.primary),
+                      ),
+                      width: 150,
+                      inputDecorationTheme: const InputDecorationTheme(
+                          border: OutlineInputBorder(
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(12)))),
+                      menuStyle: MenuStyle(
+                          shape: WidgetStateProperty.all(
+                              const RoundedRectangleBorder(
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(12))))),
+                      controller: genderController,
+                      onSelected: (Gender? gender) {
+                        setState(() {
+                          selectedGender = gender;
+                          reloadRecords();
+                        });
+                      },
+                      dropdownMenuEntries: Gender.values
+                          .map<DropdownMenuEntry<Gender>>((Gender gender) {
+                        return DropdownMenuEntry<Gender>(
+                          value: gender,
+                          label: getLocalizedGender(context, gender.name),
+                        );
+                      }).toList(),
+                    ),
+                  ),
+                  const SizedBox(
+                    width: 24,
+                  ),
+                  Expanded(
+                    flex: 3,
+                    child: DropdownMenu(
+                      expandedInsets: EdgeInsets.zero,
+                      initialSelection: Course.lcm,
+                      label: Text(AppLocalizations.of(context)!.course,
+                          style: TextStyle(
+                              color: Theme.of(context).colorScheme.primary)),
+                      width: 150,
+                      inputDecorationTheme: const InputDecorationTheme(
+                          border: OutlineInputBorder(
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(12)))),
+                      menuStyle: MenuStyle(
+                          shape: WidgetStateProperty.all(
+                              const RoundedRectangleBorder(
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(12))))),
+                      controller: courseController,
+                      onSelected: (Course? course) {
+                        setState(() {
+                          selectedCourse = course;
+                        });
+                      },
+                      dropdownMenuEntries: Course.values
+                          .map<DropdownMenuEntry<Course>>((Course course) {
+                        return DropdownMenuEntry<Course>(
+                            value: course,
+                            label: getLocalizedCourse(
+                              context,
+                              course.value,
+                            ));
+                      }).toList(),
+                    ),
+                  ),
+                ],
               ),
-              DropdownMenu(
-                initialSelection: Course.lcm,
-                label: Text(AppLocalizations.of(context)!.course,
-                    style: TextStyle(
-                        color: Theme.of(context).colorScheme.primary)),
-                width: 150,
-                inputDecorationTheme: const InputDecorationTheme(
-                    border: OutlineInputBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(12)))),
-                menuStyle: MenuStyle(
-                    shape: WidgetStateProperty.all(const RoundedRectangleBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(12))))),
-                controller: courseController,
-                onSelected: (Course? course) {
-                  setState(() {
-                    selectedCourse = course;
-                  });
-                },
-                dropdownMenuEntries: Course.values
-                    .map<DropdownMenuEntry<Course>>((Course course) {
-                  return DropdownMenuEntry<Course>(
-                    value: course,
-                    label: course.value,
-                  );
-                }).toList(),
-              ),
-            ],
+            ),
           ),
           Divider(
             thickness: 2,

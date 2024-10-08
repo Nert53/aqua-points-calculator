@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'dart:math';
 import 'package:fina_points_calculator/model/record_data.dart';
 import 'package:fina_points_calculator/utils/constants.dart';
+import 'package:fina_points_calculator/utils/locale_func.dart';
 import 'package:fina_points_calculator/view/widget/time_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -27,12 +28,12 @@ enum Course {
 }
 
 enum Distance {
-  fifty('50m'),
-  hundred('100m'),
-  twoHundred('200m'),
-  fourHundred('400m'),
-  eightHundred('800m'),
-  fifteenHundred('1500m');
+  fifty('50 m'),
+  hundred('100 m'),
+  twoHundred('200 m'),
+  fourHundred('400 m'),
+  eightHundred('800 m'),
+  fifteenHundred('1500 m');
 
   const Distance(this.length);
   final String length;
@@ -45,7 +46,9 @@ enum Stroke {
   fly('Butterfly'),
   im('Medley');
 
-  const Stroke(this.name);
+  const Stroke(
+    this.name,
+  );
   final String name;
 }
 
@@ -247,16 +250,14 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        ConstrainedBox(
-                          constraints: const BoxConstraints(
-                              maxWidth: 180, minWidth: 100),
+                        Expanded(
+                          flex: 2,
                           child: DropdownMenu<Distance>(
+                            expandedInsets: EdgeInsets.zero,
                             label: Text(AppLocalizations.of(context)!.length,
                                 style: TextStyle(
                                     color:
                                         Theme.of(context).colorScheme.primary)),
-                            width: min(
-                                MediaQuery.of(context).size.width * 0.38, 180),
                             controller: _distanceController,
                             initialSelection: Distance.fifty,
                             inputDecorationTheme: const InputDecorationTheme(
@@ -276,16 +277,17 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
                             }).toList(),
                           ),
                         ),
-                        ConstrainedBox(
-                          constraints: const BoxConstraints(
-                              maxWidth: 180, minWidth: 100),
+                        const SizedBox(
+                          width: 16,
+                        ),
+                        Expanded(
+                          flex: 3,
                           child: DropdownMenu<Stroke>(
+                            expandedInsets: EdgeInsets.zero,
                             label: Text(AppLocalizations.of(context)!.stroke,
                                 style: TextStyle(
                                     color:
                                         Theme.of(context).colorScheme.primary)),
-                            width: min(
-                                MediaQuery.of(context).size.width * 0.38, 180),
                             controller: _strokeController,
                             initialSelection: Stroke.free,
                             inputDecorationTheme: const InputDecorationTheme(
@@ -301,7 +303,10 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
                                 .map<DropdownMenuEntry<Stroke>>(
                                     (Stroke stroke) {
                               return DropdownMenuEntry<Stroke>(
-                                  value: stroke, label: stroke.name);
+                                  value: stroke,
+                                  label:
+                                      getLocalizedStroke(context, stroke.name)
+                                          .capitalize());
                             }).toList(),
                           ),
                         ),
