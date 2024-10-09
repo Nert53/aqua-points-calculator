@@ -419,6 +419,7 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
                             child: TimeField(
                                 controller: _minutesController,
                                 functionOnChanged: swapEditedValues,
+                                maxValue: 99,
                                 labelText: AppLocalizations.of(context)!.min)),
                         const SizedBox(
                           width: 16,
@@ -432,6 +433,7 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
                             child: TimeField(
                                 controller: _secondsController,
                                 functionOnChanged: swapEditedValues,
+                                maxValue: 59,
                                 labelText: AppLocalizations.of(context)!.sec)),
                         const SizedBox(
                           width: 16,
@@ -445,6 +447,7 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
                             child: TimeField(
                                 controller: _hundredthsController,
                                 functionOnChanged: swapEditedValues,
+                                maxValue: 99,
                                 labelText: AppLocalizations.of(context)!.hun)),
                       ],
                     )
