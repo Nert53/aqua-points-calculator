@@ -12,7 +12,8 @@ import 'package:fina_points_calculator/main.dart';
 
 enum Language {
   en('English', 'en'),
-  cs('Čeština', 'cs');
+  cs('Čeština', 'cs'),
+  de('Deutsch', 'de');
 
   const Language(this.value, this.code);
   final String value;
@@ -69,26 +70,12 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 openLanguageDialog(context);
               },
             ),
-            /*ListTile(
-              title: Text(AppLocalizations.of(context)!.colorTheme),
-              leading: const Icon(Icons.color_lens_outlined),
-              trailing: Switch(
-                value: isDarkMode,
-                onChanged: (bool value) {
-                  setState(() {
-                    Provider.of<ThemeProvider>(context, listen: false)
-                        .toggleTheme();
-                    isDarkMode = value;
-                  });
-                },
-              ),
-            ),*/
             ListTile(
               title: Text(AppLocalizations.of(context)!.colorTheme),
               leading: const Icon(Icons.color_lens_outlined),
               trailing: DropdownMenu<String>(
                 menuStyle: MenuStyle(
-                  shape: WidgetStateProperty.all(
+                  shape: WidgetStatePropertyAll(
                     RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(16),
                     ),
@@ -191,7 +178,9 @@ class _SettingsScreenState extends State<SettingsScreen> {
                                   child: Column(
                                     children: [
                                       const Text(
-                                          'Unofficial app for calculating Aqua Points (previously named FINA points). This app is not affiliated with World Aquatics. '),
+                                        'Unofficial app for calculating Aqua Points (previously named FINA points). This app is not affiliated with World Aquatics. ',
+                                        style: TextStyle(fontSize: 14),
+                                      ),
                                       const SizedBox(height: 10),
                                       SelectableLinkify(
                                         onOpen: _onOpen,

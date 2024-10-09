@@ -21,7 +21,10 @@ class TimeField extends StatelessWidget {
           functionOnChanged(true);
         },
         keyboardType: TextInputType.number,
-        inputFormatters: [FilteringTextInputFormatter.digitsOnly],
+        inputFormatters: [
+          LengthLimitingTextInputFormatter(2),
+          FilteringTextInputFormatter.digitsOnly
+        ],
         style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 24),
         decoration: InputDecoration(
             labelText: labelText,

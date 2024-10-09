@@ -1,0 +1,42 @@
+{
+  "calculate": "Berechnen",
+  "calculator": "Rechner",
+  "records": "Rekorde",
+  "settings": "Einstellungen",
+  "length": "Länge",
+  "stroke": "Stil",
+  "men": "Männer",
+  "women": "Frauen",
+  "mixed": "Gemischt",
+  "aquaPoints": "Aqua-Punkte",
+  "gender": "Geschlecht",
+  "course": "Kurs",
+  "language": "Sprache",
+  "colorTheme": "Farbschema",
+  "system": "System",
+  "light": "Hell",
+  "dark": "Dunkel",
+  "aboutApp": "Über die App",
+  "lcm": "Langbahn (50m)",
+  "scm": "Kurzbahn (25m)",
+  "min": "min",
+  "sec": "sek",
+  "hun": "hun",
+  "freestyle": "Freistil",
+  "backstroke": "Rücken",
+  "butterfly": "Schmetterling",
+  "breaststroke": "Brust",
+  "medley": "Lagen",
+  "recordUpdated": "Rekorde aktualisiert: {date}",
+  "@recordUpdated": {
+    "placeholders": {
+      "date": {}
+    }
+  },
+  "tablesUpdated": "Gültig für die Saison: {date}",
+  "@tablesUpdated": {
+    "placeholders": {
+      "date": {}
+    }
+  }
+}
