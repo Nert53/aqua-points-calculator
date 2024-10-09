@@ -19,3 +19,9 @@ $$ P = 1000 * ( B / T )^3 $$
 If you prefer web version visit this domain [finapoints.com](https://finapoints.com/). Or if you have Android device you can download the app from the realese tab.
 
 ## How the app looks like?
+
+<div align="center">
+  
+![github screenshots graphic](.github/assets/github-graphic.png)
+
+</div>
