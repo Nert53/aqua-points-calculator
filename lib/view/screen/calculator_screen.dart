@@ -90,12 +90,12 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
         _secondsController.text.isEmpty &&
         _hundredthsController.text.isEmpty &&
         _pointsController.text.isEmpty) {
-      SnackBar snackBar = const SnackBar(
+      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
           behavior: SnackBarBehavior.floating,
           shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.all(Radius.circular(12))),
-          content: Text('Please enter a time or Aqua Points to calculate!'));
-      ScaffoldMessenger.of(context).showSnackBar(snackBar);
+          content: Text('Please enter a time or Aqua Points to calculate!')));
+
       return;
     }
 
@@ -136,12 +136,15 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
 
   void calculatePoints() async {
     int minutes, seconds, hundredths;
+
     _minutesController.text.isEmpty
         ? minutes = 0
         : minutes = int.parse(_minutesController.text);
+
     _secondsController.text.isEmpty
         ? seconds = 0
         : seconds = int.parse(_secondsController.text);
+
     _hundredthsController.text.isEmpty
         ? hundredths = 0
         : hundredths = int.parse(_hundredthsController.text);
@@ -462,8 +465,13 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
 
 Future<double> findRecordTime(
     String gender, String course, String distance, String stroke) async {
-  var allRecords = await _getRecords(
-      'assets/table_base_times/${gender.toLowerCase()}_${course.toLowerCase().substring(0, 3)}.json');
+  gender = gender.toLowerCase();
+  course = course.toLowerCase().substring(0, 3);
+  distance = distance.toLowerCase().replaceAll(' ', '');
+  stroke = stroke.toLowerCase();
+
+  var allRecords =
+      await _getRecords('assets/table_base_times/${gender}_$course.json');
   for (var record in allRecords) {
     if (record.eventDistance == distance && record.eventStroke == stroke) {
       double minutes, seconds, hundredths;
