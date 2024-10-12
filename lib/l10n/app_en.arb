@@ -22,11 +22,11 @@
   "min": "min",
   "sec": "sec",
   "hun": "hun",
-  "freestyle": "freestyle",
-  "backstroke": "backstroke",
-  "butterfly": "butterfly",
-  "breaststroke": "breaststroke",
-  "medley": "medley",
+  "freestyle": "Freestyle",
+  "backstroke": "Backstroke",
+  "butterfly": "Butterfly",
+  "breaststroke": "Breaststroke",
+  "medley": "Medley",
   "recordUpdated": "Records updated: {date}",
   "@recordUpdated": {
     "placeholders": {

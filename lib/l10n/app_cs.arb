@@ -22,11 +22,11 @@
     "min": "min",
     "sec": "sek",
     "hun": "set",
-    "freestyle": "volný způsob",
-    "backstroke": "znak",
-    "butterfly": "motýlek",
-    "breaststroke": "prsa",
-    "medley": "polohový závod",
+    "freestyle": "Volný způsob",
+    "backstroke": "Znak",
+    "butterfly": "Motýlek",
+    "breaststroke": "Prsa",
+    "medley": "Polohový závod",
     "recordUpdated": "Rekordy aktualizovány: {date}",
     "@recordUpdated": {
         "placeholders": {

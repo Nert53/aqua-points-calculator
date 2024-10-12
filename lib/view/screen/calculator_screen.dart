@@ -4,6 +4,7 @@ import 'package:fina_points_calculator/model/record_data.dart';
 import 'package:fina_points_calculator/utils/constants.dart';
 import 'package:fina_points_calculator/utils/locale_func.dart';
 import 'package:fina_points_calculator/view/widget/time_field.dart';
+import 'package:fina_points_calculator/view/widget/warning_snackbar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -44,7 +45,7 @@ enum Stroke {
   back('Backstroke'),
   breast('Breaststroke'),
   fly('Butterfly'),
-  im('Medley');
+  medley('Medley');
 
   const Stroke(
     this.name,
@@ -83,9 +84,15 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
   final _distanceController = TextEditingController();
   final _strokeController = TextEditingController();
 
+  Stroke _selectedStroke = Stroke.free;
+
+  void setSelectedStroke(Stroke stroke) {
+    _selectedStroke = stroke;
+  }
+
   // main function for both calculations
   void calculate() async {
-    // everything empty -> show snackbar with "error"
+    // everything empty -> show snackbar
     if (_minutesController.text.isEmpty &&
         _secondsController.text.isEmpty &&
         _hundredthsController.text.isEmpty &&
@@ -96,6 +103,10 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
               borderRadius: BorderRadius.all(Radius.circular(12))),
           content: Text('Please enter a time or Aqua Points to calculate!')));
 
+      return;
+    }
+
+    if (!checkDisciplineCorrectness()) {
       return;
     }
 
@@ -156,9 +167,9 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
     double overallTimeSeconds = (minutes * 60) + seconds + (hundredths / 100);
     var recordTimeSeconds = await findRecordTime(
         _gender!.name.toLowerCase(),
-        _course!.value.toLowerCase(),
+        _course!.name.toLowerCase(),
         _distanceController.text,
-        _strokeController.text.toLowerCase());
+        _selectedStroke.name);
 
     int points =
         (1000 * pow(recordTimeSeconds / overallTimeSeconds, 3)).toInt();
@@ -174,7 +185,7 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
         _gender!.name.toLowerCase(),
         _course!.value.toLowerCase(),
         _distanceController.text,
-        _strokeController.text.toLowerCase());
+        _selectedStroke.name);
 
     double timeSecond =
         (recordTimeSeconds / pow(points / 1000, 1 / 3)).toDouble();
@@ -196,8 +207,49 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
     _pointsController.clear();
   }
 
+  bool checkDisciplineCorrectness() {
+    if (_course == Course.lcm) {
+      if (_distanceController.text == Distance.fifty.length ||
+          _distanceController.text == Distance.hundred.length) {
+        if (_selectedStroke == Stroke.medley) {
+          showWarningSnackBar(context, 'Selected discipline does not exist!');
+          return false;
+        }
+      }
+
+      if (_distanceController.text == Distance.fourHundred.length ||
+          _distanceController.text == Distance.eightHundred.length ||
+          _distanceController.text == Distance.fifteenHundred.length) {
+        if (_selectedStroke != Stroke.free) {
+          showWarningSnackBar(context, 'Selected discipline does not exist!');
+          return false;
+        }
+      }
+    }
+
+    if (_course == Course.scm) {
+      if (_distanceController.text == Distance.fifty.length) {
+        if (_selectedStroke == Stroke.medley) {
+          showWarningSnackBar(context, 'Selected discipline does not exist!');
+          return false;
+        }
+      } else if (_distanceController.text == Distance.fourHundred.length ||
+          _distanceController.text == Distance.eightHundred.length ||
+          _distanceController.text == Distance.fifteenHundred.length) {
+        if (_selectedStroke != Stroke.free) {
+          showWarningSnackBar(context, 'Selected discipline does not exist!');
+          return false;
+        }
+      }
+    }
+
+    return true;
+  }
+
   @override
   Widget build(BuildContext context) {
+    _strokeController.text = getLocalizedStroke(context, _selectedStroke.name);
+
     return GestureDetector(
       onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
       child: Scaffold(
@@ -287,12 +339,15 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
                           flex: 3,
                           child: DropdownMenu<Stroke>(
                             expandedInsets: EdgeInsets.zero,
+                            onSelected: (stroke) {
+                              setSelectedStroke(stroke!);
+                            },
                             label: Text(AppLocalizations.of(context)!.stroke,
                                 style: TextStyle(
                                     color:
                                         Theme.of(context).colorScheme.primary)),
+                            //initialSelection: Stroke.free,
                             controller: _strokeController,
-                            initialSelection: Stroke.free,
                             inputDecorationTheme: const InputDecorationTheme(
                                 border: OutlineInputBorder(
                                     borderRadius:
