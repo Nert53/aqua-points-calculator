@@ -97,12 +97,8 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
         _secondsController.text.isEmpty &&
         _hundredthsController.text.isEmpty &&
         _pointsController.text.isEmpty) {
-      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-          behavior: SnackBarBehavior.floating,
-          shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.all(Radius.circular(12))),
-          content: Text('Please enter a time or Aqua Points to calculate!')));
-
+      showWarningSnackBar(
+          context, 'Please enter a time or Aqua Points to calculate!');
       return;
     }
 
