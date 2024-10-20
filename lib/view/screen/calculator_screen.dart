@@ -204,6 +204,22 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
   }
 
   bool checkDisciplineCorrectness() {
+    if (_distanceController.text == Distance.eightHundred.length ||
+        _distanceController.text == Distance.fifteenHundred.length) {
+      if (_selectedStroke != Stroke.free) {
+        showWarningSnackBar(context, 'Selected discipline does not exist!');
+        return false;
+      }
+    }
+
+    if (_distanceController.text == Distance.fourHundred.length) {
+      if (!(_selectedStroke == Stroke.free ||
+          _selectedStroke == Stroke.medley)) {
+        showWarningSnackBar(context, 'Selected discipline does not exist!');
+        return false;
+      }
+    }
+
     if (_course == Course.lcm) {
       if (_distanceController.text == Distance.fifty.length ||
           _distanceController.text == Distance.hundred.length) {
@@ -212,30 +228,13 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
           return false;
         }
       }
-
-      if (_distanceController.text == Distance.fourHundred.length ||
-          _distanceController.text == Distance.eightHundred.length ||
-          _distanceController.text == Distance.fifteenHundred.length) {
-        if (_selectedStroke != Stroke.free) {
-          showWarningSnackBar(context, 'Selected discipline does not exist!');
-          return false;
-        }
-      }
     }
 
     if (_course == Course.scm) {
-      if (_distanceController.text == Distance.fifty.length) {
-        if (_selectedStroke == Stroke.medley) {
-          showWarningSnackBar(context, 'Selected discipline does not exist!');
-          return false;
-        }
-      } else if (_distanceController.text == Distance.fourHundred.length ||
-          _distanceController.text == Distance.eightHundred.length ||
-          _distanceController.text == Distance.fifteenHundred.length) {
-        if (_selectedStroke != Stroke.free) {
-          showWarningSnackBar(context, 'Selected discipline does not exist!');
-          return false;
-        }
+      if (_distanceController.text == Distance.fifty.length &&
+          _selectedStroke == Stroke.medley) {
+        showWarningSnackBar(context, 'Selected discipline does not exist!');
+        return false;
       }
     }
 

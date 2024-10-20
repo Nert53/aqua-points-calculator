@@ -70,7 +70,7 @@ class _RecordsScreenState extends State<RecordsScreen> {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(AppLocalizations.of(context)!.recordUpdated('27. 09. 2024'),
+            Text(AppLocalizations.of(context)!.recordUpdated('20. 10. 2024'),
                 style: TextStyle(
                   color: Theme.of(context).colorScheme.secondary,
                 )),
@@ -177,34 +177,63 @@ class _RecordsScreenState extends State<RecordsScreen> {
                 future: _getRecords(
                     'assets/wr_times/${selectedGender!.name.toLowerCase()}_${selectedCourse!.value.toLowerCase().substring(0, 3)}.json'),
                 builder: (context, model) {
-                  if (model.hasData) {
+                  if (model.data?.isNotEmpty ?? false) {
                     return ListView.separated(
                       separatorBuilder: (BuildContext context, int index) =>
                           const Divider(),
                       itemCount: model.data!.length,
                       itemBuilder: (context, index) {
-                        return ListTile(
-                          title: Text(
-                              '${model.data![index].event} - ${model.data![index].time}',
-                              style:
-                                  const TextStyle(fontWeight: FontWeight.bold)),
-                          subtitle: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                  '${model.data![index].athlete} (${model.data![index].nationality})'),
-                              Text(model.data![index].competition),
-                              Text(
-                                  '${model.data![index].date} ▪ ${model.data![index].locationCountry}'),
-                            ],
+                        var record = model.data![index];
+                        var splitLength = 50;
+                        if (record.split25) {
+                          splitLength = 25;
+                        }
+
+                        return GestureDetector(
+                          onTap: () {
+                            showDialog(
+                              context: context,
+                              builder: (context) {
+                                return AlertDialog(
+                                  title: Text(record.event),
+                                  content: SizedBox(
+                                    height: (record.splits.length * 50) + 15,
+                                    width: double.minPositive,
+                                    child: ListView.builder(
+                                        itemCount: record.splits.length,
+                                        itemBuilder: (context, index) {
+                                          return ListTile(
+                                            title: Text(
+                                                '${(index + 1) * splitLength}m - ${record.splits[index]} (${record.sectionTimes[index]})'),
+                                          );
+                                        }),
+                                  ),
+                                );
+                              },
+                            );
+                          },
+                          child: ListTile(
+                            title: Text('${record.event} - ${record.time}',
+                                style: const TextStyle(
+                                    fontWeight: FontWeight.bold)),
+                            subtitle: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                    '${record.athlete} (${record.nationality})'),
+                                Text(record.competition),
+                                Text(
+                                    '${record.date} \u2022 ${record.locationCity}, ${record.locationCountry}'),
+                              ],
+                            ),
+                            trailing: record.isNew
+                                ? SvgPicture.asset(
+                                    'assets/icons/new.svg',
+                                    width: 18,
+                                    height: 18,
+                                  )
+                                : null,
                           ),
-                          trailing: model.data![index].isNew
-                              ? SvgPicture.asset(
-                                  'assets/icons/new.svg',
-                                  width: 18,
-                                  height: 18,
-                                )
-                              : null,
                         );
                       },
                     );

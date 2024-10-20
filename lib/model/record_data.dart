@@ -9,6 +9,9 @@ class RecordData {
   final String eventDistance;
   final String eventStroke;
   final String time;
+  final List<String> splits;
+  final List<String> sectionTimes;
+  final bool split25;
   final String date;
   final String competition;
   final String locationCity;
@@ -23,6 +26,9 @@ class RecordData {
     required this.eventDistance,
     required this.eventStroke,
     required this.time,
+    required this.splits,
+    required this.sectionTimes,
+    required this.split25,
     required this.date,
     required this.competition,
     required this.locationCity,
@@ -41,6 +47,9 @@ class RecordData {
     String eventDistance = event.split(' ')[1];
     String eventStroke = event.split(' ')[2].toLowerCase();
 
+    List<String> splits = json['Splits'].toString().trim().split(',');
+    List<String> sectionTimes = calculateSectionTimes(splits);
+
     bool isNew = false;
     DateTime now = DateTime.now();
     DateTime recordDate = DateFormat('dd-MM-yyyy')
@@ -57,11 +66,41 @@ class RecordData {
       eventDistance: eventDistance,
       eventStroke: eventStroke,
       time: json['Time'] as String,
+      splits: splits,
+      sectionTimes: sectionTimes,
+      split25: (double.parse(splits[0]) < 20),
       date: '$day. $month 20$year',
       competition: json['Competition'] as String,
       locationCity: json['City'] as String,
       locationCountry: json['Country'] as String,
       isNew: isNew,
     );
+  }
+}
+
+List<String> calculateSectionTimes(List<String> splits) {
+  List<double> splitTimesInSeconds = splits.map(timeToSeconds).toList();
+
+  List<String> sectionTimes = [];
+  for (int i = 0; i < splitTimesInSeconds.length - 1; i++) {
+    double sectionTime = splitTimesInSeconds[i + 1] - splitTimesInSeconds[i];
+    sectionTimes.add(sectionTime.toStringAsFixed(2).trim());
+  }
+  sectionTimes.insert(0, splitTimesInSeconds[0].toStringAsFixed(2).trim());
+
+  return sectionTimes;
+}
+
+double timeToSeconds(String time) {
+  List<String> parts = time.split(':');
+
+  if (parts.length == 2) {
+    // time in format MM:SS.SS
+    double minutes = double.parse(parts[0]);
+    double seconds = double.parse(parts[1]);
+    return minutes * 60 + seconds;
+  } else {
+    // time format SS.SS
+    return double.parse(time);
   }
 }
