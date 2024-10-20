@@ -195,7 +195,27 @@ class _RecordsScreenState extends State<RecordsScreen> {
                               context: context,
                               builder: (context) {
                                 return AlertDialog(
-                                  title: Text(record.event),
+                                  title: Text(
+                                    '${record.event} Splits',
+                                    style: TextStyle(
+                                        color: Theme.of(context)
+                                            .colorScheme
+                                            .primary),
+                                  ),
+                                  actions: [
+                                    TextButton(
+                                      onPressed: () {
+                                        Navigator.of(context).pop();
+                                      },
+                                      child: Text(
+                                        AppLocalizations.of(context)!.close,
+                                        style: TextStyle(
+                                            color: Theme.of(context)
+                                                .colorScheme
+                                                .primary),
+                                      ),
+                                    ),
+                                  ],
                                   content: SizedBox(
                                     height: (record.splits.length * 50) + 15,
                                     width: double.minPositive,
