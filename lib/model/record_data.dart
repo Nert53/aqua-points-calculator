@@ -49,6 +49,13 @@ class RecordData {
 
     List<String> splits = json['Splits'].toString().trim().split(',');
     List<String> sectionTimes = calculateSectionTimes(splits);
+    bool split25;
+    try {
+      split25 = (double.parse(splits[0]) < 20);
+    } catch (e) {
+      split25 = false;
+    }
+    
 
     bool isNew = false;
     DateTime now = DateTime.now();
@@ -68,7 +75,7 @@ class RecordData {
       time: json['Time'] as String,
       splits: splits,
       sectionTimes: sectionTimes,
-      split25: (double.parse(splits[0]) < 20),
+      split25: split25,
       date: '$day. $month 20$year',
       competition: json['Competition'] as String,
       locationCity: json['City'] as String,
@@ -92,6 +99,10 @@ List<String> calculateSectionTimes(List<String> splits) {
 }
 
 double timeToSeconds(String time) {
+  if (time == '') {
+    return 0.0;
+  }
+
   List<String> parts = time.split(':');
 
   if (parts.length == 2) {
