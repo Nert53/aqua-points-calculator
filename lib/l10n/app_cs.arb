@@ -13,9 +13,9 @@
     "course": "Bazén",
     "language": "Jazyk",
     "colorTheme": "Barevný režim",
-    "system": "Systém",
-    "light": "Tmavý",
-    "dark": "Světlý",
+    "system": "Systémový",
+    "light": "Světlý",
+    "dark": "Tmavý",
     "aboutApp": "O aplikaci",
     "close": "Zavřít",
     "lcm": "50m bazén",
@@ -28,6 +28,8 @@
     "butterfly": "Motýlek",
     "breaststroke": "Prsa",
     "medley": "Polohový závod",
+    "disciplineNotExist": "Zvolená disciplína neexistuje!",
+    "enterTimeWarn": "Prosím zadejte čas/body pro výpočet!",
     "recordUpdated": "Rekordy aktualizovány: {date}",
     "@recordUpdated": {
         "placeholders": {

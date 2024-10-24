@@ -28,6 +28,8 @@
   "butterfly": "Butterfly",
   "breaststroke": "Breaststroke",
   "medley": "Medley",
+  "disciplineNotExist": "Selected discipline does not exist!",
+  "enterTimeWarn": "Please enter a time or Aqua Points to calculate!",
   "recordUpdated": "Records updated: {date}",
   "@recordUpdated": {
     "placeholders": {

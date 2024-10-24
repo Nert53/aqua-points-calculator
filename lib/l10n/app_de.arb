@@ -28,6 +28,8 @@
   "butterfly": "Schmetterling",
   "breaststroke": "Brust",
   "medley": "Lagen",
+  "disciplineNotExist": "Ausgewählte Disziplin gibt es nicht!",
+  "enterTimeWarn": "Bitte geben Sie eine Zeit oder Points zum Berechnen ein!",
   "recordUpdated": "Rekorde aktualisiert: {date}",
   "@recordUpdated": {
     "placeholders": {

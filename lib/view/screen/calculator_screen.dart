@@ -97,8 +97,7 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
         _secondsController.text.isEmpty &&
         _hundredthsController.text.isEmpty &&
         _pointsController.text.isEmpty) {
-      showWarningSnackBar(
-          context, 'Please enter a time or Aqua Points to calculate!');
+      showWarningSnackBar(context, AppLocalizations.of(context)!.enterTimeWarn);
       return;
     }
 
@@ -204,10 +203,12 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
   }
 
   bool checkDisciplineCorrectness() {
+    var warningMessage = AppLocalizations.of(context)!.disciplineNotExist;
+
     if (_distanceController.text == Distance.eightHundred.length ||
         _distanceController.text == Distance.fifteenHundred.length) {
       if (_selectedStroke != Stroke.free) {
-        showWarningSnackBar(context, 'Selected discipline does not exist!');
+        showWarningSnackBar(context, warningMessage);
         return false;
       }
     }
@@ -215,7 +216,7 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
     if (_distanceController.text == Distance.fourHundred.length) {
       if (!(_selectedStroke == Stroke.free ||
           _selectedStroke == Stroke.medley)) {
-        showWarningSnackBar(context, 'Selected discipline does not exist!');
+        showWarningSnackBar(context, warningMessage);
         return false;
       }
     }
@@ -224,7 +225,7 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
       if (_distanceController.text == Distance.fifty.length ||
           _distanceController.text == Distance.hundred.length) {
         if (_selectedStroke == Stroke.medley) {
-          showWarningSnackBar(context, 'Selected discipline does not exist!');
+          showWarningSnackBar(context, warningMessage);
           return false;
         }
       }
@@ -233,7 +234,7 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
     if (_course == Course.scm) {
       if (_distanceController.text == Distance.fifty.length &&
           _selectedStroke == Stroke.medley) {
-        showWarningSnackBar(context, 'Selected discipline does not exist!');
+        showWarningSnackBar(context, warningMessage);
         return false;
       }
     }
