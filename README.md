@@ -15,8 +15,16 @@ The points are calculated using a cubic curve. With the **swim time (T)** and th
 
 $$ P = 1000 * ( B / T )^3 $$
 
-## Where to try or use the app?
-If you prefer web version visit this domain [finapoints.com](https://finapoints.com/). Or if you have Android device you can download the app from the realese tab.
+## How can I start using the app?
+Visit you favore mobile store and download it for free (we are on both major platforms). Or if you prefer web version, visit the webpage [finapoints.com](https://finapoints.com/).
+
+<div align="left">
+  
+[<img height="42" src=".github/assets/google-play-badge.png">](https://play.google.com/store/apps/details?id=cz.umimplavat.aqua_points_calculator&pcampaignid=web_share)
+
+[<img width="140" src=".github/assets/app-store-badge.png">](https://apps.apple.com/cz/app/aqua-points-calculator/id6736572544)
+
+</div>
 
 ## How the app looks like?
 

@@ -256,7 +256,7 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
               children: [
                 Text(
                     AppLocalizations.of(context)!
-                        .tablesUpdated(lastTableUpdate),
+                        .tablesUpdated(lastTableUpdateYear),
                     style: TextStyle(
                       color: Theme.of(context).colorScheme.secondary,
                     )),
