@@ -1,6 +1,6 @@
 import 'dart:convert';
 import 'dart:math';
-import 'package:fina_points_calculator/model/record_data.dart';
+import 'package:fina_points_calculator/model/record_model.dart';
 import 'package:fina_points_calculator/utils/constants.dart';
 import 'package:fina_points_calculator/utils/locale_func.dart';
 import 'package:fina_points_calculator/view/widget/time_field.dart';
@@ -155,7 +155,8 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
         ? hundredths = 0
         : hundredths = int.parse(_hundredthsController.text);
 
-    if (hundredths < 10) {
+    // second condition is for enters like 05 or 09 that should be take as 9 hundredths not 90
+    if (hundredths < 10 && _hundredthsController.text.length < 2) {
       hundredths *= 10;
     }
 
@@ -546,10 +547,10 @@ Future<double> findRecordTime(
   return 0.0;
 }
 
-Future<List<RecordData>> _getRecords(String path) async {
-  List<RecordData> records =
+Future<List<Record>> _getRecords(String path) async {
+  List<Record> records =
       (json.decode(await rootBundle.loadString(path)) as List)
-          .map((record) => RecordData.fromJson(record))
+          .map((record) => Record.fromJson(record))
           .toList();
 
   return records;

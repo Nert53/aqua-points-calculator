@@ -1,7 +1,7 @@
 import 'package:fina_points_calculator/utils/date_func.dart';
 import 'package:intl/intl.dart';
 
-class RecordData {
+class Record {
   final String athlete;
   final String nationality;
   final String pool;
@@ -18,7 +18,7 @@ class RecordData {
   final String locationCountry;
   final bool isNew;
 
-  RecordData({
+  Record({
     required this.athlete,
     required this.nationality,
     required this.pool,
@@ -36,7 +36,7 @@ class RecordData {
     required this.isNew,
   });
 
-  factory RecordData.fromJson(Map<String, dynamic> json) {
+  factory Record.fromJson(Map<String, dynamic> json) {
     String originalDate = json['Date'] as String;
     var date = originalDate.split('-');
     String day = date[0];
@@ -55,7 +55,6 @@ class RecordData {
     } catch (e) {
       split25 = false;
     }
-    
 
     bool isNew = false;
     DateTime now = DateTime.now();
@@ -65,7 +64,7 @@ class RecordData {
       isNew = true;
     }
 
-    return RecordData(
+    return Record(
       athlete: json['Athlete'] as String,
       nationality: json['NF Code'] as String,
       pool: json['Pool'] as String,
