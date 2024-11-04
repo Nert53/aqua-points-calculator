@@ -18,6 +18,8 @@ $$ P = 1000 * ( B / T )^3 $$
 ## How can I start using the app?
 Visit you favore mobile store and download it for free (we are on both major platforms). Or if you prefer web version, visit the webpage [finapoints.com](https://finapoints.com/).
 
+App is also optimized for larger devices like iPads or desktops.
+
 <div align="left">
   
 [<img height="42" src=".github/assets/google-play-badge.png">](https://play.google.com/store/apps/details?id=cz.umimplavat.aqua_points_calculator&pcampaignid=web_share)
