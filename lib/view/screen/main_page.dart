@@ -1,30 +1,20 @@
-import 'package:fina_points_calculator/view/screen/calculator_screen.dart';
-import 'package:fina_points_calculator/view/screen/records_screen.dart';
-import 'package:fina_points_calculator/view/screen/settings_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class MainPage extends StatefulWidget {
-  const MainPage({super.key});
+  final dynamic navigationShell;
+
+  const MainPage({super.key, required this.navigationShell});
 
   @override
   State<MainPage> createState() => _MainPageState();
 }
 
 class _MainPageState extends State<MainPage> {
-  int _selectedIndex = 0;
 
   void _selectScreen(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
+    widget.navigationShell.goBranch(index);
   }
-
-  final List<Widget> _screens = <Widget>[
-    const CalculatorScreen(),
-    const RecordsScreen(),
-    const SettingsScreen(),
-  ];
 
   @override
   Widget build(BuildContext context) {
@@ -39,7 +29,7 @@ class _MainPageState extends State<MainPage> {
         ),
         bottomNavigationBar: MediaQuery.of(context).size.width < 800
             ? NavigationBar(
-                selectedIndex: _selectedIndex,
+                selectedIndex: widget.navigationShell.currentIndex,
                 onDestinationSelected: _selectScreen,
                 destinations: [
                   NavigationDestination(
@@ -54,6 +44,11 @@ class _MainPageState extends State<MainPage> {
                     label: AppLocalizations.of(context)!.records,
                     tooltip: 'Opens world records list.',
                   ),
+                  NavigationDestination(
+                      icon: Icon(Icons.timer_outlined),
+                      selectedIcon: Icon(Icons.timer),
+                      label: AppLocalizations.of(context)!.limits,
+                      tooltip: 'Opens limits for worlds.'),
                   NavigationDestination(
                     icon: const Icon(Icons.settings_outlined),
                     selectedIcon: const Icon(Icons.settings),
@@ -78,11 +73,15 @@ class _MainPageState extends State<MainPage> {
                       label: Text(AppLocalizations.of(context)!.records),
                       selectedIcon: const Icon(Icons.view_list)),
                   NavigationRailDestination(
+                      icon: Icon(Icons.timer_outlined),
+                      selectedIcon: Icon(Icons.timer),
+                      label: Text(AppLocalizations.of(context)!.limits)),
+                  NavigationRailDestination(
                       icon: const Icon(Icons.settings_outlined),
                       label: Text(AppLocalizations.of(context)!.settings),
                       selectedIcon: const Icon(Icons.settings)),
                 ],
-                selectedIndex: _selectedIndex,
+                selectedIndex: widget.navigationShell.currentIndex,
                 onDestinationSelected: _selectScreen,
                 extended: extendedNaviagtionRail,
                 minWidth: 96,
@@ -94,10 +93,9 @@ class _MainPageState extends State<MainPage> {
                   color: Theme.of(context).textTheme.bodyMedium!.color,
                 ),
                 backgroundColor: Theme.of(context).colorScheme.surfaceContainer,
-                // same color as background of bottom nav bar
               ),
             Expanded(
-              child: _screens[_selectedIndex],
+              child: widget.navigationShell,
             )
           ],
         ));

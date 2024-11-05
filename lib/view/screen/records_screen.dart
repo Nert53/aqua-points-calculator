@@ -1,5 +1,6 @@
 import 'dart:convert';
-import 'package:fina_points_calculator/model/record_data.dart';
+import 'package:fina_points_calculator/model/record_model.dart';
+import 'package:fina_points_calculator/utils/constants.dart';
 import 'package:fina_points_calculator/utils/locale_func.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -46,10 +47,10 @@ class _RecordsScreenState extends State<RecordsScreen> {
     super.initState();
   }
 
-  Future<List<RecordData>> _getRecords(String path) async {
-    List<RecordData> records =
+  Future<List<Record>> _getRecords(String path) async {
+    List<Record> records =
         (json.decode(await rootBundle.loadString(path)) as List)
-            .map((record) => RecordData.fromJson(record))
+            .map((record) => Record.fromJson(record))
             .toList();
 
     return records;
@@ -70,7 +71,9 @@ class _RecordsScreenState extends State<RecordsScreen> {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(AppLocalizations.of(context)!.recordUpdated('20. 10. 2024'),
+            Text(
+                AppLocalizations.of(context)!
+                    .recordUpdated(lastRecordUpdateDate),
                 style: TextStyle(
                   color: Theme.of(context).colorScheme.secondary,
                 )),
@@ -169,11 +172,10 @@ class _RecordsScreenState extends State<RecordsScreen> {
           ),
           Divider(
             thickness: 2,
-            color: Theme.of(context).colorScheme.secondary,
           ),
           Expanded(
             child: SelectionArea(
-              child: FutureBuilder<List<RecordData>>(
+              child: FutureBuilder<List<Record>>(
                 future: _getRecords(
                     'assets/wr_times/${selectedGender!.name.toLowerCase()}_${selectedCourse!.value.toLowerCase().substring(0, 3)}.json'),
                 builder: (context, model) {
