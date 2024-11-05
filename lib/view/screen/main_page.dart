@@ -1,32 +1,20 @@
-import 'package:fina_points_calculator/view/screen/calculator_screen.dart';
-import 'package:fina_points_calculator/view/screen/limits_screen.dart';
-import 'package:fina_points_calculator/view/screen/records_screen.dart';
-import 'package:fina_points_calculator/view/screen/settings_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class MainPage extends StatefulWidget {
-  const MainPage({super.key});
+  final dynamic navigationShell;
+
+  const MainPage({super.key, required this.navigationShell});
 
   @override
   State<MainPage> createState() => _MainPageState();
 }
 
 class _MainPageState extends State<MainPage> {
-  int _selectedIndex = 0;
 
   void _selectScreen(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
+    widget.navigationShell.goBranch(index);
   }
-
-  final List<Widget> _screens = <Widget>[
-    const CalculatorScreen(),
-    const RecordsScreen(),
-    const LimitsScreen(),
-    const SettingsScreen(),
-  ];
 
   @override
   Widget build(BuildContext context) {
@@ -41,7 +29,7 @@ class _MainPageState extends State<MainPage> {
         ),
         bottomNavigationBar: MediaQuery.of(context).size.width < 800
             ? NavigationBar(
-                selectedIndex: _selectedIndex,
+                selectedIndex: widget.navigationShell.currentIndex,
                 onDestinationSelected: _selectScreen,
                 destinations: [
                   NavigationDestination(
@@ -93,7 +81,7 @@ class _MainPageState extends State<MainPage> {
                       label: Text(AppLocalizations.of(context)!.settings),
                       selectedIcon: const Icon(Icons.settings)),
                 ],
-                selectedIndex: _selectedIndex,
+                selectedIndex: widget.navigationShell.currentIndex,
                 onDestinationSelected: _selectScreen,
                 extended: extendedNaviagtionRail,
                 minWidth: 96,
@@ -105,10 +93,9 @@ class _MainPageState extends State<MainPage> {
                   color: Theme.of(context).textTheme.bodyMedium!.color,
                 ),
                 backgroundColor: Theme.of(context).colorScheme.surfaceContainer,
-                // same color as background of bottom nav bar
               ),
             Expanded(
-              child: _screens[_selectedIndex],
+              child: widget.navigationShell,
             )
           ],
         ));

@@ -34,6 +34,9 @@ class _LimitsScreenState extends State<LimitsScreen> {
   }
 
   Future<List<List<Limit>>> _getLimits(String path) async {
+    final String jsonString = await rootBundle.loadString(path);
+    final data = jsonDecode(jsonString);
+
     List<Limit> limits =
         (json.decode(await rootBundle.loadString(path)) as List)
             .map((limit) => Limit.fromJson(limit))
@@ -59,6 +62,14 @@ class _LimitsScreenState extends State<LimitsScreen> {
     return editedLimits;
   }
 
+  _changeCompetition(Competition competition) {
+    setState(() {
+      selectedCompetition = competition;
+      _getLimits(
+          'assets/limit_times/${selectedCompetition.type}_${selectedCompetition.course}_${selectedCompetition.year}.json');
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -78,11 +89,7 @@ class _LimitsScreenState extends State<LimitsScreen> {
                   .toList(),
               selected: {selectedCompetition},
               onSelectionChanged: (Set<Competition> newSelection) {
-                setState(() {
-                  selectedCompetition = newSelection.first;
-                  _getLimits(
-                      'assets/limit_times/${selectedCompetition.type}_${selectedCompetition.course}_${selectedCompetition.year}.json');
-                });
+                _changeCompetition(newSelection.first);
               },
             )
           ],
@@ -91,7 +98,7 @@ class _LimitsScreenState extends State<LimitsScreen> {
           height: 3,
         ),
         Divider(
-          thickness: 3,
+          thickness: 2,
         ),
         Expanded(
           child: FutureBuilder(
@@ -120,12 +127,12 @@ class _LimitsScreenState extends State<LimitsScreen> {
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
                                     Text(
-                                      menLimit.timeA,
+                                      menLimit.timeA.toString(),
                                       style: TextStyle(
                                           fontSize: 16,
                                           fontWeight: FontWeight.bold),
                                     ),
-                                    Text(menLimit.timeB),
+                                    Text(menLimit.timeB.toString()),
                                   ],
                                 ),
                               ),
@@ -139,12 +146,12 @@ class _LimitsScreenState extends State<LimitsScreen> {
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
                                     Text(
-                                      womenLimit.timeA,
+                                      womenLimit.timeA.toString(),
                                       style: TextStyle(
                                           fontSize: 16,
                                           fontWeight: FontWeight.bold),
                                     ),
-                                    Text(womenLimit.timeB),
+                                    Text(womenLimit.timeB.toString()),
                                   ],
                                 ),
                               ),

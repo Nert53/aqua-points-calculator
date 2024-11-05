@@ -172,7 +172,6 @@ class _RecordsScreenState extends State<RecordsScreen> {
           ),
           Divider(
             thickness: 2,
-            color: Theme.of(context).colorScheme.secondary,
           ),
           Expanded(
             child: SelectionArea(

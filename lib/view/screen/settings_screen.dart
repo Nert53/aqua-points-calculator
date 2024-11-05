@@ -1,6 +1,5 @@
 import 'package:fina_points_calculator/theme/theme_provider.dart';
 import 'package:fina_points_calculator/utils/constants.dart';
-import 'package:fina_points_calculator/view/screen/limits_screen.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_linkify/flutter_linkify.dart';
