@@ -1,29 +1,25 @@
 class Limit {
   final String limitType;
-  final String event;
   final String eventDistance;
   final String eventStroke;
-  final String time;
+  final double time;
+  final String gender;
 
   Limit({
     required this.limitType,
-    required this.event,
     required this.eventDistance,
     required this.eventStroke,
     required this.time,
+    required this.gender,
   });
 
   factory Limit.fromJson(Map<String, dynamic> json) {
-    String event = json['Event'] as String;
-    String eventDistance = event.split(' ')[1];
-    String eventStroke = event.split(' ')[2].toLowerCase();
-
     return Limit(
-      limitType: json['LimitType'] as String,
-      event: event,
-      eventDistance: eventDistance,
-      eventStroke: eventStroke,
-      time: json['Time'] as String,
+      limitType: json['limitType'],
+      eventDistance: json['eventDistance'],
+      eventStroke: json['eventStroke'],
+      time: json['time'] as double,
+      gender: json['gender'],
     );
   }
 }

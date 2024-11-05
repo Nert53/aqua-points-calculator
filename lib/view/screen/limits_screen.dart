@@ -1,6 +1,10 @@
-import 'package:flutter/material.dart';
+import 'dart:convert';
 
-class LimitsScreen extends StatefulWidget{
+import 'package:fina_points_calculator/model/limit_model.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+
+class LimitsScreen extends StatefulWidget {
   const LimitsScreen({super.key});
 
   @override
@@ -13,24 +17,41 @@ class _LimitsScreenState extends State<LimitsScreen> {
 
   @override
   void initState() {
-    _getLimits('assets/limit_times/world_${selectedCourse}_$selectedYear.json');
+    _getLimits('assets/limit_times/world_scm_2024.json');
     super.initState();
   }
 
-  Future<List> _getLimits(String path) async {
-    
+  Future<List<Limit>> _getLimits(String path) async {
+    final String response = await rootBundle.loadString(path);
+    final data = json.decode(response);
+
+    var t = response.length;
+
     return [];
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: Text('LimitsScreen'),
-      body: ListView.builder(itemBuilder: (context, index) {
-        return ListTile(
-          title: Text('Item $index'),
-        );
-      }),
+      appBar: AppBar(
+          title: Text('Worlds Limits'),
+          backgroundColor: Theme.of(context).colorScheme.primaryContainer),
+      body: FutureBuilder(
+          future: _getLimits('assets/limit_times/world_scm_2024.json'),
+          builder: (context, model) {
+            if (model.data!.isNotEmpty) {
+              return ListView.separated(
+                  itemCount: model.data!.length,
+                  separatorBuilder: (context, index) => Divider(),
+                  itemBuilder: (context, index) {
+                    return ListTile(
+                      title: Text(model.data![index].time.toString()),
+                    );
+                  });
+            } else {
+              return Center(child: CircularProgressIndicator());
+            }
+          }),
     );
   }
 }

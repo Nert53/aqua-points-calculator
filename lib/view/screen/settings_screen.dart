@@ -1,5 +1,6 @@
 import 'package:fina_points_calculator/theme/theme_provider.dart';
 import 'package:fina_points_calculator/utils/constants.dart';
+import 'package:fina_points_calculator/view/screen/limits_screen.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_linkify/flutter_linkify.dart';
@@ -125,6 +126,14 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   ),
                 ],
               ),
+            ),
+            ListTile(
+              title: Text('Worlds limits'),
+              leading: const Icon(Icons.timer_outlined),
+              onTap: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => LimitsScreen()));
+              },
             ),
             ListTile(
               title: Text(AppLocalizations.of(context)!.aboutApp),

@@ -33,6 +33,7 @@ flutter:
     - assets/icons/
     - assets/table_base_times/
     - assets/wr_times/
+    - assets/limit_times/
     - assets/
   generate: true
 
