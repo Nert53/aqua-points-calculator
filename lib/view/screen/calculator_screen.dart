@@ -24,8 +24,8 @@ enum Course {
   lcm('LCM (50m)'),
   scm('SCM (25m)');
 
-  const Course(this.value);
-  final String value;
+  const Course(this.namePretty);
+  final String namePretty;
 }
 
 enum Distance {
@@ -36,8 +36,8 @@ enum Distance {
   eightHundred('800 m'),
   fifteenHundred('1500 m');
 
-  const Distance(this.length);
-  final String length;
+  const Distance(this.lengthPretty);
+  final String lengthPretty;
 }
 
 enum Stroke {
@@ -179,7 +179,7 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
     int points = int.parse(_pointsController.text);
     var recordTimeSeconds = await findRecordTime(
         _gender!.name.toLowerCase(),
-        _course!.value.toLowerCase(),
+        _course!.namePretty.toLowerCase(),
         _distanceController.text,
         _selectedStroke.name);
 
@@ -206,15 +206,15 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
   bool checkDisciplineCorrectness() {
     var warningMessage = AppLocalizations.of(context)!.disciplineNotExist;
 
-    if (_distanceController.text == Distance.eightHundred.length ||
-        _distanceController.text == Distance.fifteenHundred.length) {
+    if (_distanceController.text == Distance.eightHundred.lengthPretty ||
+        _distanceController.text == Distance.fifteenHundred.lengthPretty) {
       if (_selectedStroke != Stroke.free) {
         showWarningSnackBar(context, warningMessage);
         return false;
       }
     }
 
-    if (_distanceController.text == Distance.fourHundred.length) {
+    if (_distanceController.text == Distance.fourHundred.lengthPretty) {
       if (!(_selectedStroke == Stroke.free ||
           _selectedStroke == Stroke.medley)) {
         showWarningSnackBar(context, warningMessage);
@@ -223,8 +223,8 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
     }
 
     if (_course == Course.lcm) {
-      if (_distanceController.text == Distance.fifty.length ||
-          _distanceController.text == Distance.hundred.length) {
+      if (_distanceController.text == Distance.fifty.lengthPretty ||
+          _distanceController.text == Distance.hundred.lengthPretty) {
         if (_selectedStroke == Stroke.medley) {
           showWarningSnackBar(context, warningMessage);
           return false;
@@ -233,7 +233,7 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
     }
 
     if (_course == Course.scm) {
-      if (_distanceController.text == Distance.fifty.length &&
+      if (_distanceController.text == Distance.fifty.lengthPretty &&
           _selectedStroke == Stroke.medley) {
         showWarningSnackBar(context, warningMessage);
         return false;
@@ -325,7 +325,7 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
                                 .map<DropdownMenuEntry<Distance>>(
                                     (Distance distance) {
                               return DropdownMenuEntry<Distance>(
-                                  value: distance, label: distance.length);
+                                  value: distance, label: distance.lengthPretty);
                             }).toList(),
                           ),
                         ),

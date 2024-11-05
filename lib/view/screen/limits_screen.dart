@@ -34,9 +34,6 @@ class _LimitsScreenState extends State<LimitsScreen> {
   }
 
   Future<List<List<Limit>>> _getLimits(String path) async {
-    final String jsonString = await rootBundle.loadString(path);
-    final data = jsonDecode(jsonString);
-
     List<Limit> limits =
         (json.decode(await rootBundle.loadString(path)) as List)
             .map((limit) => Limit.fromJson(limit))
@@ -54,12 +51,12 @@ class _LimitsScreenState extends State<LimitsScreen> {
         )
         .toList();
 
-    List<List<Limit>> editedLimits = [];
+    List<List<Limit>> separetedLimits = [];
     for (int i = 0; i < womenLimits.length; i++) {
-      editedLimits.add([menLimits[i], womenLimits[i]]);
+      separetedLimits.add([menLimits[i], womenLimits[i]]);
     }
 
-    return editedLimits;
+    return separetedLimits;
   }
 
   _changeCompetition(Competition competition) {

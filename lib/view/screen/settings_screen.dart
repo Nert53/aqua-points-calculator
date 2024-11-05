@@ -15,8 +15,8 @@ enum Language {
   cs('Čeština', 'cs'),
   de('Deutsch', 'de');
 
-  const Language(this.value, this.code);
-  final String value;
+  const Language(this.name, this.code);
+  final String name;
   final String code;
 }
 
@@ -56,7 +56,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
     String currentLanguageCode = Localizations.localeOf(context).languageCode;
     String currentLanguage = Language.values
         .firstWhere((element) => element.code == currentLanguageCode)
-        .value;
+        .name;
 
     return Scaffold(
       body: Center(
@@ -327,7 +327,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   itemCount: Language.values.length,
                   itemBuilder: (context, index) {
                     return ListTile(
-                      title: Text(Language.values[index].value),
+                      title: Text(Language.values[index].name),
                       trailing:
                           Language.values[index].code == currentLanguageCode
                               ? Icon(
