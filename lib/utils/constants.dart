@@ -4,3 +4,5 @@ String lastRecordUpdateDate = '03. 11. 2024';
 String facebookUrl = 'https://www.facebook.com/umimplavat';
 String instagramUrl = 'https://www.instagram.com/umimplavat.cz';
 String websiteUrl = 'https://umimplavat.cz/';
+String appVersion =
+    '1.1.0'; // manual because of the problems with 'package_info_plus' 

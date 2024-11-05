@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'package:fina_points_calculator/model/limit_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 enum Competition {
   budapest2024('Budapest 2024', 2024, 'scm', 'world', 'Budapest'),
@@ -97,6 +98,30 @@ class _LimitsScreenState extends State<LimitsScreen> {
         Divider(
           thickness: 2,
         ),
+        Row(children: [
+          Expanded(
+            child: Center(
+                child: Text(AppLocalizations.of(context)!.men,
+                    style: TextStyle(fontWeight: FontWeight.bold))),
+          ),
+          Expanded(
+            child: Center(
+              child: Text(
+                AppLocalizations.of(context)!.discipline,
+                style: TextStyle(fontWeight: FontWeight.bold),
+              ),
+            ),
+          ),
+          Expanded(
+            child: Center(
+              child: Text(
+                AppLocalizations.of(context)!.women,
+                style: TextStyle(fontWeight: FontWeight.bold),
+              ),
+            ),
+          ),
+        ]),
+        Divider(),
         Expanded(
           child: FutureBuilder(
               future: _getLimits(
@@ -116,10 +141,9 @@ class _LimitsScreenState extends State<LimitsScreen> {
                         return SizedBox(
                           height: 60,
                           child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceAround,
                             children: [
-                              Padding(
-                                padding: const EdgeInsets.only(left: 8.0),
+                              Expanded(
+                                flex: 3,
                                 child: Column(
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
@@ -133,12 +157,17 @@ class _LimitsScreenState extends State<LimitsScreen> {
                                   ],
                                 ),
                               ),
-                              Text(
-                                discipline,
-                                style: TextStyle(fontSize: 16),
+                              Expanded(
+                                flex: 5,
+                                child: Center(
+                                  child: Text(
+                                    discipline,
+                                    style: TextStyle(fontSize: 16),
+                                  ),
+                                ),
                               ),
-                              Padding(
-                                padding: const EdgeInsets.only(right: 8.0),
+                              Expanded(
+                                flex: 3,
                                 child: Column(
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [

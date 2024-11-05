@@ -15,8 +15,8 @@ enum Language {
   cs('Čeština', 'cs'),
   de('Deutsch', 'de');
 
-  const Language(this.name, this.code);
-  final String name;
+  const Language(this.value, this.code);
+  final String value;
   final String code;
 }
 
@@ -56,7 +56,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
     String currentLanguageCode = Localizations.localeOf(context).languageCode;
     String currentLanguage = Language.values
         .firstWhere((element) => element.code == currentLanguageCode)
-        .name;
+        .value;
 
     return Scaffold(
       body: Center(
@@ -178,7 +178,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                                   child: Column(
                                     children: [
                                       const Text(
-                                        'Unofficial app for calculating Aqua Points (previously named FINA points). This app is not affiliated with World Aquatics. ',
+                                        'Unofficial app for calculating Aqua Points (previously FINA points). This app is not affiliated with World Aquatics. ',
                                         style: TextStyle(fontSize: 14),
                                       ),
                                       const SizedBox(height: 10),
@@ -186,7 +186,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                                         onOpen: _onOpen,
                                         style: const TextStyle(fontSize: 14),
                                         text:
-                                            'If you have any questions or suggestions contact us directly through email umimplavat@gmail.com or visit our web (link below). ',
+                                            'If you have any questions or suggestions contact us directly through email umimplavat@gmail.com or visit our website. ',
                                       ),
                                       const SizedBox(height: 10),
                                       RichText(
@@ -201,7 +201,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                                           children: [
                                             const TextSpan(
                                                 text:
-                                                    'App is also available on the web browser ('),
+                                                    'App is also available in the web browser ('),
                                             TextSpan(
                                               text: 'finapoints.com',
                                               style: TextStyle(
@@ -216,7 +216,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                                                 text:
                                                     ') and as mobile app for Android and iOS. It is written in Flutter and Dart and is open source (visit the '),
                                             TextSpan(
-                                              text: 'GitHub repository',
+                                              text: 'GitHub',
                                               style: TextStyle(
                                                   color: Colors.blue[700],
                                                   decoration:
@@ -292,7 +292,11 @@ class _SettingsScreenState extends State<SettingsScreen> {
                                       const Text(
                                         'Creator: Vojtech Netrh',
                                       ),
-                                      const SizedBox(height: 16)
+                                      SizedBox(height: 8),
+                                      Text(
+                                        'Version: $appVersion',
+                                      ),
+                                      const SizedBox(height: 16),
                                     ],
                                   ),
                                 ),
@@ -327,7 +331,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   itemCount: Language.values.length,
                   itemBuilder: (context, index) {
                     return ListTile(
-                      title: Text(Language.values[index].name),
+                      title: Text(Language.values[index].value),
                       trailing:
                           Language.values[index].code == currentLanguageCode
                               ? Icon(
