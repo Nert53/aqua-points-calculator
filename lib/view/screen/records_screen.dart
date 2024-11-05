@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'package:fina_points_calculator/model/record_model.dart';
+import 'package:fina_points_calculator/utils/constants.dart';
 import 'package:fina_points_calculator/utils/locale_func.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -70,7 +71,9 @@ class _RecordsScreenState extends State<RecordsScreen> {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(AppLocalizations.of(context)!.recordUpdated('20. 10. 2024'),
+            Text(
+                AppLocalizations.of(context)!
+                    .recordUpdated(lastRecordUpdateDate),
                 style: TextStyle(
                   color: Theme.of(context).colorScheme.secondary,
                 )),

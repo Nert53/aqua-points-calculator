@@ -1,4 +1,5 @@
 import 'package:fina_points_calculator/view/screen/calculator_screen.dart';
+import 'package:fina_points_calculator/view/screen/limits_screen.dart';
 import 'package:fina_points_calculator/view/screen/records_screen.dart';
 import 'package:fina_points_calculator/view/screen/settings_screen.dart';
 import 'package:flutter/material.dart';
@@ -23,6 +24,7 @@ class _MainPageState extends State<MainPage> {
   final List<Widget> _screens = <Widget>[
     const CalculatorScreen(),
     const RecordsScreen(),
+    const LimitsScreen(),
     const SettingsScreen(),
   ];
 
@@ -55,6 +57,11 @@ class _MainPageState extends State<MainPage> {
                     tooltip: 'Opens world records list.',
                   ),
                   NavigationDestination(
+                      icon: Icon(Icons.timer_outlined),
+                      selectedIcon: Icon(Icons.timer),
+                      label: AppLocalizations.of(context)!.limits,
+                      tooltip: 'Opens limits for worlds.'),
+                  NavigationDestination(
                     icon: const Icon(Icons.settings_outlined),
                     selectedIcon: const Icon(Icons.settings),
                     label: AppLocalizations.of(context)!.settings,
@@ -77,6 +84,10 @@ class _MainPageState extends State<MainPage> {
                       icon: const Icon(Icons.view_list_outlined),
                       label: Text(AppLocalizations.of(context)!.records),
                       selectedIcon: const Icon(Icons.view_list)),
+                  NavigationRailDestination(
+                      icon: Icon(Icons.timer_outlined),
+                      selectedIcon: Icon(Icons.timer),
+                      label: Text(AppLocalizations.of(context)!.limits)),
                   NavigationRailDestination(
                       icon: const Icon(Icons.settings_outlined),
                       label: Text(AppLocalizations.of(context)!.settings),

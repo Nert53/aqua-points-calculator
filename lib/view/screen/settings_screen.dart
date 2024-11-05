@@ -128,14 +128,6 @@ class _SettingsScreenState extends State<SettingsScreen> {
               ),
             ),
             ListTile(
-              title: Text('Worlds limits'),
-              leading: const Icon(Icons.timer_outlined),
-              onTap: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => LimitsScreen()));
-              },
-            ),
-            ListTile(
               title: Text(AppLocalizations.of(context)!.aboutApp),
               leading: const Icon(Icons.info_outline),
               onTap: () {
