@@ -127,6 +127,64 @@ class _SettingsScreenState extends State<SettingsScreen> {
               ),
             ),
             ListTile(
+              title: Text(AppLocalizations.of(context)!.limits),
+              leading: const Icon(Icons.help_outline_outlined),
+              onTap: () {
+                showDialog(
+                    context: context,
+                    builder: (BuildContext context) {
+                      return Dialog(
+                        alignment: Alignment.topCenter,
+                        insetPadding: const EdgeInsets.only(top: 56),
+                        child: SizedBox(
+                          width: dialogWidth,
+                          child: Padding(
+                            padding: const EdgeInsets.symmetric(vertical: 12),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                Padding(
+                                  padding: const EdgeInsets.symmetric(
+                                      horizontal: 16),
+                                  child: Row(
+                                    children: [
+                                      Expanded(
+                                        child: Text(
+                                          AppLocalizations.of(context)!.limits,
+                                          style: const TextStyle(
+                                              fontWeight: FontWeight.bold,
+                                              fontSize: 20),
+                                        ),
+                                      ),
+                                      IconButton(
+                                          onPressed: () {
+                                            Navigator.of(context).pop();
+                                          },
+                                          icon: const Icon(
+                                            Icons.close,
+                                            color: Colors.redAccent,
+                                          )),
+                                    ],
+                                  ),
+                                ),
+                                const Divider(),
+                                Padding(
+                                  padding: const EdgeInsets.all(16.0),
+                                  child: Text(
+                                    'Limits are taken from the official World Aquatics website and me be different for different countries. ',
+                                    style: const TextStyle(fontSize: 14),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      );
+                    });
+              },
+            ),
+            ListTile(
               title: Text(AppLocalizations.of(context)!.aboutApp),
               leading: const Icon(Icons.info_outline),
               onTap: () {

@@ -17,16 +17,20 @@ class _MainPageState extends State<MainPage> {
 
   @override
   Widget build(BuildContext context) {
+    bool displayNavigationRail = MediaQuery.of(context).size.width > 800
+        ? true
+        : false; // navigation bar will appear on wide screens instead of bottom bar
     bool extendedNaviagtionRail = MediaQuery.of(context).size.width > 1200
         ? true
-        : false; // extended nav rail will appear only on realy wide screens (pc, laptops)
+        : false; // extended nav rail will appear only on REALLY wide screens (pc, laptops)
 
     return Scaffold(
         appBar: AppBar(
           title: const Text('Aqua Points Calculator'),
           backgroundColor: Theme.of(context).colorScheme.primaryContainer,
+          centerTitle: displayNavigationRail ? false : true,
         ),
-        bottomNavigationBar: MediaQuery.of(context).size.width < 800
+        bottomNavigationBar: !displayNavigationRail
             ? NavigationBar(
                 selectedIndex: widget.navigationShell.currentIndex,
                 onDestinationSelected: _selectScreen,
@@ -59,7 +63,7 @@ class _MainPageState extends State<MainPage> {
             : null,
         body: Row(
           children: [
-            if (MediaQuery.of(context).size.width > 800)
+            if (displayNavigationRail)
               NavigationRail(
                 destinations: [
                   NavigationRailDestination(
