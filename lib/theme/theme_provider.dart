@@ -1,13 +1,13 @@
+import 'dart:ui';
 import 'package:fina_points_calculator/theme/theme.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class ThemeProvider with ChangeNotifier {
   ThemeData _themeData = lightMode;
   ThemeData get themeData => _themeData;
   final _currentBrightness =
-      SchedulerBinding.instance.platformDispatcher.platformBrightness;
+      PlatformDispatcher.instance.platformBrightness;
   bool _isSystemColorMode = false;
   bool get isSystemColorMode => _isSystemColorMode;
 
