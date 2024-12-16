@@ -234,27 +234,30 @@ class _RecordsScreenState extends State<RecordsScreen> {
                               },
                             );
                           },
-                          child: ListTile(
-                            title: Text('${record.event} - ${record.time}',
-                                style: const TextStyle(
-                                    fontWeight: FontWeight.bold)),
-                            subtitle: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                    '${record.athlete} (${record.nationality})'),
-                                Text(record.competition),
-                                Text(
-                                    '${record.date} \u2022 ${record.locationCity}, ${record.locationCountry}'),
-                              ],
+                          child: MouseRegion(
+                            cursor: SystemMouseCursors.click,
+                            child: ListTile(
+                              title: Text('${record.event} - ${record.time}',
+                                  style: const TextStyle(
+                                      fontWeight: FontWeight.bold)),
+                              subtitle: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                      '${record.athlete} (${record.nationality})'),
+                                  Text(record.competition),
+                                  Text(
+                                      '${record.date} \u2022 ${record.locationCity}, ${record.locationCountry}'),
+                                ],
+                              ),
+                              trailing: record.isNew
+                                  ? SvgPicture.asset(
+                                      'assets/icons/new.svg',
+                                      width: 18,
+                                      height: 18,
+                                    )
+                                  : null,
                             ),
-                            trailing: record.isNew
-                                ? SvgPicture.asset(
-                                    'assets/icons/new.svg',
-                                    width: 18,
-                                    height: 18,
-                                  )
-                                : null,
                           ),
                         );
                       },
