@@ -5,8 +5,8 @@ import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 enum Competition {
-  budapest2024('Budapest 2024', 2024, 'scm', 'world', 'Budapest'),
-  singapore2025('Singapore 2025', 2025, 'lcm', 'world', 'Singapore');
+  singapore2025('Singapore 2025', 2025, 'lcm', 'world', 'Singapore'),
+  universiade2025('Universiade 2025', 2025, 'lcm', 'uni', 'Budapest');
 
   const Competition(
       this.displayName, this.year, this.course, this.type, this.city);
@@ -25,7 +25,7 @@ class LimitsScreen extends StatefulWidget {
 }
 
 class _LimitsScreenState extends State<LimitsScreen> {
-  Competition selectedCompetition = Competition.budapest2024;
+  Competition selectedCompetition = Competition.values.first;
 
   @override
   void initState() {
@@ -153,7 +153,8 @@ class _LimitsScreenState extends State<LimitsScreen> {
                                           fontSize: 16,
                                           fontWeight: FontWeight.bold),
                                     ),
-                                    Text(menLimit.timeB.toString()),
+                                    if (menLimit.timeB.isNotEmpty)
+                                      Text(menLimit.timeB.toString()),
                                   ],
                                 ),
                               ),
@@ -177,7 +178,8 @@ class _LimitsScreenState extends State<LimitsScreen> {
                                           fontSize: 16,
                                           fontWeight: FontWeight.bold),
                                     ),
-                                    Text(womenLimit.timeB.toString()),
+                                    if (womenLimit.timeB.isNotEmpty)
+                                      Text(womenLimit.timeB.toString()),
                                   ],
                                 ),
                               ),

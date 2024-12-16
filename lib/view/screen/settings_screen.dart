@@ -135,7 +135,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                     builder: (BuildContext context) {
                       return Dialog(
                         alignment: Alignment.topCenter,
-                        insetPadding: const EdgeInsets.only(top: 56),
+                        insetPadding: const EdgeInsets.only(top: 50),
                         child: SizedBox(
                           width: dialogWidth,
                           child: Padding(
@@ -149,6 +149,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
                                       horizontal: 16),
                                   child: Row(
                                     children: [
+                                      const Icon(Icons.help_outline),
+                                      const SizedBox(width: 12),
                                       Expanded(
                                         child: Text(
                                           AppLocalizations.of(context)!.limits,
@@ -170,12 +172,60 @@ class _SettingsScreenState extends State<SettingsScreen> {
                                 ),
                                 const Divider(),
                                 Padding(
-                                  padding: const EdgeInsets.all(16.0),
-                                  child: Text(
-                                    'Limits are taken from the official World Aquatics website and me be different for different countries. ',
-                                    style: const TextStyle(fontSize: 14),
-                                  ),
-                                ),
+                                    padding: const EdgeInsets.only(
+                                        left: 16, right: 16, bottom: 12),
+                                    child: Column(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.start,
+                                      children: [
+                                        RichText(
+                                            text: TextSpan(
+                                          style: TextStyle(
+                                            color: Theme.of(context)
+                                                .textTheme
+                                                .bodyMedium!
+                                                .color,
+                                          ),
+                                          children: [
+                                            TextSpan(
+                                              text: '1) Worlds and Olympics: ',
+                                              style: const TextStyle(
+                                                  fontWeight: FontWeight.bold,
+                                                  height: 2),
+                                            ),
+                                            TextSpan(text: '\n'),
+                                            TextSpan(
+                                                text:
+                                                    'Limits are taken from the official World Aquatics website. For some countries may be different (usually harder).',
+                                                style: TextStyle(height: 1.5)),
+                                          ],
+                                        )),
+                                        const SizedBox(height: 16),
+                                        RichText(
+                                            text: TextSpan(
+                                          style: TextStyle(
+                                            color: Theme.of(context)
+                                                .textTheme
+                                                .bodyMedium!
+                                                .color,
+                                          ),
+                                          children: [
+                                            TextSpan(
+                                              text:
+                                                  '2) Europeans and Universiade: ',
+                                              style: TextStyle(
+                                                  fontWeight: FontWeight.bold,
+                                                  height: 2),
+                                            ),
+                                            TextSpan(text: '\n'),
+                                            TextSpan(
+                                                text:
+                                                    'Limits are valid for Czech Aquatics and for any other federation it will be different. Czech limits are based on 16th or 8th place on the best of last 3 European Championships or one last Universiade.',
+                                                style: TextStyle(height: 1.5)),
+                                          ],
+                                        )),
+                                      ],
+                                    )),
                               ],
                             ),
                           ),

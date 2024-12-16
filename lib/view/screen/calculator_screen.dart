@@ -197,10 +197,17 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
   }
 
   void clearAllControllers() {
+    // sets all buttons to initial state
     _minutesController.clear();
     _secondsController.clear();
     _hundredthsController.clear();
     _pointsController.clear();
+    setState(() {
+      _distanceController.text = Distance.fifty.lengthPretty;
+      setSelectedStroke(Stroke.free);
+      _gender = Gender.men;
+      _course = Course.lcm;
+    });
   }
 
   bool checkDisciplineCorrectness() {
@@ -325,7 +332,8 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
                                 .map<DropdownMenuEntry<Distance>>(
                                     (Distance distance) {
                               return DropdownMenuEntry<Distance>(
-                                  value: distance, label: distance.lengthPretty);
+                                  value: distance,
+                                  label: distance.lengthPretty);
                             }).toList(),
                           ),
                         ),

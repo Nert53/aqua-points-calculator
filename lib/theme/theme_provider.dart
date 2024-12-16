@@ -3,16 +3,29 @@ import 'package:fina_points_calculator/theme/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-class ThemeProvider with ChangeNotifier {
+class ThemeProvider with ChangeNotifier, WidgetsBindingObserver {
   ThemeData _themeData = lightMode;
   ThemeData get themeData => _themeData;
-  final _currentBrightness =
-      PlatformDispatcher.instance.platformBrightness;
   bool _isSystemColorMode = false;
   bool get isSystemColorMode => _isSystemColorMode;
 
   ThemeProvider() {
+    WidgetsBinding.instance.addObserver(this);
     loadTheme();
+  }
+
+  @override
+  void dispose() {
+    WidgetsBinding.instance.removeObserver(this);
+    super.dispose();
+  }
+
+  @override
+  void didChangePlatformBrightness() {
+    if (_isSystemColorMode) {
+      final brightness = PlatformDispatcher.instance.platformBrightness;
+      themeData = brightness == Brightness.dark ? darkMode : lightMode;
+    }
   }
 
   void loadTheme() async {
@@ -20,7 +33,8 @@ class ThemeProvider with ChangeNotifier {
     _isSystemColorMode = prefs.getBool('isSystemColorMode') ?? false;
 
     if (_isSystemColorMode) {
-      themeData = _currentBrightness == Brightness.dark ? darkMode : lightMode;
+      final brightness = PlatformDispatcher.instance.platformBrightness;
+      themeData = brightness == Brightness.dark ? darkMode : lightMode;
       return;
     }
 
@@ -42,7 +56,8 @@ class ThemeProvider with ChangeNotifier {
       prefs.setBool('isSystemColorMode', value);
     });
     if (value) {
-      themeData = _currentBrightness == Brightness.dark ? darkMode : lightMode;
+      final brightness = PlatformDispatcher.instance.platformBrightness;
+      themeData = brightness == Brightness.dark ? darkMode : lightMode;
     }
     notifyListeners();
   }
@@ -58,7 +73,7 @@ class ThemeProvider with ChangeNotifier {
   bool isDarkMode() {
     return themeData == darkMode;
   }
-  
+
   /*
   ! not used
 
