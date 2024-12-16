@@ -32,6 +32,7 @@
     "medley": "Polohový závod",
     "disciplineNotExist": "Zvolená disciplína neexistuje!",
     "enterTimeWarn": "Prosím zadejte čas/body pro výpočet!",
+    "splitsInfo": "Pokud kliknete na dlaždici světového rekordu, zobrazí se vám mezičasy.",
     "recordUpdated": "Rekordy aktualizovány: {date}",
     "@recordUpdated": {
         "placeholders": {

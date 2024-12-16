@@ -32,6 +32,7 @@
   "medley": "Lagen",
   "disciplineNotExist": "Ausgewählte Disziplin gibt es nicht!",
   "enterTimeWarn": "Bitte geben Sie eine Zeit oder Points zum Berechnen ein!",
+  "splitsInfo": "Wenn Sie auf die Kachel mit den Weltrekorden klicken, sehen Sie die Zwischenzeiten.",
   "recordUpdated": "Rekorde aktualisiert: {date}",
   "@recordUpdated": {
     "placeholders": {

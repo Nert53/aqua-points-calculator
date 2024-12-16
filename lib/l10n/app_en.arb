@@ -32,6 +32,7 @@
   "medley": "Medley",
   "disciplineNotExist": "Selected discipline does not exist!",
   "enterTimeWarn": "Please enter time/Aqua Points to calculate!",
+  "splitsInfo": "If you click on the world record tile, you will see the split times.",
   "recordUpdated": "Records updated: {date}",
   "@recordUpdated": {
     "placeholders": {

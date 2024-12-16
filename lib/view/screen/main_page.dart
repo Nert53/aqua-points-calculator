@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:go_router/go_router.dart';
 
 class MainPage extends StatefulWidget {
-  final dynamic navigationShell;
+  final StatefulNavigationShell navigationShell;
 
   const MainPage({super.key, required this.navigationShell});
 
@@ -27,6 +28,40 @@ class _MainPageState extends State<MainPage> {
     return Scaffold(
         appBar: AppBar(
           title: const Text('Aqua Points Calculator'),
+          actions: [
+            if (widget.navigationShell.currentIndex == 1)
+              IconButton(
+                icon: Icon(
+                  Icons.more_horiz,
+                ),
+                onPressed: () {
+                  ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                    behavior: SnackBarBehavior.floating,
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(12))),
+                    backgroundColor:
+                        Theme.of(context).colorScheme.secondaryContainer,
+                    content: Row(
+                      children: [
+                        Icon(
+                          Icons.info_outline,
+                        ),
+                        const SizedBox(width: 8),
+                        Flexible(
+                            child: Text(
+                          AppLocalizations.of(context)!.splitsInfo,
+                          style: TextStyle(
+                              color: Theme.of(context)
+                                  .textTheme
+                                  .bodyMedium!
+                                  .color),
+                        )),
+                      ],
+                    ),
+                  ));
+                },
+              ),
+          ],
           backgroundColor: Theme.of(context).colorScheme.primaryContainer,
           centerTitle: displayNavigationRail ? false : true,
         ),
