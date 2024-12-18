@@ -40,6 +40,14 @@ android {
         targetCompatibility = JavaVersion.VERSION_17
     }
 
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_17
+    }
+
+    kotlin {
+        jvmToolchain(17)
+    }
+
     defaultConfig {
         applicationId = "cz.umimplavat.aqua_points_calculator"
         minSdk = flutter.minSdkVersion
