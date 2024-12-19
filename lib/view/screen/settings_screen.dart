@@ -201,8 +201,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                                           ],
                                         )),
                                         const SizedBox(height: 16),
-                                        RichText(
-                                            text: TextSpan(
+                                        SelectableText.rich(TextSpan(
                                           style: TextStyle(
                                             color: Theme.of(context)
                                                 .textTheme
