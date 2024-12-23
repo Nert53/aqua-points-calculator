@@ -19,7 +19,7 @@ String getLocalizedStroke(BuildContext context, String stroke) {
 }
 
 String getLocalizedGender(BuildContext context, String gender) {
-  switch(gender.toLowerCase()){
+  switch (gender.toLowerCase()) {
     case 'men':
       return AppLocalizations.of(context)!.men;
     case 'women':
@@ -32,7 +32,7 @@ String getLocalizedGender(BuildContext context, String gender) {
 }
 
 String getLocalizedCourse(BuildContext context, String course) {
-  switch(course.toLowerCase()){
+  switch (course.toLowerCase()) {
     case 'lcm':
       return AppLocalizations.of(context)!.lcm;
     case 'scm':
@@ -42,8 +42,39 @@ String getLocalizedCourse(BuildContext context, String course) {
   }
 }
 
+String getLocalizedMonth(BuildContext context, String month) {
+  switch (month.toLowerCase()) {
+    case 'january':
+      return AppLocalizations.of(context)!.january;
+    case 'february':
+      return AppLocalizations.of(context)!.february;
+    case 'march':
+      return AppLocalizations.of(context)!.march;
+    case 'april':
+      return AppLocalizations.of(context)!.april;
+    case 'may':
+      return AppLocalizations.of(context)!.may;
+    case 'june':
+      return AppLocalizations.of(context)!.june;
+    case 'july':
+      return AppLocalizations.of(context)!.july;
+    case 'august':
+      return AppLocalizations.of(context)!.august;
+    case 'september':
+      return AppLocalizations.of(context)!.september;
+    case 'october':
+      return AppLocalizations.of(context)!.october;
+    case 'november':
+      return AppLocalizations.of(context)!.november;
+    case 'december':
+      return AppLocalizations.of(context)!.december;
+    default:
+      return AppLocalizations.of(context)!.january;
+  }
+}
+
 extension StringExtension on String {
-    String capitalize() {
-      return "${this[0].toUpperCase()}${substring(1).toLowerCase()}";
-    }
+  String capitalize() {
+    return "${this[0].toUpperCase()}${substring(1).toLowerCase()}";
+  }
 }

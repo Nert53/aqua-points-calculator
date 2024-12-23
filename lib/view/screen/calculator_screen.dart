@@ -20,6 +20,16 @@ enum Gender {
   final Color color;
 }
 
+enum Season {
+  s2425('24/25', '24-25'),
+  s2324('23/24', '23-24'),
+  s2223('22/23', '22-23');
+
+  const Season(this.name, this.value);
+  final String name;
+  final String value;
+}
+
 enum Course {
   lcm('LCM (50m)'),
   scm('SCM (25m)');
@@ -83,6 +93,7 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
   final _pointsController = TextEditingController();
   final _distanceController = TextEditingController();
   final _strokeController = TextEditingController();
+  final _seasonController = TextEditingController();
 
   Stroke _selectedStroke = Stroke.free;
 
@@ -165,7 +176,8 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
         _gender!.name.toLowerCase(),
         _course!.name.toLowerCase(),
         _distanceController.text,
-        _selectedStroke.name);
+        _selectedStroke.name,
+        _seasonController.text.replaceAll('/', '-'));
 
     int points =
         (1000 * pow(recordTimeSeconds / overallTimeSeconds, 3)).toInt();
@@ -181,7 +193,8 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
         _gender!.name.toLowerCase(),
         _course!.namePretty.toLowerCase(),
         _distanceController.text,
-        _selectedStroke.name);
+        _selectedStroke.name,
+        _seasonController.text.replaceAll('/', '-'));
 
     double timeSecond =
         (recordTimeSeconds / pow(points / 1000, 1 / 3)).toDouble();
@@ -207,6 +220,7 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
       setSelectedStroke(Stroke.free);
       _gender = Gender.men;
       _course = Course.lcm;
+      _seasonController.text = Season.s2425.name;
     });
   }
 
@@ -284,25 +298,66 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
                     const SizedBox(
                       height: 16,
                     ),
-                    TextField(
-                      controller: _pointsController,
-                      textInputAction: TextInputAction.done,
-                      onChanged: (value) {
-                        swapEditedValues(false);
-                      },
-                      keyboardType: TextInputType.number,
-                      inputFormatters: [FilteringTextInputFormatter.digitsOnly],
-                      style: const TextStyle(
-                          fontWeight: FontWeight.bold, fontSize: 24),
-                      decoration: InputDecoration(
-                          labelText: AppLocalizations.of(context)!.aquaPoints,
-                          prefixIcon: const Icon(Icons.pin_outlined),
-                          border: const OutlineInputBorder(
-                            borderRadius: BorderRadius.all(Radius.circular(12)),
+                    Row(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Expanded(
+                            flex: 2,
+                            child: TextField(
+                              controller: _pointsController,
+                              textInputAction: TextInputAction.done,
+                              onChanged: (value) {
+                                swapEditedValues(false);
+                              },
+                              keyboardType: TextInputType.number,
+                              inputFormatters: [
+                                FilteringTextInputFormatter.digitsOnly
+                              ],
+                              style: const TextStyle(
+                                  fontWeight: FontWeight.bold, fontSize: 24),
+                              decoration: InputDecoration(
+                                  labelText:
+                                      AppLocalizations.of(context)!.aquaPoints,
+                                  prefixIcon: const Icon(Icons.pin_outlined),
+                                  border: const OutlineInputBorder(
+                                    borderRadius:
+                                        BorderRadius.all(Radius.circular(12)),
+                                  ),
+                                  contentPadding: const EdgeInsets.all(16),
+                                  isDense: true),
+                            ),
                           ),
-                          contentPadding: const EdgeInsets.all(16),
-                          isDense: true),
-                    ),
+                          SizedBox(
+                            width: 16,
+                          ),
+                          Expanded(
+                            child: DropdownMenu<Season>(
+                              expandedInsets: EdgeInsets.zero,
+                              label: Text(AppLocalizations.of(context)!.season,
+                                  style: TextStyle(
+                                      color: Theme.of(context)
+                                          .colorScheme
+                                          .primary)),
+                              controller: _seasonController,
+                              initialSelection: Season.s2425,
+                              inputDecorationTheme: const InputDecorationTheme(
+                                  border: OutlineInputBorder(
+                                      borderRadius: BorderRadius.all(
+                                          Radius.circular(12)))),
+                              menuStyle: MenuStyle(
+                                  shape: WidgetStateProperty.all(
+                                      const RoundedRectangleBorder(
+                                          borderRadius: BorderRadius.all(
+                                              Radius.circular(12))))),
+                              dropdownMenuEntries: Season.values
+                                  .map<DropdownMenuEntry<Season>>(
+                                      (Season season) {
+                                return DropdownMenuEntry<Season>(
+                                    value: season, label: season.name);
+                              }).toList(),
+                            ),
+                          ),
+                        ]),
                     const SizedBox(
                       height: 16,
                     ),
@@ -351,7 +406,7 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
                                 style: TextStyle(
                                     color:
                                         Theme.of(context).colorScheme.primary)),
-                            //initialSelection: Stroke.free,
+                            initialSelection: Stroke.free,
                             controller: _strokeController,
                             inputDecorationTheme: const InputDecorationTheme(
                                 border: OutlineInputBorder(
@@ -523,15 +578,15 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
   }
 }
 
-Future<double> findRecordTime(
-    String gender, String course, String distance, String stroke) async {
+Future<double> findRecordTime(String gender, String course, String distance,
+    String stroke, String season) async {
   gender = gender.toLowerCase();
   course = course.toLowerCase().substring(0, 3);
   distance = distance.toLowerCase().replaceAll(' ', '');
   stroke = stroke.toLowerCase();
 
-  var allRecords =
-      await _getRecords('assets/table_base_times/${gender}_$course.json');
+  var allRecords = await _getRecords(
+      'assets/table_base_times/$season/${gender}_$course.json');
   for (var record in allRecords) {
     if (record.eventDistance == distance && record.eventStroke == stroke) {
       double minutes, seconds, hundredths;

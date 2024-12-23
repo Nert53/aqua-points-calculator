@@ -32,7 +32,7 @@ class _MainPageState extends State<MainPage> {
             if (widget.navigationShell.currentIndex == 1)
               IconButton(
                 icon: Icon(
-                  Icons.more_horiz,
+                  Icons.touch_app_outlined,
                 ),
                 onPressed: () {
                   ScaffoldMessenger.of(context).showSnackBar(SnackBar(

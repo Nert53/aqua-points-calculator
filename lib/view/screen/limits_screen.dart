@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'package:fina_points_calculator/model/limit_model.dart';
+import 'package:fina_points_calculator/utils/locale_func.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -134,7 +135,7 @@ class _LimitsScreenState extends State<LimitsScreen> {
                       itemBuilder: (context, index) {
                         List<Limit> currentLimit = model.data![index];
                         String discipline =
-                            '${currentLimit[0].eventDistance} ${currentLimit[0].eventStroke}';
+                            '${currentLimit[0].eventDistance} ${getLocalizedStroke(context, currentLimit[0].eventStroke)}';
                         Limit menLimit = currentLimit[0];
                         Limit womenLimit = currentLimit[1];
 

@@ -185,59 +185,71 @@ class _RecordsScreenState extends State<RecordsScreen> {
                           const Divider(),
                       itemCount: model.data!.length,
                       itemBuilder: (context, index) {
-                        var record = model.data![index];
-                        var splitLength = 50;
+                        Record record = model.data![index];
+                        int splitLength = 50;
                         if (record.split25) {
                           splitLength = 25;
                         }
 
-                        return GestureDetector(
-                          onTap: () {
-                            showDialog(
-                              context: context,
-                              builder: (context) {
-                                return AlertDialog(
-                                  title: Text(
-                                    '${record.event} Splits',
-                                    style: TextStyle(
-                                        color: Theme.of(context)
-                                            .colorScheme
-                                            .primary),
-                                  ),
-                                  actions: [
-                                    TextButton(
-                                      onPressed: () {
-                                        Navigator.of(context).pop();
-                                      },
-                                      child: Text(
-                                        AppLocalizations.of(context)!.close,
-                                        style: TextStyle(
-                                            color: Theme.of(context)
-                                                .colorScheme
-                                                .primary),
-                                      ),
+                        String recordGender = getLocalizedGender(
+                            context, record.event.split(' ')[0]);
+                        String recordStroke =
+                            getLocalizedStroke(context, record.eventStroke);
+                        String recordDistance = record.eventDistance;
+
+                        String recordDateDay = record.date.split(' ')[0];
+                        String recordDateMonth = getLocalizedMonth(
+                            context, record.date.split(' ')[1]);
+                        String recordDateYear = record.date.split(' ')[2];
+
+                        return MouseRegion(
+                          cursor: SystemMouseCursors.click,
+                          child: GestureDetector(
+                            onTap: () {
+                              showDialog(
+                                context: context,
+                                builder: (context) {
+                                  return AlertDialog(
+                                    title: Text(
+                                      '$recordGender $recordDistance $recordStroke ${AppLocalizations.of(context)!.splits}',
+                                      style: TextStyle(
+                                          color: Theme.of(context)
+                                              .colorScheme
+                                              .primary),
                                     ),
-                                  ],
-                                  content: SizedBox(
-                                    height: (record.splits.length * 50) + 15,
-                                    width: double.minPositive,
-                                    child: ListView.builder(
-                                        itemCount: record.splits.length,
-                                        itemBuilder: (context, index) {
-                                          return ListTile(
-                                            title: Text(
-                                                '${(index + 1) * splitLength}m - ${record.splits[index]} (${record.sectionTimes[index]})'),
-                                          );
-                                        }),
-                                  ),
-                                );
-                              },
-                            );
-                          },
-                          child: MouseRegion(
-                            cursor: SystemMouseCursors.click,
+                                    actions: [
+                                      TextButton(
+                                        onPressed: () {
+                                          Navigator.of(context).pop();
+                                        },
+                                        child: Text(
+                                          AppLocalizations.of(context)!.close,
+                                          style: TextStyle(
+                                              color: Theme.of(context)
+                                                  .colorScheme
+                                                  .primary),
+                                        ),
+                                      ),
+                                    ],
+                                    content: SizedBox(
+                                      height: (record.splits.length * 50) + 15,
+                                      width: double.minPositive,
+                                      child: ListView.builder(
+                                          itemCount: record.splits.length,
+                                          itemBuilder: (context, index) {
+                                            return ListTile(
+                                              title: Text(
+                                                  '${(index + 1) * splitLength}m - ${record.splits[index]} (${record.sectionTimes[index]})'),
+                                            );
+                                          }),
+                                    ),
+                                  );
+                                },
+                              );
+                            },
                             child: ListTile(
-                              title: Text('${record.event} - ${record.time}',
+                              title: Text(
+                                  '$recordGender $recordDistance $recordStroke - ${record.time}',
                                   style: const TextStyle(
                                       fontWeight: FontWeight.bold)),
                               subtitle: Column(
@@ -247,7 +259,7 @@ class _RecordsScreenState extends State<RecordsScreen> {
                                       '${record.athlete} (${record.nationality})'),
                                   Text(record.competition),
                                   Text(
-                                      '${record.date} \u2022 ${record.locationCity}, ${record.locationCountry}'),
+                                      '$recordDateDay ${recordDateMonth.toLowerCase()} $recordDateYear  \u2022 ${record.locationCity}, ${record.locationCountry}'),
                                 ],
                               ),
                               trailing: record.isNew

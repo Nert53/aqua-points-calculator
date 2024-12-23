@@ -1,8 +1,8 @@
 import 'package:fina_points_calculator/theme/theme_provider.dart';
 import 'package:fina_points_calculator/utils/constants.dart';
+import 'package:fina_points_calculator/view/widget/warning_snackbar.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_linkify/flutter_linkify.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:provider/provider.dart';
 import 'dart:async';
@@ -30,16 +30,23 @@ class SettingsScreen extends StatefulWidget {
 class _SettingsScreenState extends State<SettingsScreen> {
   double containerHeight = 50.0 * Language.values.length;
 
-  Future<void> _onOpen(LinkableElement link) async {
-    if (!await launchUrl(Uri.parse(link.url))) {
-      throw Exception('Could not launch ${link.url}');
-    }
-  }
-
-  Future<void> _onImageClick(String link) async {
+  Future<void> _openLink(String link) async {
     if (!await launchUrl(Uri.parse(link))) {
       throw Exception('Could not launch $link');
     }
+  }
+
+  Future<bool> _openEmail(String email) async {
+    final Uri emailLaunchUri = Uri(
+      scheme: 'mailto',
+      path: email,
+      query: 'subject=Aqua Point report',
+    );
+
+    if (!await launchUrl(emailLaunchUri)) {
+      return false;
+    }
+    return true;
   }
 
   @override
@@ -178,8 +185,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                                       mainAxisAlignment:
                                           MainAxisAlignment.start,
                                       children: [
-                                        RichText(
-                                            text: TextSpan(
+                                        SelectableText.rich(TextSpan(
                                           style: TextStyle(
                                             color: Theme.of(context)
                                                 .textTheme
@@ -281,132 +287,155 @@ class _SettingsScreenState extends State<SettingsScreen> {
                               Padding(
                                 padding:
                                     const EdgeInsets.symmetric(horizontal: 16),
-                                child: SelectionArea(
-                                  child: Column(
-                                    children: [
-                                      const Text(
-                                        'Unofficial app for calculating Aqua Points (previously FINA points). This app is not affiliated with World Aquatics. ',
-                                        style: TextStyle(fontSize: 14),
+                                child: Column(children: [
+                                  SelectableText.rich(
+                                    TextSpan(
+                                      style: TextStyle(
+                                        fontSize: 14,
+                                        color: Theme.of(context)
+                                            .textTheme
+                                            .bodyMedium!
+                                            .color,
                                       ),
-                                      const SizedBox(height: 10),
-                                      SelectableLinkify(
-                                        onOpen: _onOpen,
-                                        style: const TextStyle(fontSize: 14),
-                                        text:
-                                            'If you have any questions or suggestions contact us directly through email umimplavat@gmail.com or visit our website. ',
-                                      ),
-                                      const SizedBox(height: 10),
-                                      RichText(
-                                        text: TextSpan(
+                                      children: [
+                                        TextSpan(
+                                          text:
+                                              'Unofficial app for calculating Aqua Points (previously FINA points). This app is not affiliated with World Aquatics. ',
+                                        ),
+                                        TextSpan(
+                                          text: '\n\n',
+                                        ),
+                                        TextSpan(
+                                          text:
+                                              'If you have any questions or suggestions contact us directly through email ',
+                                        ),
+                                        TextSpan(
+                                          text: 'umimplavat@gmail.com',
                                           style: TextStyle(
-                                              color: Theme.of(context)
-                                                  .textTheme
-                                                  .bodyMedium!
-                                                  .color,
-                                              fontSize: 14,
-                                              height: 1.5),
-                                          children: [
-                                            const TextSpan(
-                                                text:
-                                                    'App is also available in the web browser ('),
-                                            TextSpan(
-                                              text: 'finapoints.com',
-                                              style: TextStyle(
-                                                  color: Colors.blue[700],
-                                                  decoration:
-                                                      TextDecoration.underline),
-                                              recognizer: TapGestureRecognizer()
-                                                ..onTap = () => _onImageClick(
-                                                    'https://finapoints.com/'),
-                                            ),
-                                            const TextSpan(
-                                                text:
-                                                    ') and as mobile app for Android and iOS. It is written in Flutter and Dart and is open source (visit the '),
-                                            TextSpan(
-                                              text: 'GitHub',
-                                              style: TextStyle(
-                                                  color: Colors.blue[700],
-                                                  decoration:
-                                                      TextDecoration.underline),
-                                              recognizer: TapGestureRecognizer()
-                                                ..onTap = () => _onImageClick(
-                                                    'https://github.com/Nert53/aqua-points-calculator'),
-                                            ),
-                                            const TextSpan(text: ').'),
-                                          ],
+                                              color: Colors.blue[700],
+                                              decoration:
+                                                  TextDecoration.underline),
+                                          recognizer: TapGestureRecognizer()
+                                            ..onTap = () async {
+                                              if (!await _openEmail(
+                                                  'umimplavat@gmail.com')) {
+                                                showWarningSnackBar(context,
+                                                    'Could not open email');
+                                              }
+                                            },
+                                        ),
+                                        TextSpan(
+                                            text:
+                                                ' or visit our website below.'),
+                                        TextSpan(
+                                          text: '\n\n',
+                                        ),
+                                        TextSpan(
+                                          text:
+                                              'App is also available as a web app (',
+                                        ),
+                                        TextSpan(
+                                          text: 'finapoints.com',
+                                          style: TextStyle(
+                                              color: Colors.blue[700],
+                                              decoration:
+                                                  TextDecoration.underline),
+                                          mouseCursor: SystemMouseCursors.click,
+                                          recognizer: TapGestureRecognizer()
+                                            ..onTap = () => _openLink(
+                                                'https://finapoints.com/'),
+                                        ),
+                                        const TextSpan(
+                                            text:
+                                                ') and also mobile app for Android and iOS. It is written in Flutter and Dart and is open source (visit the '),
+                                        TextSpan(
+                                          text: 'GitHub',
+                                          style: TextStyle(
+                                              color: Colors.blue[700],
+                                              decoration:
+                                                  TextDecoration.underline),
+                                          mouseCursor: SystemMouseCursors.click,
+                                          recognizer: TapGestureRecognizer()
+                                            ..onTap = () => _openLink(
+                                                'https://github.com/Nert53/aqua-points-calculator'),
+                                        ),
+                                        const TextSpan(text: ').'),
+                                      ],
+                                    ),
+                                  ),
+                                  const SizedBox(height: 24),
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      MouseRegion(
+                                        cursor: SystemMouseCursors.click,
+                                        child: GestureDetector(
+                                          onTap: () => _openLink(instagramUrl),
+                                          child: SvgPicture.asset(
+                                            'assets/icons/instagram_black.svg', // On click should redirect to an URL
+                                            width: 32,
+                                            height: 32,
+                                            color: Theme.of(context)
+                                                .textTheme
+                                                .bodyMedium!
+                                                .color,
+                                          ),
                                         ),
                                       ),
-                                      const SizedBox(height: 32),
-                                      Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
-                                        children: [
-                                          GestureDetector(
-                                            onTap: () =>
-                                                _onImageClick(instagramUrl),
-                                            child: SvgPicture.asset(
-                                              'assets/icons/instagram_black.svg', // On click should redirect to an URL
-                                              width: 32,
-                                              height: 32,
-                                              color: Theme.of(context)
-                                                  .textTheme
-                                                  .bodyMedium!
-                                                  .color,
-                                            ),
+                                      const SizedBox(width: 24),
+                                      MouseRegion(
+                                        cursor: SystemMouseCursors.click,
+                                        child: GestureDetector(
+                                          onTap: () => _openLink(facebookUrl),
+                                          child: Image.asset(
+                                            'assets/icons/facebook_secondary.png', // On click should redirect to an URL
+                                            width: 32,
+                                            height: 32,
+                                            color: Theme.of(context)
+                                                .textTheme
+                                                .bodyMedium!
+                                                .color,
                                           ),
-                                          const SizedBox(width: 24),
-                                          GestureDetector(
-                                            onTap: () =>
-                                                _onImageClick(facebookUrl),
-                                            child: Image.asset(
-                                              'assets/icons/facebook_secondary.png', // On click should redirect to an URL
-                                              width: 32,
-                                              height: 32,
-                                              color: Theme.of(context)
-                                                  .textTheme
-                                                  .bodyMedium!
-                                                  .color,
-                                            ),
+                                        ),
+                                      ),
+                                      const SizedBox(width: 24),
+                                      MouseRegion(
+                                        cursor: SystemMouseCursors.click,
+                                        child: GestureDetector(
+                                          onTap: () => _openLink(websiteUrl),
+                                          child: Icon(
+                                            Icons
+                                                .web_outlined, // On click should redirect to an URL
+                                            size: 32,
+                                            color: Theme.of(context)
+                                                .textTheme
+                                                .bodyMedium!
+                                                .color,
                                           ),
-                                          const SizedBox(width: 24),
-                                          GestureDetector(
-                                            onTap: () =>
-                                                _onImageClick(websiteUrl),
-                                            child: Icon(
-                                              Icons
-                                                  .web_outlined, // On click should redirect to an URL
-                                              size: 32,
-                                              color: Theme.of(context)
-                                                  .textTheme
-                                                  .bodyMedium!
-                                                  .color,
-                                            ),
-                                          ),
-                                        ],
+                                        ),
                                       ),
-                                      const SizedBox(height: 32),
-                                      Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
-                                        children: [
-                                          const Text('Author:'),
-                                          Image.asset(
-                                            'assets/um_logo_long.png',
-                                            width: 125,
-                                          ),
-                                        ],
-                                      ),
-                                      const Text(
-                                        'Creator: Vojtech Netrh',
-                                      ),
-                                      SizedBox(height: 8),
-                                      Text(
-                                        'Version: $appVersion',
-                                      ),
-                                      const SizedBox(height: 16),
                                     ],
                                   ),
-                                ),
+                                  const SizedBox(height: 24),
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      const Text('Author:'),
+                                      Image.asset(
+                                        'assets/um_logo_long.png',
+                                        width: 125,
+                                      ),
+                                    ],
+                                  ),
+                                  const Text(
+                                    'Creator: Vojtech Netrh',
+                                  ),
+                                  SizedBox(height: 8),
+                                  Text(
+                                    'Version: $appVersion',
+                                  ),
+                                  const SizedBox(height: 16)
+                                ]),
                               ),
                             ],
                           ),

@@ -32,7 +32,9 @@ flutter:
   uses-material-design: true
   assets:
     - assets/icons/
-    - assets/table_base_times/
+    - assets/table_base_times/22-23/
+    - assets/table_base_times/23-24/
+    - assets/table_base_times/24-25/
     - assets/wr_times/
     - assets/limit_times/
     - assets/
