@@ -134,6 +134,91 @@ class _SettingsScreenState extends State<SettingsScreen> {
               ),
             ),
             ListTile(
+              title: Text(AppLocalizations.of(context)!.pointsSeason),
+              leading: const Icon(Icons.scoreboard_outlined),
+              onTap: () {
+                showDialog(
+                    context: context,
+                    builder: (BuildContext context) {
+                      return Dialog(
+                        alignment: Alignment.topCenter,
+                        insetPadding: const EdgeInsets.only(top: 50),
+                        child: SizedBox(
+                          width: dialogWidth,
+                          child: Padding(
+                            padding: const EdgeInsets.symmetric(vertical: 12),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                Padding(
+                                  padding: const EdgeInsets.symmetric(
+                                      horizontal: 16),
+                                  child: Row(
+                                    children: [
+                                      const Icon(Icons.help_outline),
+                                      const SizedBox(width: 12),
+                                      Expanded(
+                                        child: Text(
+                                          AppLocalizations.of(context)!
+                                              .pointsSeason,
+                                          style: const TextStyle(
+                                              fontWeight: FontWeight.bold,
+                                              fontSize: 20),
+                                        ),
+                                      ),
+                                      IconButton(
+                                          onPressed: () {
+                                            Navigator.of(context).pop();
+                                          },
+                                          icon: const Icon(
+                                            Icons.close,
+                                            color: Colors.redAccent,
+                                          )),
+                                    ],
+                                  ),
+                                ),
+                                const Divider(),
+                                Padding(
+                                    padding: const EdgeInsets.only(
+                                        left: 16, right: 16, bottom: 12),
+                                    child: Column(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.start,
+                                      children: [
+                                        SelectableText.rich(TextSpan(
+                                          style: TextStyle(
+                                            color: Theme.of(context)
+                                                .textTheme
+                                                .bodyMedium!
+                                                .color,
+                                          ),
+                                          children: [
+                                            TextSpan(
+                                                text:
+                                                    'Because some fedarations use older points tables for their own purposes, we have added the possibility to choose it. For the people unfamiliar with these terms, let us explain it.'),
+                                            TextSpan(text: '\n\n'),
+                                            TextSpan(
+                                              text:
+                                                  'For example the option of "season 24/25" means that the points are calculated according to tables released in 01. 09. 2024 for short course and in 01. 01. 2025 for long course. The tables are valid for one year from the release date.',
+                                            ),
+                                            TextSpan(text: '\n\n'),
+                                            TextSpan(
+                                                text:
+                                                    'If there is new winter season (short course) and there is still no new tables for summer season (long course), the last summer tables are used.'),
+                                          ],
+                                        )),
+                                      ],
+                                    )),
+                              ],
+                            ),
+                          ),
+                        ),
+                      );
+                    });
+              },
+            ),
+            ListTile(
               title: Text(AppLocalizations.of(context)!.limits),
               leading: const Icon(Icons.help_outline_outlined),
               onTap: () {

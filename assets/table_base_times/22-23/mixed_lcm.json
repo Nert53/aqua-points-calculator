@@ -1,0 +1,36 @@
+[
+    {
+        "Event": "Mixed 4x100m Freestyle Relay",
+        "Pool": "LCM",
+        "Record Description": "Meet Record",
+        "Record": "WR",
+        "Time": "03:19.38",
+        "Athlete": "WILSON Madison, CHALMERS Kyle, CARTWRIGHT Jack, O'CALLAGHAN Mollie",
+        "NF Code": "AUS",
+        "Gender": "X",
+        "Competition": "World Aquatics Championships - Hungary",
+        "Country": "Hungary",
+        "City": "Budapest",
+        "Date": "24-Jun-24",
+        "Splits": "",
+        "Tags": "",
+        "Status": "Approved"
+    },
+    {
+        "Event": "Mixed 4x100m Medley Relay",
+        "Pool": "LCM",
+        "Record Description": "Meet Record",
+        "Record": "WR",
+        "Time": "03:37.58",
+        "Athlete": "HOPKIN Anna, GUY James, PEATY Adam, DAWSON Kathleen",
+        "NF Code": "GBR",
+        "Gender": "X",
+        "Competition": "Olympic Games Tokyo 2020",
+        "Country": "Japan",
+        "City": "Tokyo",
+        "Date": "31-Jul-21",
+        "Splits": "28.35, 58.80, 01:24.98, 01:55.58, 02:18.80, 02:45.58, 03:10.24, 03:37.58",
+        "Tags": "",
+        "Status": "Approved"
+    }
+]

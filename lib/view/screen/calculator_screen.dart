@@ -316,8 +316,14 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
                               style: const TextStyle(
                                   fontWeight: FontWeight.bold, fontSize: 24),
                               decoration: InputDecoration(
-                                  labelText:
-                                      AppLocalizations.of(context)!.aquaPoints,
+                                label: Text(
+                                    AppLocalizations.of(context)!.aquaPoints,
+                                    style: TextStyle(
+                                        color: Theme.of(context)
+                                            .colorScheme
+                                            .primary)),
+                                
+                                  
                                   prefixIcon: const Icon(Icons.pin_outlined),
                                   border: const OutlineInputBorder(
                                     borderRadius:
