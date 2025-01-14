@@ -156,7 +156,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                                       horizontal: 16),
                                   child: Row(
                                     children: [
-                                      const Icon(Icons.help_outline),
+                                      const Icon(Icons.scoreboard_outlined),
                                       const SizedBox(width: 12),
                                       Expanded(
                                         child: Text(
