@@ -36,6 +36,38 @@ App is also optimized for larger devices like iPads or desktops.
 
 </div>
 
+## Versions changelog 
+
+#### v1.1.1
+- Added new screen with limits for big competitions
+- Added ability of app to keep it's state
+
+#### v1.0.6
+- Fixed bugs
+- Added new WR
+
+#### v1.0.5
+- Added new WR from World Cup and USA
+- Added splits for all world records
+
+#### v1.0.4
+- Fixed bug with no calcualtion in other languages
+
+#### v1.0.3
+- Fixed bug of calcualte button
+
+#### v1.0.2
+- Added German language
+- New "system" option for dark mode
+- UI optimalization
+- Completed translation
+
+#### v1.0.1
+- Fixed bug with hiding keyboard
+- Added labels for navigation on iPad
+
+#### v1.0.0
+- Initial version 
 
 ## Help with translation
 
