@@ -38,9 +38,21 @@ App is also optimized for larger devices like iPads or desktops.
 
 ## Versions changelog 
 
+#### v1.3.0
+- Updated tables for year 2025
+- Added option to choose from past season tables
+- Added explenation window for limits and season points
+- Improved translation
+
+#### v1.2.0
+- Added world records from Budapest Worlds
+- Added limits for Summer Universiade 2025
+- Update "system" color mode to work instantly
+
 #### v1.1.1
 - Added new screen with limits for big competitions
 - Added ability of app to keep it's state
+- Fixed bugs
 
 #### v1.0.6
 - Fixed bugs
