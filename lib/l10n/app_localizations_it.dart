@@ -69,7 +69,7 @@ class AppLocalizationsIt extends AppLocalizations {
   String get dark => 'Scuro';
 
   @override
-  String get aboutApp => 'About App';
+  String get aboutApp => 'Informazioni sull\'app';
 
   @override
   String get close => 'Chiudi';
