@@ -32,7 +32,7 @@ App is also optimized for larger devices like iPads or desktops.
 
 <div align="center">
   
-![github screenshots graphic](.github/assets/github-graphic.png)
+![github screenshots graphic](.github/assets/github-graphic-new.png)
 
 </div>
 
