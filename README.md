@@ -32,11 +32,16 @@ App is also optimized for larger devices like iPads or desktops.
 
 <div align="center">
   
-![github screenshots graphic](.github/assets/github-graphic.png)
+![github screenshots graphic](.github/assets/github-graphic-new.png)
 
 </div>
 
 ## Versions changelog 
+
+#### v1.3.1
+- Added italian language support.
+- Added flag icons in language choose dialog.
+- Migration onto new localization file system.
 
 #### v1.3.0
 - Updated tables for year 2025
@@ -83,12 +88,13 @@ App is also optimized for larger devices like iPads or desktops.
 
 ## Help with translation
 
-We are currently supporting 3 languages (Czech, English and German). If you want to help us "expand" to another countries just help us translate.
+We are currently supporting 4 languages (Czech, English, German and Italian). If you want to help us "expand" to another countries just help us translate.
 
 Navigate to `lib/l10n` and download the `app_en.arb` file. You will se bunch of pairs of words. On the left side is english name (don't change it) and on the right change the english translation to our picked language. After you translate everything please send it to <a href="mailto:vojtanetrh@gmail.com">my email</a> and I will connect with you.
 
 ## Contacts
 
+If you like the app please give a ⭐️ to this repo!
 - email: <a href="mailto:vojtanetrh@gmail.com">vojtanetrh@gmail.com</a>
 - instagram: <a href="https://www.instagram.com/vojta_netrh/">@vojta_netrh</a>
 
