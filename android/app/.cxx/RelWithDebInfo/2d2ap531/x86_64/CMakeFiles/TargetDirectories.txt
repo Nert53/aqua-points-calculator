@@ -1,0 +1,2 @@
+C:/data-personal/programming/fina_points_calculator/code/android/app/.cxx/RelWithDebInfo/2d2ap531/x86_64/CMakeFiles/edit_cache.dir
+C:/data-personal/programming/fina_points_calculator/code/android/app/.cxx/RelWithDebInfo/2d2ap531/x86_64/CMakeFiles/rebuild_cache.dir

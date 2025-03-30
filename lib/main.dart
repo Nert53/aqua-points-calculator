@@ -107,6 +107,7 @@ class _MainAppState extends State<MainApp> {
     return MaterialApp.router(
       title: 'Aqua Points Calculator',
       debugShowCheckedModeBanner: false,
+      restorationScopeId: 'root',
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
       locale: _locale,
