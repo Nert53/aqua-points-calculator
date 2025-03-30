@@ -1,0 +1,67 @@
+{
+  "calculate": "Calcola",
+  "calculator": "Calcolatore",
+  "records": "Records",
+  "settings": "Impostazioni",
+  "length": "Vasca",
+  "stroke": "Stile",
+  "splits": "Passaggi",
+  "discipline": "Gara",
+  "limits": "Tempi Limite",
+  "men": "Uomini",
+  "women": "Donne",
+  "mixed": "Mixed",
+  "aquaPoints": "Aqua Points",
+  "gender": "Sesso",
+  "course": "Vasca",
+  "language": "Lingua",
+  "colorTheme": "Colore Tema",
+  "system": "Sistema",
+  "light": "Chiaro",
+  "dark": "Scuro",
+  "aboutApp": "Informazioni sull'app",
+  "close": "Chiudi",
+  "lcm": "LCM (50m)",
+  "scm": "SCM (25m)",
+  "season": "Stagione",
+  "min": "min",
+  "sec": "sec",
+  "hun": "cent",
+  "freestyle": "Stile Libero",
+  "backstroke": "Dorso",
+  "butterfly": "Farfalla",
+  "breaststroke": "Rana",
+  "medley": "Misti",
+  "january": "Gennaio",
+  "february": "Febbraio",
+  "march": "Marzo",
+  "april": "Aprile",
+  "may": "Maggio",
+  "june": "Giugno",
+  "july": "Luglio",
+  "august": "Agosto",
+  "september": "Settembre",
+  "october": "Ottobre",
+  "november": "Novembre",
+  "december": "Dicembre",
+  "pointsSeason": "Stagione per punti",
+  "disciplineNotExist": "La gara scelta non esiste!",
+  "enterTimeWarn": "Per favore inserisci un tempo/da calcolare per Aqua Points!",
+  "splitsInfo": "Se clicchi sulla casella del record del mondo vedrai i passaggi.",
+  "recordUpdated": "Records aggiornati al: {date}",
+  "@recordUpdated": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "tablesUpdated": "Valido per la stagione: {date}",
+  "@tablesUpdated": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  }
+}

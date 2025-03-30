@@ -51,13 +51,17 @@
   "recordUpdated": "Rekorde aktualisiert: {date}",
   "@recordUpdated": {
     "placeholders": {
-      "date": {}
+      "date": {
+        "type": "String"
+      }
     }
   },
   "tablesUpdated": "Gültig für die Saison: {date}",
   "@tablesUpdated": {
     "placeholders": {
-      "date": {}
+      "date": {
+        "type": "String"
+      }
     }
   }
 }

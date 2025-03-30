@@ -7,7 +7,7 @@ import 'package:fina_points_calculator/view/widget/time_field.dart';
 import 'package:fina_points_calculator/view/widget/warning_snackbar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:fina_points_calculator/l10n/app_localizations.dart';
 
 enum Gender {
   men('Men', Icons.male_outlined, Color.fromARGB(255, 8, 62, 156)),

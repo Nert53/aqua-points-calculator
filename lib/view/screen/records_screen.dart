@@ -4,7 +4,7 @@ import 'package:fina_points_calculator/utils/constants.dart';
 import 'package:fina_points_calculator/utils/locale_func.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:fina_points_calculator/l10n/app_localizations.dart';
 import 'package:flutter_svg/svg.dart';
 
 enum Gender {

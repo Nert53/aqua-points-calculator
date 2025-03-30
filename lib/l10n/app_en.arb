@@ -51,13 +51,17 @@
   "recordUpdated": "Records updated: {date}",
   "@recordUpdated": {
     "placeholders": {
-      "date": {}
+      "date": {
+        "type": "String"
+      }
     }
   },
   "tablesUpdated": "Valid for season: {date}",
   "@tablesUpdated": {
     "placeholders": {
-      "date": {}
+      "date": {
+        "type": "String"
+      }
     }
   }
 }

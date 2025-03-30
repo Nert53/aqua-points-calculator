@@ -7,13 +7,15 @@ import 'package:flutter_svg/svg.dart';
 import 'package:provider/provider.dart';
 import 'dart:async';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:fina_points_calculator/l10n/app_localizations.dart';
 import 'package:fina_points_calculator/main.dart';
 
 enum Language {
   en('English', 'en'),
   cs('Čeština', 'cs'),
-  de('Deutsch', 'de');
+  de('Deutsch', 'de'),
+  it('Italiano', 'it'),
+  ;
 
   const Language(this.value, this.code);
   final String value;
@@ -553,6 +555,14 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   itemBuilder: (context, index) {
                     return ListTile(
                       title: Text(Language.values[index].value),
+                      leading: ClipRRect(
+                        borderRadius: BorderRadius.circular(4),
+                        child: SvgPicture.asset(
+                          'assets/icons/flags/${Language.values[index].code}.svg',
+                          width: 18,
+                          height: 18,
+                        ),
+                      ),
                       trailing:
                           Language.values[index].code == currentLanguageCode
                               ? Icon(

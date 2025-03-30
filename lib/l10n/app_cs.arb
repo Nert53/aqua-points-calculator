@@ -51,13 +51,17 @@
     "recordUpdated": "Rekordy aktualizovány: {date}",
     "@recordUpdated": {
         "placeholders": {
-        "date": {}
+        "date": {
+            "type": "String"
+        }
         }
     },
     "tablesUpdated": "Platnost pro sezónu: {date}",
     "@tablesUpdated": {
         "placeholders": {
-        "date": {}
+        "date": {
+            "type": "String"
+        }
         }
     }
 }
