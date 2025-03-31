@@ -28,6 +28,8 @@ App is also optimized for larger devices like iPads or desktops.
 
 </div>
 
+If you download the app from the mobile stores mentioned above and you like it, please leave us a review. If you encounter any problems or have a suggestion for a new feature, feel free to email <a href="mailto:vojtanetrh@gmail.com">email</a> me.
+
 ## How the app looks like?
 
 <div align="center">
