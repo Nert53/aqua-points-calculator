@@ -412,9 +412,6 @@ class _SettingsScreenState extends State<SettingsScreen> {
                                             },
                                         ),
                                         TextSpan(
-                                            text:
-                                                ' or visit our website below.'),
-                                        TextSpan(
                                           text: '\n\n',
                                         ),
                                         TextSpan(
@@ -518,6 +515,19 @@ class _SettingsScreenState extends State<SettingsScreen> {
                                     'Creator: Vojtech Netrh',
                                   ),
                                   SizedBox(height: 8),
+                                  SelectableText.rich(
+                                    TextSpan(
+                                      text: 'Privacy policy',
+                                      style: TextStyle(
+                                          color: Colors.blue[700],
+                                          decoration: TextDecoration.underline),
+                                      mouseCursor: SystemMouseCursors.click,
+                                      recognizer: TapGestureRecognizer()
+                                        ..onTap =
+                                            () => _openLink(privacyPolicyUrl),
+                                    ),
+                                  ),
+                                  const SizedBox(height: 8),
                                   Text(
                                     'Version: $appVersion',
                                   ),
