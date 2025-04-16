@@ -36,6 +36,9 @@ class AppLocalizationsDe extends AppLocalizations {
   String get limits => 'Normzeiten';
 
   @override
+  String get limitsText => '1) Weltmeisterschaften und Olympische Spiele - Die Limits werden von der offiziellen Website von World Aquatics übernommen. Für einige Länder können die Limits unterschiedlich sein (meistens strenger). \n\n2) Europameisterschaften und Universiade - Die Limits gelten für die Czech Aquatics und können für andere Föderationen unterschiedlich sein. Die tschechischen Limits basieren auf dem 16. oder 8. Platz bei den besten drei letzten Europameisterschaften oder der letzten Universiade.';
+
+  @override
   String get men => 'Männer';
 
   @override
@@ -45,7 +48,7 @@ class AppLocalizationsDe extends AppLocalizations {
   String get mixed => 'Gemischt';
 
   @override
-  String get aquaPoints => 'Aqua-Punkte';
+  String get aquaPoints => 'Aqua Punkte';
 
   @override
   String get gender => 'Geschlecht';
@@ -144,7 +147,10 @@ class AppLocalizationsDe extends AppLocalizations {
   String get december => 'Dezember';
 
   @override
-  String get pointsSeason => 'Jahreszeiten für die Punkteberechnung';
+  String get pointsSeason => 'Jahreszeiten für Punkteberechnung';
+
+  @override
+  String get pointsSeasonText => 'Da einige Föderationen ältere Punktetabellen für eigene Zwecke verwenden, haben wir die Möglichkeit hinzugefügt, diese auszuwählen. Für diejenigen, die mit diesen Begriffen nicht vertraut sind, erklären wir es. \n\nDie Option \'Saison 24/25\' bedeutet zum Beispiel, dass die Punkte gemäß den Tabellenausgaben vom 01.09.2024 für Kurzbahn und vom 01.01.2025 für Langbahn berechnet werden. Die Tabellen sind ab dem Veröffentlichungsdatum ein Jahr lang gültig. \n\nWenn eine neue Wintersaison (Kurzbahn) und noch keine neuen Tabellen für die Sommersaison (Langbahn) vorliegen, werden die letzten Sommer-Tabellen verwendet.';
 
   @override
   String get disciplineNotExist => 'Ausgewählte Disziplin gibt es nicht!';
@@ -154,6 +160,12 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get splitsInfo => 'Wenn Sie auf die Kachel mit den Weltrekorden klicken, sehen Sie die Zwischenzeiten.';
+
+  @override
+  String get calcualteTooltip => 'Berechnen Sie Aqua Points aus der Zeit.';
+
+  @override
+  String get clearTooltip => 'Alle Felder löschen.';
 
   @override
   String recordUpdated(String date) {

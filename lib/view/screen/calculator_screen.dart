@@ -316,14 +316,12 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
                               style: const TextStyle(
                                   fontWeight: FontWeight.bold, fontSize: 24),
                               decoration: InputDecoration(
-                                label: Text(
-                                    AppLocalizations.of(context)!.aquaPoints,
-                                    style: TextStyle(
-                                        color: Theme.of(context)
-                                            .colorScheme
-                                            .primary)),
-                                
-                                  
+                                  label: Text(
+                                      AppLocalizations.of(context)!.aquaPoints,
+                                      style: TextStyle(
+                                          color: Theme.of(context)
+                                              .colorScheme
+                                              .primary)),
                                   prefixIcon: const Icon(Icons.pin_outlined),
                                   border: const OutlineInputBorder(
                                     borderRadius:
@@ -334,7 +332,7 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
                             ),
                           ),
                           SizedBox(
-                            width: 16,
+                            width: 12,
                           ),
                           Expanded(
                             child: DropdownMenu<Season>(
@@ -507,29 +505,32 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
                       children: [
                         Expanded(
                           child: FloatingActionButton.extended(
-                            tooltip: 'Calculate Aqua Points from time.',
+                            tooltip:
+                                AppLocalizations.of(context)!.calcualteTooltip,
                             onPressed: () {
                               calculate();
                             },
+                            elevation: 2,
                             label: Text(
                               AppLocalizations.of(context)!.calculate,
                               style: const TextStyle(
                                   fontWeight: FontWeight.bold, fontSize: 18),
                             ),
                             //icon: Icon(Icons.arrow_right_outlined),
-                            backgroundColor:
-                                Theme.of(context).colorScheme.primaryContainer,
                           ),
                         ),
                         const SizedBox(
                           width: 16,
                         ),
                         FloatingActionButton(
-                          tooltip: 'Clear all fields.',
+                          tooltip: AppLocalizations.of(context)!.clearTooltip,
+                          elevation: 2,
                           onPressed: () {
                             clearAllControllers();
                           },
-                          child: const Icon(Icons.delete_sweep_outlined),
+                          child: const Icon(
+                            Icons.delete_sweep_outlined,
+                          ),
                         )
                       ],
                     ),

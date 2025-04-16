@@ -189,27 +189,19 @@ class _SettingsScreenState extends State<SettingsScreen> {
                                           MainAxisAlignment.start,
                                       children: [
                                         SelectableText.rich(TextSpan(
-                                          style: TextStyle(
-                                            color: Theme.of(context)
-                                                .textTheme
-                                                .bodyMedium!
-                                                .color,
-                                          ),
-                                          children: [
-                                            TextSpan(
-                                                text:
-                                                    'Because some fedarations use older points tables for their own purposes, we have added the possibility to choose it. For the people unfamiliar with these terms, let us explain it.'),
-                                            TextSpan(text: '\n\n'),
-                                            TextSpan(
-                                              text:
-                                                  'For example the option of "season 24/25" means that the points are calculated according to tables released in 01. 09. 2024 for short course and in 01. 01. 2025 for long course. The tables are valid for one year from the release date.',
+                                            style: TextStyle(
+                                              color: Theme.of(context)
+                                                  .textTheme
+                                                  .bodyMedium!
+                                                  .color,
                                             ),
-                                            TextSpan(text: '\n\n'),
-                                            TextSpan(
-                                                text:
-                                                    'If there is new winter season (short course) and there is still no new tables for summer season (long course), the last summer tables are used.'),
-                                          ],
-                                        )),
+                                            children: [
+                                              TextSpan(
+                                                text: AppLocalizations.of(
+                                                        context)!
+                                                    .pointsSeasonText,
+                                              ),
+                                            ])),
                                       ],
                                     )),
                               ],
@@ -281,39 +273,10 @@ class _SettingsScreenState extends State<SettingsScreen> {
                                           ),
                                           children: [
                                             TextSpan(
-                                              text: '1) Worlds and Olympics: ',
-                                              style: const TextStyle(
-                                                  fontWeight: FontWeight.bold,
-                                                  height: 2),
-                                            ),
-                                            TextSpan(text: '\n'),
-                                            TextSpan(
-                                                text:
-                                                    'Limits are taken from the official World Aquatics website. For some countries may be different (usually harder).',
-                                                style: TextStyle(height: 1.5)),
-                                          ],
-                                        )),
-                                        const SizedBox(height: 16),
-                                        SelectableText.rich(TextSpan(
-                                          style: TextStyle(
-                                            color: Theme.of(context)
-                                                .textTheme
-                                                .bodyMedium!
-                                                .color,
-                                          ),
-                                          children: [
-                                            TextSpan(
                                               text:
-                                                  '2) Europeans and Universiade: ',
-                                              style: TextStyle(
-                                                  fontWeight: FontWeight.bold,
-                                                  height: 2),
+                                                  AppLocalizations.of(context)!
+                                                      .limitsText,
                                             ),
-                                            TextSpan(text: '\n'),
-                                            TextSpan(
-                                                text:
-                                                    'Limits are valid for Czech Aquatics and for any other federation it will be different. Czech limits are based on 16th or 8th place on the best of last 3 European Championships or one last Universiade.',
-                                                style: TextStyle(height: 1.5)),
                                           ],
                                         )),
                                       ],
@@ -387,7 +350,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                                       children: [
                                         TextSpan(
                                           text:
-                                              'Unofficial app for calculating Aqua Points (previously FINA points). This app is not affiliated with World Aquatics. ',
+                                              'Unofficial app for calculating Aqua Points (previously FINA points). This app is not affiliated with World Aquatics. Longer text were transalated by ChatGPT.',
                                         ),
                                         TextSpan(
                                           text: '\n\n',
@@ -412,11 +375,10 @@ class _SettingsScreenState extends State<SettingsScreen> {
                                             },
                                         ),
                                         TextSpan(
-                                          text: '\n\n',
+                                          text: '.\n\n',
                                         ),
                                         TextSpan(
-                                          text:
-                                              'App is also available as a web app (',
+                                          text: 'App is available on ',
                                         ),
                                         TextSpan(
                                           text: 'finapoints.com',
@@ -431,7 +393,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                                         ),
                                         const TextSpan(
                                             text:
-                                                ') and also mobile app for Android and iOS. It is written in Flutter and Dart and is open source (visit the '),
+                                                ' and on mobile devices with Android and iOS. It is written in Flutter and Dart and is open source ('),
                                         TextSpan(
                                           text: 'GitHub',
                                           style: TextStyle(

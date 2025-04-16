@@ -153,6 +153,12 @@ abstract class AppLocalizations {
   /// **'Limits'**
   String get limits;
 
+  /// No description provided for @limitsText.
+  ///
+  /// In en, this message translates to:
+  /// **'1) Worlds and Olympics: Limits are taken from the official World Aquatics website. For some countries may be different (usually harder). \n\n2) Europeans and Universiade: Limits are valid for Czech Aquatics and for any other federation it will be different. Czech limits are based on 16th or 8th place on the best of last 3 European Championships or one last Universiade.'**
+  String get limitsText;
+
   /// No description provided for @men.
   ///
   /// In en, this message translates to:
@@ -375,6 +381,12 @@ abstract class AppLocalizations {
   /// **'Season for points'**
   String get pointsSeason;
 
+  /// No description provided for @pointsSeasonText.
+  ///
+  /// In en, this message translates to:
+  /// **'Because some fedarations use older points tables for their own purposes, we have added the possibility to choose it. For the people unfamiliar with these terms, let us explain it. \n\nFor example the option of \'season 24/25\' means that the points are calculated according to tables released in 01. 09. 2024 for short course and in 01. 01. 2025 for long course. The tables are valid for one year from the release date. \n\nIf there is new winter season (short course) and there is still no new tables for summer season (long course), the last summer tables are used.'**
+  String get pointsSeasonText;
+
   /// No description provided for @disciplineNotExist.
   ///
   /// In en, this message translates to:
@@ -384,7 +396,7 @@ abstract class AppLocalizations {
   /// No description provided for @enterTimeWarn.
   ///
   /// In en, this message translates to:
-  /// **'Please enter time/Aqua Points to calculate!'**
+  /// **'Please enter time or Aqua Points to calculate!'**
   String get enterTimeWarn;
 
   /// No description provided for @splitsInfo.
@@ -392,6 +404,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'If you click on the world record tile, you will see the split times.'**
   String get splitsInfo;
+
+  /// No description provided for @calcualteTooltip.
+  ///
+  /// In en, this message translates to:
+  /// **'Calculate Aqua Points from time.'**
+  String get calcualteTooltip;
+
+  /// No description provided for @clearTooltip.
+  ///
+  /// In en, this message translates to:
+  /// **'Clear all fields.'**
+  String get clearTooltip;
 
   /// No description provided for @recordUpdated.
   ///

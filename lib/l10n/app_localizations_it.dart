@@ -36,6 +36,9 @@ class AppLocalizationsIt extends AppLocalizations {
   String get limits => 'Tempi Limite';
 
   @override
+  String get limitsText => '1) Campionati del mondo e Olimpiadi - I limiti sono presi dal sito ufficiale di World Aquatics. Per alcuni paesi i limiti potrebbero essere diversi (di solito più severi). \n\n2) Campionati Europei e Universiade - I limiti sono validi per la Czech Aquatics di Nuoto e per le altre federazioni saranno diversi. I limiti cechi sono basati sul 16° o 8° posto nelle migliori 3 ultime edizioni dei Campionati Europei o nell\'ultima Universiade.';
+
+  @override
   String get men => 'Uomini';
 
   @override
@@ -147,13 +150,22 @@ class AppLocalizationsIt extends AppLocalizations {
   String get pointsSeason => 'Stagione per punti';
 
   @override
+  String get pointsSeasonText => 'Poiché alcune federazioni utilizzano tabelle dei punteggi più vecchie per i propri scopi, abbiamo aggiunto la possibilità di sceglierle. Per chi non è familiare con questi termini, lo spieghiamo. \n\nAd esempio, l\'opzione \'stagione 24/25\' significa che i punteggi sono calcolati secondo le tabelle rilasciate il 01.09.2024 per la corta distanza e il 01.01.2025 per la lunga distanza. Le tabelle sono valide per un anno dalla data di rilascio. \n\nSe inizia una nuova stagione invernale (corta distanza) e non ci sono ancora nuove tabelle per la stagione estiva (lunga distanza), vengono utilizzate le ultime tabelle estive.';
+
+  @override
   String get disciplineNotExist => 'La gara scelta non esiste!';
 
   @override
-  String get enterTimeWarn => 'Per favore inserisci un tempo/da calcolare per Aqua Points!';
+  String get enterTimeWarn => 'Per favore inserisci un tempo o i punti Aqua da calcolare!';
 
   @override
   String get splitsInfo => 'Se clicchi sulla casella del record del mondo vedrai i passaggi.';
+
+  @override
+  String get calcualteTooltip => 'Calcolo dei punti Aqua dal tempo.';
+
+  @override
+  String get clearTooltip => 'Cancella tutti i campi.';
 
   @override
   String recordUpdated(String date) {
