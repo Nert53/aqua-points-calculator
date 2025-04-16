@@ -40,6 +40,11 @@ If you download the app from the mobile stores mentioned above and you like it, 
 
 ## Versions changelog 
 
+#### v1.3.3
+- Added men long course 400 free WR.
+- Improved translation.
+- Small UI changes.
+
 #### v1.3.1
 - Added italian language support.
 - Added flag icons in language choose dialog.
