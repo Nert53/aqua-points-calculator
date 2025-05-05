@@ -1,6 +1,6 @@
 {
-     "name": "Aqua Points Calculator",
-     "short_name": "Aqua Points Calculator",
+     "name": "Aqua Points",
+     "short_name": "Aqua Points",
      "start_url": ".",
      "display": "standalone",
      "background_color": "#hexcode",
