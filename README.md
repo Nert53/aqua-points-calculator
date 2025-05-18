@@ -1,6 +1,9 @@
 # Aqua Points Calculator
 This app allows you to calculate **Aqua Points** from time and vice versa. If you're not familiar with Aqua Points please read following lines.
 
+>[!note]
+> From may 2025 I'm trying to use the [gitmoji 😜😍](https://gitmoji.dev) package for better orientation in commits history.
+
 ## Aqua points
 The **World Aquatics Points Table** allows comparisons of results among different events. The World Aquatics Point Scoring assigns point values to swimming performances, more points for world class performances typically 1000 or more and fewer points for slower performances.
 
@@ -91,7 +94,7 @@ If you download the app from the mobile stores mentioned above and you like it, 
 - Added labels for navigation on iPad
 
 #### v1.0.0
-- Initial version 
+- Initial version
 
 ## Help with translation
 
