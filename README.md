@@ -14,7 +14,7 @@ The base times are **defined every year**, based on the latest World Record that
 The base times are published on the [World Aquatics website](https://www.worldaquatics.com/swimming/points) within one month after the end of the relevant period.
 
 ### Math Formula
-The points are calculated using a cubic curve. With the **swim time (T)** and the **base time (B)** in seconds the **points (P)** are calculated with the following formula:
+The points are calculated using a cubic curve. With the *swim time* ($T$) and the *base time* ($B$) in seconds the *points* ($P$) are calculated with the following formula:
 
 $$ P = 1000 * ( B / T )^3 $$
 
@@ -42,6 +42,10 @@ If you download the app from the mobile stores mentioned above and you like it, 
 </div>
 
 ## Versions changelog 
+
+#### v1.3.4
+- Added women long course 100 butterfly and 800 free WR.
+- Shortened name displayed on home screens.
 
 #### v1.3.3
 - Added men long course 400 free WR.
