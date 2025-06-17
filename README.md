@@ -43,6 +43,9 @@ If you download the app from the mobile stores mentioned above and you like it, 
 
 ## Versions changelog 
 
+#### v1.3.5
+- Added Summer McIntosh WR from Canadian Trials.
+
 #### v1.3.4
 - Added women long course 100 butterfly and 800 free WR.
 - Shortened name displayed on home screens.
