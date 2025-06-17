@@ -368,7 +368,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                                           recognizer: TapGestureRecognizer()
                                             ..onTap = () async {
                                               if (!await _openEmail(
-                                                  'umimplavat@gmail.com')) {
+                                                  'umimplavat@gmail.com') && context.mounted) {
                                                 showWarningSnackBar(context,
                                                     'Could not open email');
                                               }
