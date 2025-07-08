@@ -52,6 +52,7 @@
     "splitsInfo": "Pokud kliknete na dlaždici světového rekordu, zobrazí se vám mezičasy.",
     "calcualteTooltip": "Vypočítá Aqua Body z času.",
     "clearTooltip": "Vynuluje všechna políčka.",
+    "rateApp": "Ohodnoť aplikaci",
     "recordUpdated": "Rekordy aktualizovány: {date}",
     "@recordUpdated": {
         "placeholders": {

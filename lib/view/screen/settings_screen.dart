@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:fina_points_calculator/theme/theme_provider.dart';
 import 'package:fina_points_calculator/utils/constants.dart';
 import 'package:fina_points_calculator/view/widget/warning_snackbar.dart';
@@ -290,6 +292,17 @@ class _SettingsScreenState extends State<SettingsScreen> {
               },
             ),
             ListTile(
+                title: Text(AppLocalizations.of(context)!.rateApp),
+                leading: const Icon(Icons.star_outline),
+                onTap: () {
+                  String rateLink = Platform.isAndroid
+                      ? rateAppAndroid
+                      : Platform.isIOS
+                          ? rateAppiOS
+                          : rateAppWeb;
+                  launchUrl(Uri.parse(rateLink));
+                }),
+            ListTile(
               title: Text(AppLocalizations.of(context)!.aboutApp),
               leading: const Icon(Icons.info_outline),
               onTap: () {
@@ -368,7 +381,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
                                           recognizer: TapGestureRecognizer()
                                             ..onTap = () async {
                                               if (!await _openEmail(
-                                                  'umimplavat@gmail.com') && context.mounted) {
+                                                      'umimplavat@gmail.com') &&
+                                                  context.mounted) {
                                                 showWarningSnackBar(context,
                                                     'Could not open email');
                                               }

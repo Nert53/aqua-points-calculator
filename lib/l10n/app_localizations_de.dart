@@ -168,6 +168,9 @@ class AppLocalizationsDe extends AppLocalizations {
   String get clearTooltip => 'Alle Felder löschen.';
 
   @override
+  String get rateApp => 'Bewerten Sie die App';
+
+  @override
   String recordUpdated(String date) {
     return 'Rekorde aktualisiert: $date';
   }

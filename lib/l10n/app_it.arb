@@ -52,6 +52,7 @@
   "splitsInfo": "Se clicchi sulla casella del record del mondo vedrai i passaggi.",
   "calcualteTooltip": "Calcolo dei punti Aqua dal tempo.",
   "clearTooltip": "Cancella tutti i campi.",
+  "rateApp": "Valuta l'app",
   "recordUpdated": "Records aggiornati al: {date}",
   "@recordUpdated": {
     "placeholders": {

@@ -417,6 +417,12 @@ abstract class AppLocalizations {
   /// **'Clear all fields.'**
   String get clearTooltip;
 
+  /// No description provided for @rateApp.
+  ///
+  /// In en, this message translates to:
+  /// **'Rate the app'**
+  String get rateApp;
+
   /// No description provided for @recordUpdated.
   ///
   /// In en, this message translates to:

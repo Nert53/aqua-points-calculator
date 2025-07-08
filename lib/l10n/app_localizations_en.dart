@@ -168,6 +168,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get clearTooltip => 'Clear all fields.';
 
   @override
+  String get rateApp => 'Rate the app';
+
+  @override
   String recordUpdated(String date) {
     return 'Records updated: $date';
   }

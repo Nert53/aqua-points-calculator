@@ -52,6 +52,7 @@
   "splitsInfo": "If you click on the world record tile, you will see the split times.",
   "calcualteTooltip": "Calculate Aqua Points from time.",
   "clearTooltip": "Clear all fields.",
+  "rateApp": "Rate the app",
   "recordUpdated": "Records updated: {date}",
   "@recordUpdated": {
     "placeholders": {

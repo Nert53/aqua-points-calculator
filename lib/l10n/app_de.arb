@@ -52,6 +52,7 @@
   "splitsInfo": "Wenn Sie auf die Kachel mit den Weltrekorden klicken, sehen Sie die Zwischenzeiten.",
   "calcualteTooltip": "Berechnen Sie Aqua Points aus der Zeit.",
   "clearTooltip": "Alle Felder löschen.",
+  "rateApp": "Bewerten Sie die App",
   "recordUpdated": "Rekorde aktualisiert: {date}",
   "@recordUpdated": {
     "placeholders": {

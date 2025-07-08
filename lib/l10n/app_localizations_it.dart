@@ -168,6 +168,9 @@ class AppLocalizationsIt extends AppLocalizations {
   String get clearTooltip => 'Cancella tutti i campi.';
 
   @override
+  String get rateApp => 'Valuta l\'app';
+
+  @override
   String recordUpdated(String date) {
     return 'Records aggiornati al: $date';
   }

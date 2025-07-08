@@ -168,6 +168,9 @@ class AppLocalizationsCs extends AppLocalizations {
   String get clearTooltip => 'Vynuluje všechna políčka.';
 
   @override
+  String get rateApp => 'Ohodnoť aplikaci';
+
+  @override
   String recordUpdated(String date) {
     return 'Rekordy aktualizovány: $date';
   }
