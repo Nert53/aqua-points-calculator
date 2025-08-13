@@ -1,5 +1,7 @@
+import 'package:fina_points_calculator/view/widget/info_snackbar.dart';
 import 'package:flutter/material.dart';
 import 'package:fina_points_calculator/l10n/app_localizations.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
 
 class MainPage extends StatefulWidget {
@@ -29,36 +31,17 @@ class _MainPageState extends State<MainPage> {
         appBar: AppBar(
           title: const Text('Aqua Points Calculator'),
           actions: [
-            if (widget.navigationShell.currentIndex == 1)
+            if (widget.navigationShell.currentIndex == 1 ||
+                widget.navigationShell.currentIndex == 2)
               IconButton(
-                icon: Icon(
-                  Icons.touch_app_outlined,
-                ),
+                icon: SvgPicture.asset('assets/icons/quick_reference.svg',
+                    width: 24, height: 24),
                 onPressed: () {
-                  ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                    behavior: SnackBarBehavior.floating,
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(12))),
-                    backgroundColor:
-                        Theme.of(context).colorScheme.secondaryContainer,
-                    content: Row(
-                      children: [
-                        Icon(
-                          Icons.info_outline,
-                        ),
-                        const SizedBox(width: 8),
-                        Flexible(
-                            child: Text(
-                          AppLocalizations.of(context)!.splitsInfo,
-                          style: TextStyle(
-                              color: Theme.of(context)
-                                  .textTheme
-                                  .bodyMedium!
-                                  .color),
-                        )),
-                      ],
-                    ),
-                  ));
+                  widget.navigationShell.currentIndex == 1
+                      ? showInfoSnackbar(
+                          context, AppLocalizations.of(context)!.splitsInfo)
+                      : showInfoSnackbar(
+                          context, AppLocalizations.of(context)!.limitsInfo);
                 },
               ),
           ],

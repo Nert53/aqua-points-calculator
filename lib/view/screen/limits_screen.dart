@@ -6,8 +6,8 @@ import 'package:flutter/services.dart';
 import 'package:fina_points_calculator/l10n/app_localizations.dart';
 
 enum Competition {
-  singapore2025('Singapore 2025', 2025, 'lcm', 'world', 'Singapore'),
-  universiade2025('Universiade 2025', 2025, 'lcm', 'uni', 'Budapest');
+  lublin2025('Lublin 2025', 2025, 'scm', 'europe', 'Lublin'),
+  paris2026('Paris 2026', 2026, 'lcm', 'europe', 'Paris');
 
   const Competition(
       this.displayName, this.year, this.course, this.type, this.city);
