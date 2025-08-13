@@ -1,0 +1,254 @@
+[
+  {
+    "eventDistance": "50 m",
+    "eventStroke": "Freestyle",
+    "limitTimeA": "21.59",
+    "limitTimeB": "21.81",
+    "gender": "men"
+  },
+  {
+    "eventDistance": "100 m",
+    "eventStroke": "Freestyle",
+    "limitTimeA": "47.58",
+    "limitTimeB": "48.06",
+    "gender": "men"
+  },
+  {
+    "eventDistance": "200 m",
+    "eventStroke": "Freestyle",
+    "limitTimeA": "1:44.98",
+    "limitTimeB": "1:46.03",
+    "gender": "men"
+  },
+  {
+    "eventDistance": "400 m",
+    "eventStroke": "Freestyle",
+    "limitTimeA": "3:42.77",
+    "limitTimeB": "3:45.00",
+    "gender": "men"
+  },
+  {
+    "eventDistance": "800 m",
+    "eventStroke": "Freestyle",
+    "limitTimeA": "7:43.60",
+    "limitTimeB": "7:48.24",
+    "gender": "men"
+  },
+  {
+    "eventDistance": "1500 m",
+    "eventStroke": "Freestyle",
+    "limitTimeA": "14:49.75",
+    "limitTimeB": "14:58.65",
+    "gender": "men"
+  },
+  {
+    "eventDistance": "50 m",
+    "eventStroke": "Backstroke",
+    "limitTimeA": "23.84",
+    "limitTimeB": "24.08",
+    "gender": "men"
+  },
+  {
+    "eventDistance": "100 m",
+    "eventStroke": "Backstroke",
+    "limitTimeA": "51.30",
+    "limitTimeB": "51.81",
+    "gender": "men"
+  },
+  {
+    "eventDistance": "200 m",
+    "eventStroke": "Backstroke",
+    "limitTimeA": "1:53.72",
+    "limitTimeB": "1:54.86",
+    "gender": "men"
+  },
+  {
+    "eventDistance": "50 m",
+    "eventStroke": "Breaststroke",
+    "limitTimeA": "26.81",
+    "limitTimeB": "27.08",
+    "gender": "men"
+  },
+  {
+    "eventDistance": "100 m",
+    "eventStroke": "Breaststroke",
+    "limitTimeA": "58.09",
+    "limitTimeB": "58.67",
+    "gender": "men"
+  },
+  {
+    "eventDistance": "200 m",
+    "eventStroke": "Breaststroke",
+    "limitTimeA": "2:07.11",
+    "limitTimeB": "2:08.38",
+    "gender": "men"
+  },
+  {
+    "eventDistance": "50 m",
+    "eventStroke": "Butterfly",
+    "limitTimeA": "23.03",
+    "limitTimeB": "23.26",
+    "gender": "men"
+  },
+  {
+    "eventDistance": "100 m",
+    "eventStroke": "Butterfly",
+    "limitTimeA": "51.35",
+    "limitTimeB": "51.86",
+    "gender": "men"
+  },
+  {
+    "eventDistance": "200 m",
+    "eventStroke": "Butterfly",
+    "limitTimeA": "1:55.34",
+    "limitTimeB": "1:56.49",
+    "gender": "men"
+  },
+  {
+    "eventDistance": "100 m",
+    "eventStroke": "Medley",
+    "limitTimeA": "53.50",
+    "limitTimeB": "54.04",
+    "gender": "men"
+  },
+  {
+    "eventDistance": "200 m",
+    "eventStroke": "Medley",
+    "limitTimeA": "1:56.35",
+    "limitTimeB": "1:57.51",
+    "gender": "men"
+  },
+  {
+    "eventDistance": "400 m",
+    "eventStroke": "Medley",
+    "limitTimeA": "4:11.44",
+    "limitTimeB": "4:13.95",
+    "gender": "men"
+  },
+  {
+    "eventDistance": "50 m",
+    "eventStroke": "Freestyle",
+    "limitTimeA": "24.75",
+    "limitTimeB": "25.00",
+    "gender": "women"
+  },
+  {
+    "eventDistance": "100 m",
+    "eventStroke": "Freestyle",
+    "limitTimeA": "53.99",
+    "limitTimeB": "54.53",
+    "gender": "women"
+  },
+  {
+    "eventDistance": "200 m",
+    "eventStroke": "Freestyle",
+    "limitTimeA": "1:57.39",
+    "limitTimeB": "1:58.56",
+    "gender": "women"
+  },
+  {
+    "eventDistance": "400 m",
+    "eventStroke": "Freestyle",
+    "limitTimeA": "4:08.09",
+    "limitTimeB": "4:10.57",
+    "gender": "women"
+  },
+  {
+    "eventDistance": "800 m",
+    "eventStroke": "Freestyle",
+    "limitTimeA": "8:35.69",
+    "limitTimeB": "8:40.84",
+    "gender": "women"
+  },
+  {
+    "eventDistance": "1500 m",
+    "eventStroke": "Freestyle",
+    "limitTimeA": "16:09.11",
+    "limitTimeB": "16:18.80",
+    "gender": "women"
+  },
+  {
+    "eventDistance": "50 m",
+    "eventStroke": "Backstroke",
+    "limitTimeA": "27.19",
+    "limitTimeB": "27.46",
+    "gender": "women"
+  },
+  {
+    "eventDistance": "100 m",
+    "eventStroke": "Backstroke",
+    "limitTimeA": "58.94",
+    "limitTimeB": "59.52",
+    "gender": "women"
+  },
+  {
+    "eventDistance": "200 m",
+    "eventStroke": "Backstroke",
+    "limitTimeA": "2:05.54",
+    "limitTimeB": "2:09.04",
+    "gender": "women"
+  },
+  {
+    "eventDistance": "50 m",
+    "eventStroke": "Breaststroke",
+    "limitTimeA": "30.66",
+    "limitTimeB": "30.97",
+    "gender": "women"
+  },
+  {
+    "eventDistance": "100 m",
+    "eventStroke": "Breaststroke",
+    "limitTimeA": "1:06.22",
+    "limitTimeB": "1:06.88",
+    "gender": "women"
+  },
+  {
+    "eventDistance": "200 m",
+    "eventStroke": "Breaststroke",
+    "limitTimeA": "2:23.94",
+    "limitTimeB": "2:25.38",
+    "gender": "women"
+  },
+  {
+    "eventDistance": "50 m",
+    "eventStroke": "Butterfly",
+    "limitTimeA": "26.30",
+    "limitTimeB": "26.56",
+    "gender": "women"
+  },
+  {
+    "eventDistance": "100 m",
+    "eventStroke": "Butterfly",
+    "limitTimeA": "58.35",
+    "limitTimeB": "58.93",
+    "gender": "women"
+  },
+  {
+    "eventDistance": "200 m",
+    "eventStroke": "Butterfly",
+    "limitTimeA": "2:09.76",
+    "limitTimeB": "2:11.06",
+    "gender": "women"
+  },
+  {
+    "eventDistance": "100 m",
+    "eventStroke": "Medley",
+    "limitTimeA": "1:00.59",
+    "limitTimeB": "1:01.20",
+    "gender": "women"
+  },
+  {
+    "eventDistance": "200 m",
+    "eventStroke": "Medley",
+    "limitTimeA": "2:11.87",
+    "limitTimeB": "2:13.19",
+    "gender": "women"
+  },
+  {
+    "eventDistance": "400 m",
+    "eventStroke": "Medley",
+    "limitTimeA": "4:37.60",
+    "limitTimeB": "4:40.38",
+    "gender": "women"
+  }
+]
