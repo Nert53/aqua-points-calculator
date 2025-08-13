@@ -162,6 +162,9 @@ class AppLocalizationsCs extends AppLocalizations {
   String get splitsInfo => 'Pokud kliknete na dlaždici světového rekordu, zobrazí se vám mezičasy.';
 
   @override
+  String get limitsInfo => 'Limity jsou dány podle pravidel ČSPS. Pokud jsou viditelné 2 časy jedná se o A a B limit. B limity jsou platné pouze pro ročníky 2005 (2006) a mladší.';
+
+  @override
   String get calcualteTooltip => 'Vypočítá Aqua Body z času.';
 
   @override

@@ -162,6 +162,9 @@ class AppLocalizationsDe extends AppLocalizations {
   String get splitsInfo => 'Wenn Sie auf die Kachel mit den Weltrekorden klicken, sehen Sie die Zwischenzeiten.';
 
   @override
+  String get limitsInfo => 'Die Limits folgen den Bestimmungen von Czech Aquatics. Wenn zwei Zeiten angegeben sind, stehen sie für die A- und B-Limits, wobei die B-Limits nur für Schwimmer gelten, die 2005 (2006) oder später geboren wurden.';
+
+  @override
   String get calcualteTooltip => 'Berechnen Sie Aqua Points aus der Zeit.';
 
   @override

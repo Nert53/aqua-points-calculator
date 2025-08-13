@@ -162,6 +162,9 @@ class AppLocalizationsIt extends AppLocalizations {
   String get splitsInfo => 'Se clicchi sulla casella del record del mondo vedrai i passaggi.';
 
   @override
+  String get limitsInfo => 'I limiti seguono le normative di Czech Aquatics. Quando sono indicate due volte, rappresentano i limiti A e B, con i limiti B validi solo per i nuotatori nati nel 2005 (2006) o successivamente.';
+
+  @override
   String get calcualteTooltip => 'Calcolo dei punti Aqua dal tempo.';
 
   @override

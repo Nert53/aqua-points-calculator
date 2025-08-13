@@ -50,6 +50,7 @@
   "disciplineNotExist": "Selected discipline does not exist!",
   "enterTimeWarn": "Please enter time or Aqua Points to calculate!",
   "splitsInfo": "If you click on the world record tile, you will see the split times.",
+  "limitsInfo": "Limits follow Czech Aquatics regulations. When two times are shown, they represent the A and B limit, with B limits applying only to swimmers born in 2005 (2006) or later.",
   "calcualteTooltip": "Calculate Aqua Points from time.",
   "clearTooltip": "Clear all fields.",
   "rateApp": "Rate the app",

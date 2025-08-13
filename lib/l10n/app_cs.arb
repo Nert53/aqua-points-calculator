@@ -50,6 +50,7 @@
     "disciplineNotExist": "Zvolená disciplína neexistuje!",
     "enterTimeWarn": "Prosím zadejte čas/body pro výpočet!",
     "splitsInfo": "Pokud kliknete na dlaždici světového rekordu, zobrazí se vám mezičasy.",
+    "limitsInfo": "Limity jsou dány podle pravidel ČSPS. Pokud jsou viditelné 2 časy jedná se o A a B limit. B limity jsou platné pouze pro ročníky 2005 (2006) a mladší.",
     "calcualteTooltip": "Vypočítá Aqua Body z času.",
     "clearTooltip": "Vynuluje všechna políčka.",
     "rateApp": "Ohodnoť aplikaci",

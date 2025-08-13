@@ -162,6 +162,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get splitsInfo => 'If you click on the world record tile, you will see the split times.';
 
   @override
+  String get limitsInfo => 'Limits follow Czech Aquatics regulations. When two times are shown, they represent the A and B limit, with B limits applying only to swimmers born in 2005 (2006) or later.';
+
+  @override
   String get calcualteTooltip => 'Calculate Aqua Points from time.';
 
   @override

@@ -50,6 +50,7 @@
   "disciplineNotExist": "La gara scelta non esiste!",
   "enterTimeWarn": "Per favore inserisci un tempo o i punti Aqua da calcolare!",
   "splitsInfo": "Se clicchi sulla casella del record del mondo vedrai i passaggi.",
+  "limitsInfo": "I limiti seguono le normative di Czech Aquatics. Quando sono indicate due volte, rappresentano i limiti A e B, con i limiti B validi solo per i nuotatori nati nel 2005 (2006) o successivamente.",
   "calcualteTooltip": "Calcolo dei punti Aqua dal tempo.",
   "clearTooltip": "Cancella tutti i campi.",
   "rateApp": "Valuta l'app",
