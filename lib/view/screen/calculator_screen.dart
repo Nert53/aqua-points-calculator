@@ -21,6 +21,7 @@ enum Gender {
 }
 
 enum Season {
+  s2526('25/26', '25-26'),
   s2425('24/25', '24-25'),
   s2324('23/24', '23-24'),
   s2223('22/23', '22-23');
@@ -220,7 +221,7 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
       setSelectedStroke(Stroke.free);
       _gender = Gender.men;
       _course = Course.lcm;
-      _seasonController.text = Season.s2425.name;
+      _seasonController.text = Season.s2526.name;
     });
   }
 
@@ -343,7 +344,7 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
                                           .colorScheme
                                           .primary)),
                               controller: _seasonController,
-                              initialSelection: Season.s2425,
+                              initialSelection: Season.s2526,
                               inputDecorationTheme: const InputDecorationTheme(
                                   border: OutlineInputBorder(
                                       borderRadius: BorderRadius.all(

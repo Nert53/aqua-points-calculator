@@ -1,0 +1,36 @@
+[
+    {
+        "Event": "Mixed 4x100m Freestyle Relay",
+        "Pool": "LCM",
+        "Record Description": "Meet Record",
+        "Record": "WR",
+        "Time": "03:18.83",
+        "Athlete": "JACK Shayna, CHALMERS Kyle, CARTWRIGHT Jack, O'CALLAGHAN Mollie",
+        "NF Code": "AUS",
+        "Gender": "X",
+        "Competition": "World Aquatics Championships - Fukuoka 2023",
+        "Country": "Japan",
+        "City": "Fukuoka",
+        "Date": "29-Jul-23",
+        "Splits": "23.29, 48.14, 01:10.87, 01:35.39, 02:00.14, 02:27.12, 02:52.01, 03:18.83",
+        "Tags": "",
+        "Status": "Approved"
+    },
+    {
+        "Event": "Mixed 4x100m Medley Relay",
+        "Pool": "LCM",
+        "Record Description": "Meet Record",
+        "Record": "WR",
+        "Time": "03:37.43",
+        "Athlete": "FINK Nic, WALSH Gretchen, HUSKE Torri, MURPHY Ryan",
+        "NF Code": "USA",
+        "Gender": "X",
+        "Competition": "Olympic Games Paris 2024",
+        "Country": "France",
+        "City": "Paris",
+        "Date": "03-Aug-24",
+        "Splits": "24.98, 52.08, 01:18.92, 01:50.37, 02:15.53, 02:45.55, 03:10.13, 03:37.43",
+        "Tags": "",
+        "Status": "Approved"
+    }
+]
