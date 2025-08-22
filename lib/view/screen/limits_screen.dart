@@ -53,9 +53,21 @@ class _LimitsScreenState extends State<LimitsScreen> {
         )
         .toList();
 
+    var mixedLimits = limits
+        .where(
+          (l) => l.gender == 'mixed',
+        )
+        .toList();
+
+    // individual disciplines + one gender realys
     List<List<Limit>> separetedLimits = [];
     for (int i = 0; i < womenLimits.length; i++) {
       separetedLimits.add([menLimits[i], womenLimits[i]]);
+    }
+
+    // mixed relays
+    for (int i = 0; i < mixedLimits.length; i++) {
+      separetedLimits.add([mixedLimits[i], mixedLimits[i]]);
     }
 
     return separetedLimits;
@@ -163,8 +175,11 @@ class _LimitsScreenState extends State<LimitsScreen> {
                                 flex: 5,
                                 child: Center(
                                   child: Text(
-                                    discipline,
+                                    menLimit == womenLimit
+                                        ? '$discipline ${AppLocalizations.of(context)!.mixed}'
+                                        : discipline,
                                     style: TextStyle(fontSize: 16),
+                                    textAlign: TextAlign.center,
                                   ),
                                 ),
                               ),
