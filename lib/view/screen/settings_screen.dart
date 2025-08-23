@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:fina_points_calculator/theme/theme_provider.dart';
 import 'package:fina_points_calculator/utils/constants.dart';
 import 'package:fina_points_calculator/view/widget/warning_snackbar.dart';
+import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -295,6 +296,12 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 title: Text(AppLocalizations.of(context)!.rateApp),
                 leading: const Icon(Icons.star_outline),
                 onTap: () {
+                  FirebaseAnalytics.instance.logEvent(
+                    name: 'rate_app',
+                    parameters: {
+                      'time': DateTime.now().toString(),
+                    },
+                  );
                   String rateLink = Platform.isAndroid
                       ? rateAppAndroid
                       : Platform.isIOS

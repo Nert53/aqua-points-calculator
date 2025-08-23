@@ -5,6 +5,7 @@ import 'package:fina_points_calculator/utils/constants.dart';
 import 'package:fina_points_calculator/utils/locale_func.dart';
 import 'package:fina_points_calculator/view/widget/time_field.dart';
 import 'package:fina_points_calculator/view/widget/warning_snackbar.dart';
+import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:fina_points_calculator/l10n/app_localizations.dart';
@@ -509,6 +510,12 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
                             tooltip:
                                 AppLocalizations.of(context)!.calcualteTooltip,
                             onPressed: () {
+                              FirebaseAnalytics.instance.logEvent(
+                                  name: 'calculate_button_pressed',
+                                  parameters: {
+                                    'gender': _gender.toString(),
+                                    'course': _course.toString(),
+                                  });
                               calculate();
                             },
                             elevation: 2,

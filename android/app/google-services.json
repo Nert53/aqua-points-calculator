@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1078494172518",
+    "project_id": "aqua-points-calculator",
+    "storage_bucket": "aqua-points-calculator.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1078494172518:android:c466707d88cb6c7e5424a7",
+        "android_client_info": {
+          "package_name": "cz.umimplavat.aqua_points_calculator"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA5x_G0LMfC6qmzGtWFTOoCht40c9j1f7E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

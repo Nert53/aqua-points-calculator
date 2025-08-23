@@ -1,4 +1,5 @@
 import 'package:fina_points_calculator/view/widget/info_snackbar.dart';
+import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:flutter/material.dart';
 import 'package:fina_points_calculator/l10n/app_localizations.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -15,6 +16,18 @@ class MainPage extends StatefulWidget {
 
 class _MainPageState extends State<MainPage> {
   void _selectScreen(int index) {
+    // Firebase Analytics based on selected screen
+    if (index == 1) {
+      FirebaseAnalytics.instance.logEvent(
+          name: 'records_screen_selected',
+          parameters: {'time': DateTime.now().toString()});
+    }
+    if (index == 2) {
+      FirebaseAnalytics.instance.logEvent(
+          name: 'limits_screen_selected',
+          parameters: {'time': DateTime.now().toString()});
+    }
+
     widget.navigationShell.goBranch(index);
   }
 
