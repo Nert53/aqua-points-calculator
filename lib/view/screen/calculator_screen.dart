@@ -87,7 +87,7 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
   }
 
   Gender? _gender = Gender.men;
-  Course? _course = Course.lcm;
+  Course? _course = Course.scm;
 
   final _minutesController = TextEditingController();
   final _secondsController = TextEditingController();
@@ -583,7 +583,7 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
                                 maxValue: 99,
                                 labelText: AppLocalizations.of(context)!.hun)),
                       ],
-                    )
+                    ),
                   ],
                 ),
               )),
