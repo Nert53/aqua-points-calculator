@@ -9,6 +9,7 @@ import 'app_localizations_cs.dart';
 import 'app_localizations_de.dart';
 import 'app_localizations_en.dart';
 import 'app_localizations_it.dart';
+import 'app_localizations_pl.dart';
 
 // ignore_for_file: type=lint
 
@@ -96,7 +97,8 @@ abstract class AppLocalizations {
     Locale('cs'),
     Locale('de'),
     Locale('en'),
-    Locale('it')
+    Locale('it'),
+    Locale('pl')
   ];
 
   /// No description provided for @calculate.
@@ -438,7 +440,7 @@ abstract class AppLocalizations {
   /// No description provided for @tablesUpdated.
   ///
   /// In en, this message translates to:
-  /// **'Valid for season: {date}'**
+  /// **'Valid for season: winter {date}'**
   String tablesUpdated(String date);
 }
 
@@ -451,7 +453,7 @@ class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> 
   }
 
   @override
-  bool isSupported(Locale locale) => <String>['cs', 'de', 'en', 'it'].contains(locale.languageCode);
+  bool isSupported(Locale locale) => <String>['cs', 'de', 'en', 'it', 'pl'].contains(locale.languageCode);
 
   @override
   bool shouldReload(_AppLocalizationsDelegate old) => false;
@@ -466,6 +468,7 @@ AppLocalizations lookupAppLocalizations(Locale locale) {
     case 'de': return AppLocalizationsDe();
     case 'en': return AppLocalizationsEn();
     case 'it': return AppLocalizationsIt();
+    case 'pl': return AppLocalizationsPl();
   }
 
   throw FlutterError(

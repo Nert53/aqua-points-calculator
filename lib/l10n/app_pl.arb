@@ -1,0 +1,73 @@
+{
+  "calculate": "Oblicz",
+  "calculator": "Kalkulator",
+  "records": "Rekordy",
+  "settings": "Ustawienia",
+  "length": "Długość",
+  "stroke": "Styl",
+  "splits": "Międzyczasy",
+  "discipline": "Dyscyplina",
+  "limits": "Limity",
+  "limitsText": "1) Mistrzostwa Świata i Igrzyska Olimpijskie: Limity są pobierane z oficjalnej strony World Aquatics. Dla niektórych krajów mogą być inne (zazwyczaj trudniejsze). \n\n2) Mistrzostwa Europy i Uniwersjada: Limity są ważne dla Czech Aquatics, a dla każdej innej federacji będą różne. Czeskie limity są oparte na 16. lub 8. miejscu z najlepszych ostatnich 3 Mistrzostw Europy lub ostatniej Uniwersjady.",
+  "men": "Mężczyźni",
+  "women": "Kobiety",
+  "mixed": "Mieszane",
+  "aquaPoints": "Aqua Punkty",
+  "gender": "Płeć",
+  "course": "Basen",
+  "language": "Język",
+  "colorTheme": "Motyw kolorów",
+  "system": "System",
+  "light": "Jasny",
+  "dark": "Ciemny",
+  "aboutApp": "O aplikacji",
+  "close": "Zamknij",
+  "lcm": "LCM (50m)",
+  "scm": "SCM (25m)",
+  "season": "Sezon",
+  "min": "min",
+  "sec": "sek",
+  "hun": "setne",
+  "freestyle": "Styl dowolny",
+  "backstroke": "Grzbietowy",
+  "butterfly": "Motylkowy",
+  "breaststroke": "Kraul klasyczny",
+  "medley": "Zmieszany",
+  "january": "Styczeń",
+  "february": "Luty",
+  "march": "Marzec",
+  "april": "Kwiecień",
+  "may": "Maj",
+  "june": "Czerwiec",
+  "july": "Lipiec",
+  "august": "Sierpień",
+  "september": "Wrzesień",
+  "october": "Październik",
+  "november": "Listopad",
+  "december": "Grudzień",
+  "pointsSeason": "Sezon dla punktów",
+  "pointsSeasonText": "Ponieważ niektóre federacje używają starszych tabel punktowych do własnych celów, dodaliśmy możliwość ich wyboru. Dla osób nieznających tych terminów, wyjaśniamy. \n\nNa przykład opcja „sezon 24/25” oznacza, że punkty są obliczane według tabel opublikowanych 01.09.2024 dla krótkiego basenu i 01.01.2025 dla długiego basenu. Tabele są ważne przez rok od daty publikacji. \n\nJeśli pojawia się nowy sezon zimowy (krótki basen), a nadal nie ma nowych tabel dla sezonu letniego (długi basen), używane są ostatnie letnie tabele.",
+  "disciplineNotExist": "Wybrana dyscyplina nie istnieje!",
+  "enterTimeWarn": "Proszę wprowadzić czas lub Aqua Punkty, aby obliczyć!",
+  "splitsInfo": "Jeśli klikniesz na kafelek rekordu świata, zobaczysz międzyczasy.",
+  "limitsInfo": "Limity zgodne z regulacjami Czech Aquatics. Gdy pokazane są dwa czasy, reprezentują limit A i B, przy czym limity B dotyczą tylko pływaków urodzonych w 2005 (2006) roku lub później.",
+  "calcualteTooltip": "Oblicz Aqua Punkty z czasu.",
+  "clearTooltip": "Wyczyść wszystkie pola.",
+  "rateApp": "Oceń aplikację",
+  "recordUpdated": "Rekordy zaktualizowane: {date}",
+  "@recordUpdated": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "tablesUpdated": "Ważne dla sezonu: zima {date}",
+  "@tablesUpdated": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  }
+}
