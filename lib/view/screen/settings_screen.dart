@@ -18,6 +18,7 @@ enum Language {
   cs('Čeština', 'cs'),
   de('Deutsch', 'de'),
   it('Italiano', 'it'),
+  pl('Polski', 'pl'),
   ;
 
   const Language(this.value, this.code);

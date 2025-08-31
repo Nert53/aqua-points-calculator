@@ -62,7 +62,7 @@
         }
         }
     },
-    "tablesUpdated": "Platnost pro sezónu: {date}",
+    "tablesUpdated": "Platnost pro sezónu: zima {date}",
     "@tablesUpdated": {
         "placeholders": {
         "date": {

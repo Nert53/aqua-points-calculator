@@ -62,7 +62,7 @@
       }
     }
   },
-  "tablesUpdated": "Gültig für die Saison: {date}",
+  "tablesUpdated": "Gültig für die Saison: winter {date}",
   "@tablesUpdated": {
     "placeholders": {
       "date": {

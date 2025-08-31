@@ -180,6 +180,6 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String tablesUpdated(String date) {
-    return 'Platnost pro sezónu: $date';
+    return 'Platnost pro sezónu: zima $date';
   }
 }

@@ -180,6 +180,6 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String tablesUpdated(String date) {
-    return 'Valido per la stagione: $date';
+    return 'Valido per la stagione: inverno $date';
   }
 }

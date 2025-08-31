@@ -62,7 +62,7 @@
       }
     }
   },
-  "tablesUpdated": "Valid for season: {date}",
+  "tablesUpdated": "Valid for season: winter {date}",
   "@tablesUpdated": {
     "placeholders": {
       "date": {
