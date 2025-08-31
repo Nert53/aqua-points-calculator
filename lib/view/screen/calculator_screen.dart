@@ -524,7 +524,6 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
                               style: const TextStyle(
                                   fontWeight: FontWeight.bold, fontSize: 18),
                             ),
-                            //icon: Icon(Icons.arrow_right_outlined),
                           ),
                         ),
                         const SizedBox(
