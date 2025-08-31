@@ -43,6 +43,15 @@ If you download the app from the mobile stores mentioned above and you like it, 
 
 ## Versions changelog 
 
+#### v1.3.10
+- Added polish language.
+- Updated point tables.
+
+#### v1.3.8
+- Added WR from Singapore World Championships.
+- Updated limits fro season 2025/2026 competitions.
+- Added "rate the app" button.
+
 #### v1.3.5
 - Added Summer McIntosh WR from Canadian Trials.
 
