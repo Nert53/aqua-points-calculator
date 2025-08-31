@@ -204,3 +204,4 @@ node_modules/
 
 # dotenv environment variables file
 .env
+devtools_options.yaml
