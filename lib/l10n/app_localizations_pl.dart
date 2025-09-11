@@ -36,7 +36,8 @@ class AppLocalizationsPl extends AppLocalizations {
   String get limits => 'Limity';
 
   @override
-  String get limitsText => '1) Mistrzostwa Świata i Igrzyska Olimpijskie: Limity są pobierane z oficjalnej strony World Aquatics. Dla niektórych krajów mogą być inne (zazwyczaj trudniejsze). \n\n2) Mistrzostwa Europy i Uniwersjada: Limity są ważne dla Czech Aquatics, a dla każdej innej federacji będą różne. Czeskie limity są oparte na 16. lub 8. miejscu z najlepszych ostatnich 3 Mistrzostw Europy lub ostatniej Uniwersjady.';
+  String get limitsText =>
+      '1) Mistrzostwa Świata i Igrzyska Olimpijskie: Limity są pobierane z oficjalnej strony World Aquatics. Dla niektórych krajów mogą być inne (zazwyczaj trudniejsze). \n\n2) Mistrzostwa Europy i Uniwersjada: Limity są ważne dla Czech Aquatics, a dla każdej innej federacji będą różne. Czeskie limity są oparte na 16. lub 8. miejscu z najlepszych ostatnich 3 Mistrzostw Europy lub ostatniej Uniwersjady.';
 
   @override
   String get men => 'Mężczyźni';
@@ -150,19 +151,23 @@ class AppLocalizationsPl extends AppLocalizations {
   String get pointsSeason => 'Sezon dla punktów';
 
   @override
-  String get pointsSeasonText => 'Ponieważ niektóre federacje używają starszych tabel punktowych do własnych celów, dodaliśmy możliwość ich wyboru. Dla osób nieznających tych terminów, wyjaśniamy. \n\nNa przykład opcja „sezon 24/25” oznacza, że punkty są obliczane według tabel opublikowanych 01.09.2024 dla krótkiego basenu i 01.01.2025 dla długiego basenu. Tabele są ważne przez rok od daty publikacji. \n\nJeśli pojawia się nowy sezon zimowy (krótki basen), a nadal nie ma nowych tabel dla sezonu letniego (długi basen), używane są ostatnie letnie tabele.';
+  String get pointsSeasonText =>
+      'Ponieważ niektóre federacje używają starszych tabel punktowych do własnych celów, dodaliśmy możliwość ich wyboru. Dla osób nieznających tych terminów, wyjaśniamy. \n\nNa przykład opcja „sezon 24/25” oznacza, że punkty są obliczane według tabel opublikowanych 01.09.2024 dla krótkiego basenu i 01.01.2025 dla długiego basenu. Tabele są ważne przez rok od daty publikacji. \n\nJeśli pojawia się nowy sezon zimowy (krótki basen), a nadal nie ma nowych tabel dla sezonu letniego (długi basen), używane są ostatnie letnie tabele.';
 
   @override
   String get disciplineNotExist => 'Wybrana dyscyplina nie istnieje!';
 
   @override
-  String get enterTimeWarn => 'Proszę wprowadzić czas lub Aqua Punkty, aby obliczyć!';
+  String get enterTimeWarn =>
+      'Proszę wprowadzić czas lub Aqua Punkty, aby obliczyć!';
 
   @override
-  String get splitsInfo => 'Jeśli klikniesz na kafelek rekordu świata, zobaczysz międzyczasy.';
+  String get splitsInfo =>
+      'Jeśli klikniesz na kafelek rekordu świata, zobaczysz międzyczasy.';
 
   @override
-  String get limitsInfo => 'Limity zgodne z regulacjami Czech Aquatics. Gdy pokazane są dwa czasy, reprezentują limit A i B, przy czym limity B dotyczą tylko pływaków urodzonych w 2005 (2006) roku lub później.';
+  String get limitsInfo =>
+      'Limity zgodne z regulacjami Czech Aquatics. Gdy pokazane są dwa czasy, reprezentują limit A i B, przy czym limity B dotyczą tylko pływaków urodzonych w 2005 (2006) roku lub później.';
 
   @override
   String get calcualteTooltip => 'Oblicz Aqua Punkty z czasu.';

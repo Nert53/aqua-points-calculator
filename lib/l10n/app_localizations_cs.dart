@@ -36,7 +36,8 @@ class AppLocalizationsCs extends AppLocalizations {
   String get limits => 'Limity';
 
   @override
-  String get limitsText => '1) Mistrovství světa a Olympijské hry - Limity jsou převzaty z oficiálních stránek World Aquatics. Pro některé země mohou být limity odlišné (obvykle přísnější). \n\n2) Mistrovství Evropy a Univerziáda - Limity platí pro Český svaz, pro jiné federace budou limity jiné. Česká kritéria jsou založena na 16. nebo 8. místě na nejlepších třech posledních evropských šampionátech nebo na poslední Univerziádě.';
+  String get limitsText =>
+      '1) Mistrovství světa a Olympijské hry - Limity jsou převzaty z oficiálních stránek World Aquatics. Pro některé země mohou být limity odlišné (obvykle přísnější). \n\n2) Mistrovství Evropy a Univerziáda - Limity platí pro Český svaz, pro jiné federace budou limity jiné. Česká kritéria jsou založena na 16. nebo 8. místě na nejlepších třech posledních evropských šampionátech nebo na poslední Univerziádě.';
 
   @override
   String get men => 'Muži';
@@ -150,7 +151,8 @@ class AppLocalizationsCs extends AppLocalizations {
   String get pointsSeason => 'Sezóny pro výpočet bodů';
 
   @override
-  String get pointsSeasonText => 'Protože některé federace používají starší tabulky bodů pro své vlastní účely, přidali jsme možnost si je vybrat. Pro ty kteří nejsou s těmito pojmy obeznámeni, to vysvětlíme. \n\nNapříklad možnost \'sezóna 24/25\' znamená, že body jsou počítány podle tabulek vydaných dne 1. 9. 2024 pro krátký bazén a 1. 1. 2025 pro dlouhý bazén. Tabulky jsou platné po dobu jednoho roku od data vydání. \n\nPokud začíná nová zimní sezóna (krátký bazén) a ještě nejsou k dispozici nové tabulky pro letní sezónu (dlouhý bazén), použijí se poslední letní tabulky.';
+  String get pointsSeasonText =>
+      'Protože některé federace používají starší tabulky bodů pro své vlastní účely, přidali jsme možnost si je vybrat. Pro ty kteří nejsou s těmito pojmy obeznámeni, to vysvětlíme. \n\nNapříklad možnost \'sezóna 24/25\' znamená, že body jsou počítány podle tabulek vydaných dne 1. 9. 2024 pro krátký bazén a 1. 1. 2025 pro dlouhý bazén. Tabulky jsou platné po dobu jednoho roku od data vydání. \n\nPokud začíná nová zimní sezóna (krátký bazén) a ještě nejsou k dispozici nové tabulky pro letní sezónu (dlouhý bazén), použijí se poslední letní tabulky.';
 
   @override
   String get disciplineNotExist => 'Zvolená disciplína neexistuje!';
@@ -159,10 +161,12 @@ class AppLocalizationsCs extends AppLocalizations {
   String get enterTimeWarn => 'Prosím zadejte čas/body pro výpočet!';
 
   @override
-  String get splitsInfo => 'Pokud kliknete na dlaždici světového rekordu, zobrazí se vám mezičasy.';
+  String get splitsInfo =>
+      'Pokud kliknete na dlaždici světového rekordu, zobrazí se vám mezičasy.';
 
   @override
-  String get limitsInfo => 'Limity jsou dány podle pravidel ČSPS. Pokud jsou viditelné 2 časy jedná se o A a B limit. B limity jsou platné pouze pro ročníky 2005 (2006) a mladší.';
+  String get limitsInfo =>
+      'Limity jsou dány podle pravidel ČSPS. Pokud jsou viditelné 2 časy jedná se o A a B limit. B limity jsou platné pouze pro ročníky 2005 (2006) a mladší.';
 
   @override
   String get calcualteTooltip => 'Vypočítá Aqua Body z času.';

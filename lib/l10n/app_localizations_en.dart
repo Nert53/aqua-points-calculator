@@ -36,7 +36,8 @@ class AppLocalizationsEn extends AppLocalizations {
   String get limits => 'Limits';
 
   @override
-  String get limitsText => '1) Worlds and Olympics: Limits are taken from the official World Aquatics website. For some countries may be different (usually harder). \n\n2) Europeans and Universiade: Limits are valid for Czech Aquatics and for any other federation it will be different. Czech limits are based on 16th or 8th place on the best of last 3 European Championships or one last Universiade.';
+  String get limitsText =>
+      '1) Worlds and Olympics: Limits are taken from the official World Aquatics website. For some countries may be different (usually harder). \n\n2) Europeans and Universiade: Limits are valid for Czech Aquatics and for any other federation it will be different. Czech limits are based on 16th or 8th place on the best of last 3 European Championships or one last Universiade.';
 
   @override
   String get men => 'Men';
@@ -150,7 +151,8 @@ class AppLocalizationsEn extends AppLocalizations {
   String get pointsSeason => 'Season for points';
 
   @override
-  String get pointsSeasonText => 'Because some fedarations use older points tables for their own purposes, we have added the possibility to choose it. For the people unfamiliar with these terms, let us explain it. \n\nFor example the option of \'season 24/25\' means that the points are calculated according to tables released in 01. 09. 2024 for short course and in 01. 01. 2025 for long course. The tables are valid for one year from the release date. \n\nIf there is new winter season (short course) and there is still no new tables for summer season (long course), the last summer tables are used.';
+  String get pointsSeasonText =>
+      'Because some fedarations use older points tables for their own purposes, we have added the possibility to choose it. For the people unfamiliar with these terms, let us explain it. \n\nFor example the option of \'season 24/25\' means that the points are calculated according to tables released in 01. 09. 2024 for short course and in 01. 01. 2025 for long course. The tables are valid for one year from the release date. \n\nIf there is new winter season (short course) and there is still no new tables for summer season (long course), the last summer tables are used.';
 
   @override
   String get disciplineNotExist => 'Selected discipline does not exist!';
@@ -159,10 +161,12 @@ class AppLocalizationsEn extends AppLocalizations {
   String get enterTimeWarn => 'Please enter time or Aqua Points to calculate!';
 
   @override
-  String get splitsInfo => 'If you click on the world record tile, you will see the split times.';
+  String get splitsInfo =>
+      'If you click on the world record tile, you will see the split times.';
 
   @override
-  String get limitsInfo => 'Limits follow Czech Aquatics regulations. When two times are shown, they represent the A and B limit, with B limits applying only to swimmers born in 2005 (2006) or later.';
+  String get limitsInfo =>
+      'Limits follow Czech Aquatics regulations. When two times are shown, they represent the A and B limit, with B limits applying only to swimmers born in 2005 (2006) or later.';
 
   @override
   String get calcualteTooltip => 'Calculate Aqua Points from time.';
