@@ -54,6 +54,10 @@
   "calcualteTooltip": "Calcolo dei punti Aqua dal tempo.",
   "clearTooltip": "Cancella tutti i campi.",
   "rateApp": "Valuta l'app",
+  "newFeature": "New Feature",
+  "newFeatureText": "Ora puoi tenere premuta (pressione prolungata) la riga dei limiti per visualizzare i punti invece del tempo.",
+  "gotIt": "Capito",
+  "dontShowAgain": "Non mostrare più",
   "recordUpdated": "Records aggiornati al: {date}",
   "@recordUpdated": {
     "placeholders": {

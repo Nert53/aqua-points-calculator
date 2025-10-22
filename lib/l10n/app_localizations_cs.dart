@@ -178,6 +178,19 @@ class AppLocalizationsCs extends AppLocalizations {
   String get rateApp => 'Ohodnoť aplikaci';
 
   @override
+  String get newFeature => 'Nová Funkce';
+
+  @override
+  String get newFeatureText =>
+      'Po dlouhém podržení řádku s limitem se vám zobrazí body namísto času.';
+
+  @override
+  String get gotIt => 'Rozumím';
+
+  @override
+  String get dontShowAgain => 'Nezobrazovat znovu';
+
+  @override
   String recordUpdated(String date) {
     return 'Rekordy aktualizovány: $date';
   }

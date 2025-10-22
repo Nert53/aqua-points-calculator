@@ -54,6 +54,10 @@
   "calcualteTooltip": "Oblicz Aqua Punkty z czasu.",
   "clearTooltip": "Wyczyść wszystkie pola.",
   "rateApp": "Oceń aplikację",
+  "newFeature": "New Feature",
+  "newFeatureText": "Teraz możesz przytrzymać (długie naciśnięcie) wiersz limitu, aby zobaczyć punkty zamiast czasu.",
+  "gotIt": "Rozumiem",
+  "dontShowAgain": "Nie pokazuj ponownie",
   "recordUpdated": "Rekordy zaktualizowane: {date}",
   "@recordUpdated": {
     "placeholders": {

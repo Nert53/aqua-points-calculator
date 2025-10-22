@@ -54,6 +54,10 @@
     "calcualteTooltip": "Vypočítá Aqua Body z času.",
     "clearTooltip": "Vynuluje všechna políčka.",
     "rateApp": "Ohodnoť aplikaci",
+    "newFeature": "Nová Funkce",
+    "newFeatureText": "Po dlouhém podržení řádku s limitem se vám zobrazí body namísto času.",
+    "gotIt": "Rozumím",
+    "dontShowAgain": "Nezobrazovat znovu",
     "recordUpdated": "Rekordy aktualizovány: {date}",
     "@recordUpdated": {
         "placeholders": {

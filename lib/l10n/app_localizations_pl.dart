@@ -179,6 +179,19 @@ class AppLocalizationsPl extends AppLocalizations {
   String get rateApp => 'Oceń aplikację';
 
   @override
+  String get newFeature => 'New Feature';
+
+  @override
+  String get newFeatureText =>
+      'Teraz możesz przytrzymać (długie naciśnięcie) wiersz limitu, aby zobaczyć punkty zamiast czasu.';
+
+  @override
+  String get gotIt => 'Rozumiem';
+
+  @override
+  String get dontShowAgain => 'Nie pokazuj ponownie';
+
+  @override
   String recordUpdated(String date) {
     return 'Rekordy zaktualizowane: $date';
   }

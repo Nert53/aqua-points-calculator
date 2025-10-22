@@ -178,6 +178,19 @@ class AppLocalizationsEn extends AppLocalizations {
   String get rateApp => 'Rate the app';
 
   @override
+  String get newFeature => 'New Feature';
+
+  @override
+  String get newFeatureText =>
+      'You can now hold (long press) the limit row to see the points instead of time.';
+
+  @override
+  String get gotIt => 'Got it';
+
+  @override
+  String get dontShowAgain => 'Don\'t show again';
+
+  @override
   String recordUpdated(String date) {
     return 'Records updated: $date';
   }

@@ -54,6 +54,10 @@
   "calcualteTooltip": "Berechnen Sie Aqua Points aus der Zeit.",
   "clearTooltip": "Alle Felder löschen.",
   "rateApp": "Bewerten Sie die App",
+  "newFeature": "New Feature",
+  "newFeatureText": "Sie können nun die Limit-Zeile gedrückt halten (langes Drücken), um die Punkte anstelle der Zeit anzuzeigen.",
+  "gotIt": "Verstanden",
+  "dontShowAgain": "Nicht mehr anzeigen",
   "recordUpdated": "Rekorde aktualisiert: {date}",
   "@recordUpdated": {
     "placeholders": {

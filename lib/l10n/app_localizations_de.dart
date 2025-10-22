@@ -179,6 +179,19 @@ class AppLocalizationsDe extends AppLocalizations {
   String get rateApp => 'Bewerten Sie die App';
 
   @override
+  String get newFeature => 'New Feature';
+
+  @override
+  String get newFeatureText =>
+      'Sie können nun die Limit-Zeile gedrückt halten (langes Drücken), um die Punkte anstelle der Zeit anzuzeigen.';
+
+  @override
+  String get gotIt => 'Verstanden';
+
+  @override
+  String get dontShowAgain => 'Nicht mehr anzeigen';
+
+  @override
   String recordUpdated(String date) {
     return 'Rekorde aktualisiert: $date';
   }

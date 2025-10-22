@@ -434,6 +434,30 @@ abstract class AppLocalizations {
   /// **'Rate the app'**
   String get rateApp;
 
+  /// No description provided for @newFeature.
+  ///
+  /// In en, this message translates to:
+  /// **'New Feature'**
+  String get newFeature;
+
+  /// No description provided for @newFeatureText.
+  ///
+  /// In en, this message translates to:
+  /// **'You can now hold (long press) the limit row to see the points instead of time.'**
+  String get newFeatureText;
+
+  /// No description provided for @gotIt.
+  ///
+  /// In en, this message translates to:
+  /// **'Got it'**
+  String get gotIt;
+
+  /// No description provided for @dontShowAgain.
+  ///
+  /// In en, this message translates to:
+  /// **'Don\'t show again'**
+  String get dontShowAgain;
+
   /// No description provided for @recordUpdated.
   ///
   /// In en, this message translates to:

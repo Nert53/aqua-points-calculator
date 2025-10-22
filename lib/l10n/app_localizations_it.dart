@@ -179,6 +179,19 @@ class AppLocalizationsIt extends AppLocalizations {
   String get rateApp => 'Valuta l\'app';
 
   @override
+  String get newFeature => 'New Feature';
+
+  @override
+  String get newFeatureText =>
+      'Ora puoi tenere premuta (pressione prolungata) la riga dei limiti per visualizzare i punti invece del tempo.';
+
+  @override
+  String get gotIt => 'Capito';
+
+  @override
+  String get dontShowAgain => 'Non mostrare più';
+
+  @override
   String recordUpdated(String date) {
     return 'Records aggiornati al: $date';
   }
