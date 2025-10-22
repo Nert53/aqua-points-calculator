@@ -599,7 +599,7 @@ Future<double> findRecordTime(String gender, String course, String distance,
   distance = distance.toLowerCase().replaceAll(' ', '');
   stroke = stroke.toLowerCase();
 
-  var allRecords = await _getRecords(
+  var allRecords = await getRecords(
       'assets/table_base_times/$season/${gender}_$course.json');
   for (var record in allRecords) {
     if (record.eventDistance == distance && record.eventStroke == stroke) {
@@ -624,10 +624,10 @@ Future<double> findRecordTime(String gender, String course, String distance,
   return 0.0;
 }
 
-Future<List<Record>> _getRecords(String path) async {
-  List<Record> records =
+Future<List<WorldRecord>> getRecords(String path) async {
+  List<WorldRecord> records =
       (json.decode(await rootBundle.loadString(path)) as List)
-          .map((record) => Record.fromJson(record))
+          .map((record) => WorldRecord.fromJson(record))
           .toList();
 
   return records;

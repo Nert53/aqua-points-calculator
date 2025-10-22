@@ -90,7 +90,7 @@ class MainApp extends StatefulWidget {
 class _MainAppState extends State<MainApp> {
   Locale? _locale;
 
-  setLocale(Locale locale) {
+  void setLocale(Locale locale) {
     saveLanguage(locale);
     setState(() {
       _locale = locale;

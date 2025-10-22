@@ -47,10 +47,10 @@ class _RecordsScreenState extends State<RecordsScreen> {
     super.initState();
   }
 
-  Future<List<Record>> _getRecords(String path) async {
-    List<Record> records =
+  Future<List<WorldRecord>> _getRecords(String path) async {
+    List<WorldRecord> records =
         (json.decode(await rootBundle.loadString(path)) as List)
-            .map((record) => Record.fromJson(record))
+            .map((record) => WorldRecord.fromJson(record))
             .toList();
 
     return records;
@@ -175,7 +175,7 @@ class _RecordsScreenState extends State<RecordsScreen> {
           ),
           Expanded(
             child: SelectionArea(
-              child: FutureBuilder<List<Record>>(
+              child: FutureBuilder<List<WorldRecord>>(
                 future: _getRecords(
                     'assets/wr_times/${selectedGender!.name.toLowerCase()}_${selectedCourse!.value.toLowerCase().substring(0, 3)}.json'),
                 builder: (context, model) {
@@ -185,7 +185,7 @@ class _RecordsScreenState extends State<RecordsScreen> {
                           const Divider(),
                       itemCount: model.data!.length,
                       itemBuilder: (context, index) {
-                        Record record = model.data![index];
+                        WorldRecord record = model.data![index];
                         int splitLength = 50;
                         if (record.split25) {
                           splitLength = 25;
