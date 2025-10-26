@@ -23,6 +23,7 @@ dependencies:
   provider: ^6.1.2
   rename_app: ^1.6.1
   shared_preferences: ^2.2.3
+  skeletonizer: ^2.1.0+1
   url_launcher: ^6.3.0
 
 dev_dependencies:
