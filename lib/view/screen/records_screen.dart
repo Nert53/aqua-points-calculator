@@ -1,5 +1,5 @@
 import 'dart:convert';
-import 'package:fina_points_calculator/model/record_model.dart';
+import 'package:fina_points_calculator/model/world_record_model.dart';
 import 'package:fina_points_calculator/utils/constants.dart';
 import 'package:fina_points_calculator/utils/locale_func.dart';
 import 'package:flutter/material.dart';

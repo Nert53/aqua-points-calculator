@@ -59,3 +59,21 @@ int convertMontToInt(String monthShort) {
       return 1;
   }
 }
+
+double timeToSeconds(String time) {
+  if (time == '') {
+    return 0.0;
+  }
+
+  List<String> parts = time.split(':');
+
+  if (parts.length == 2) {
+    // time in format MM:SS.SS
+    double minutes = double.parse(parts[0]);
+    double seconds = double.parse(parts[1]);
+    return minutes * 60 + seconds;
+  } else {
+    // time format SS.SS
+    return double.parse(time);
+  }
+}

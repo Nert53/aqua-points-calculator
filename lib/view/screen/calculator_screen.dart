@@ -1,8 +1,7 @@
-import 'dart:convert';
 import 'dart:math';
-import 'package:fina_points_calculator/model/record_model.dart';
 import 'package:fina_points_calculator/utils/constants.dart';
 import 'package:fina_points_calculator/utils/locale_func.dart';
+import 'package:fina_points_calculator/utils/records_func.dart';
 import 'package:fina_points_calculator/view/widget/time_field.dart';
 import 'package:fina_points_calculator/view/widget/warning_snackbar.dart';
 import 'package:firebase_analytics/firebase_analytics.dart';
@@ -47,6 +46,11 @@ enum Distance {
   fourHundred('400 m'),
   eightHundred('800 m'),
   fifteenHundred('1500 m');
+  /*
+  realayFifty('4x50 m'),
+  realayHundred('4x100 m'),
+  realayTwoHundred('4x200 m');
+  */
 
   const Distance(this.lengthPretty);
   final String lengthPretty;
@@ -105,7 +109,7 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
 
   // main function for both calculations
   void calculate() async {
-    // everything empty -> show snackbar
+    // everything empty -> show 'enter time' warning
     if (_minutesController.text.isEmpty &&
         _secondsController.text.isEmpty &&
         _hundredthsController.text.isEmpty &&
@@ -115,6 +119,8 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
     }
 
     if (!checkDisciplineCorrectness()) {
+      showWarningSnackBar(
+          context, AppLocalizations.of(context)!.disciplineNotExist);
       return;
     }
 
@@ -168,7 +174,7 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
         ? hundredths = 0
         : hundredths = int.parse(_hundredthsController.text);
 
-    // second condition is for enters like 05 or 09 that should be take as 9 hundredths not 90
+    // second condition is for enters like 5 that should be take as 05 not 50
     if (hundredths < 10 && _hundredthsController.text.length < 2) {
       hundredths *= 10;
     }
@@ -211,28 +217,17 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
     });
   }
 
-  void clearAllControllers() {
-    // sets all buttons to initial state
+  void clearTimeAndPoints() {
     _minutesController.clear();
     _secondsController.clear();
     _hundredthsController.clear();
     _pointsController.clear();
-    setState(() {
-      _distanceController.text = Distance.fifty.lengthPretty;
-      setSelectedStroke(Stroke.free);
-      _gender = Gender.men;
-      _course = Course.lcm;
-      _seasonController.text = Season.s2526.name;
-    });
   }
 
   bool checkDisciplineCorrectness() {
-    var warningMessage = AppLocalizations.of(context)!.disciplineNotExist;
-
     if (_distanceController.text == Distance.eightHundred.lengthPretty ||
         _distanceController.text == Distance.fifteenHundred.lengthPretty) {
       if (_selectedStroke != Stroke.free) {
-        showWarningSnackBar(context, warningMessage);
         return false;
       }
     }
@@ -240,7 +235,6 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
     if (_distanceController.text == Distance.fourHundred.lengthPretty) {
       if (!(_selectedStroke == Stroke.free ||
           _selectedStroke == Stroke.medley)) {
-        showWarningSnackBar(context, warningMessage);
         return false;
       }
     }
@@ -249,7 +243,6 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
       if (_distanceController.text == Distance.fifty.lengthPretty ||
           _distanceController.text == Distance.hundred.lengthPretty) {
         if (_selectedStroke == Stroke.medley) {
-          showWarningSnackBar(context, warningMessage);
           return false;
         }
       }
@@ -258,7 +251,6 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
     if (_course == Course.scm) {
       if (_distanceController.text == Distance.fifty.lengthPretty &&
           _selectedStroke == Stroke.medley) {
-        showWarningSnackBar(context, warningMessage);
         return false;
       }
     }
@@ -271,7 +263,8 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
     _strokeController.text = getLocalizedStroke(context, _selectedStroke.name);
 
     return GestureDetector(
-      onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
+      onTap: () => FocusManager.instance.primaryFocus
+          ?.unfocus(), // dismiss keyboard on tap outside of it
       child: Scaffold(
           bottomNavigationBar: Padding(
             padding: const EdgeInsets.only(bottom: 8),
@@ -442,61 +435,51 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Column(
-                          children: [
-                            Radio<Gender>(
-                                value: Gender.men,
-                                groupValue: _gender,
-                                onChanged: (Gender? value) {
-                                  setState(() {
-                                    _gender = value;
-                                  });
-                                }),
-                            Text(AppLocalizations.of(context)!.men)
-                          ],
-                        ),
-                        Column(
-                          children: [
-                            Radio<Gender>(
-                                value: Gender.women,
-                                groupValue: _gender,
-                                onChanged: (Gender? value) {
-                                  setState(() {
-                                    _gender = value;
-                                  });
-                                }),
-                            Text(AppLocalizations.of(context)!.women)
-                          ],
-                        ),
+                        RadioGroup<Gender>(
+                            groupValue: _gender,
+                            onChanged: (value) {
+                              setState(() {
+                                _gender = value;
+                              });
+                            },
+                            child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Column(children: [
+                                    Radio<Gender>(value: Gender.men),
+                                    Text(AppLocalizations.of(context)!.men)
+                                  ]),
+                                  const SizedBox(width: 16),
+                                  Column(children: [
+                                    Radio<Gender>(value: Gender.women),
+                                    Text(AppLocalizations.of(context)!.women)
+                                  ]),
+                                ])),
                         const SizedBox(
                           width: 38,
                         ),
-                        Column(
-                          children: [
-                            Radio<Course>(
-                                value: Course.lcm,
-                                groupValue: _course,
-                                onChanged: (Course? value) {
-                                  setState(() {
-                                    _course = value;
-                                  });
-                                }),
-                            Text(AppLocalizations.of(context)!.lcm)
-                          ],
-                        ),
-                        Column(
-                          children: [
-                            Radio<Course>(
-                                value: Course.scm,
-                                groupValue: _course,
-                                onChanged: (Course? value) {
-                                  setState(() {
-                                    _course = value;
-                                  });
-                                }),
-                            Text(AppLocalizations.of(context)!.scm)
-                          ],
-                        ),
+                        RadioGroup<Course>(
+                            groupValue: _course,
+                            onChanged: (value) {
+                              setState(() {
+                                _course = value;
+                              });
+                            },
+                            child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Column(children: [
+                                    Radio<Course>(value: Course.lcm),
+                                    Text(AppLocalizations.of(context)!.lcm)
+                                  ]),
+                                  const SizedBox(width: 16),
+                                  Column(children: [
+                                    Radio<Course>(value: Course.scm),
+                                    Text(AppLocalizations.of(context)!.scm)
+                                  ]),
+                                ])),
                       ],
                     ),
                     const SizedBox(
@@ -533,7 +516,7 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
                           tooltip: AppLocalizations.of(context)!.clearTooltip,
                           elevation: 2,
                           onPressed: () {
-                            clearAllControllers();
+                            clearTimeAndPoints();
                           },
                           child: const Icon(
                             Icons.delete_sweep_outlined,
@@ -590,45 +573,4 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
           )),
     );
   }
-}
-
-Future<double> findRecordTime(String gender, String course, String distance,
-    String stroke, String season) async {
-  gender = gender.toLowerCase();
-  course = course.toLowerCase().substring(0, 3);
-  distance = distance.toLowerCase().replaceAll(' ', '');
-  stroke = stroke.toLowerCase();
-
-  var allRecords = await getRecords(
-      'assets/table_base_times/$season/${gender}_$course.json');
-  for (var record in allRecords) {
-    if (record.eventDistance == distance && record.eventStroke == stroke) {
-      double minutes, seconds, hundredths;
-      bool overMinuteRecord = record.time.contains(':');
-      var editedTime = record.time.replaceAll(':', '.').split('.');
-
-      if (overMinuteRecord) {
-        minutes = double.parse(editedTime[0]);
-        seconds = double.parse(editedTime[1]);
-        hundredths = double.parse(editedTime[2]);
-      } else {
-        minutes = 0.0;
-        seconds = double.parse(editedTime[0]);
-        hundredths = double.parse(editedTime[1]);
-      }
-
-      return (minutes * 60) + seconds + (hundredths / 100);
-    }
-  }
-
-  return 0.0;
-}
-
-Future<List<WorldRecord>> getRecords(String path) async {
-  List<WorldRecord> records =
-      (json.decode(await rootBundle.loadString(path)) as List)
-          .map((record) => WorldRecord.fromJson(record))
-          .toList();
-
-  return records;
 }
