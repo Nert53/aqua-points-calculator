@@ -4,6 +4,8 @@ class Limit {
   final String timeA;
   final String timeB;
   final String gender;
+  int pointsA;
+  int pointsB;
 
   Limit({
     required this.eventDistance,
@@ -11,6 +13,8 @@ class Limit {
     required this.timeA,
     required this.timeB,
     required this.gender,
+    this.pointsA = 0,
+    this.pointsB = 0,
   });
 
   factory Limit.fromJson(Map<String, dynamic> json) {
