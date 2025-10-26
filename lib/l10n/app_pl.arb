@@ -52,7 +52,7 @@
   "splitsInfo": "Jeśli klikniesz na kafelek rekordu świata, zobaczysz międzyczasy.",
   "limitsInfo": "Limity zgodne z regulacjami Czech Aquatics. Gdy pokazane są dwa czasy, reprezentują limit A i B, przy czym limity B dotyczą tylko pływaków urodzonych w 2005 (2006) roku lub później.",
   "calcualteTooltip": "Oblicz Aqua Punkty z czasu.",
-  "clearTooltip": "Wyczyść wszystkie pola.",
+  "clearTooltip": "Wyczyść czas i punkty.",
   "rateApp": "Oceń aplikację",
   "newFeature": "New Feature",
   "newFeatureText": "Teraz możesz przytrzymać (długie naciśnięcie) wiersz limitu, aby zobaczyć punkty zamiast czasu.",

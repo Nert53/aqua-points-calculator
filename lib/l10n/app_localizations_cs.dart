@@ -172,7 +172,7 @@ class AppLocalizationsCs extends AppLocalizations {
   String get calcualteTooltip => 'Vypočítá Aqua Body z času.';
 
   @override
-  String get clearTooltip => 'Vynuluje všechna políčka.';
+  String get clearTooltip => 'Vynuluje čas a body.';
 
   @override
   String get rateApp => 'Ohodnoť aplikaci';

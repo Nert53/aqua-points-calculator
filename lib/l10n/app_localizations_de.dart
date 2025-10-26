@@ -173,7 +173,7 @@ class AppLocalizationsDe extends AppLocalizations {
   String get calcualteTooltip => 'Berechnen Sie Aqua Points aus der Zeit.';
 
   @override
-  String get clearTooltip => 'Alle Felder löschen.';
+  String get clearTooltip => 'Zeit und Punkte löschen.';
 
   @override
   String get rateApp => 'Bewerten Sie die App';

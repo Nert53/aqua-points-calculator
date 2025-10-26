@@ -52,7 +52,7 @@
     "splitsInfo": "Pokud kliknete na dlaždici světového rekordu, zobrazí se vám mezičasy.",
     "limitsInfo": "Limity jsou dány podle pravidel ČSPS. Pokud jsou viditelné 2 časy jedná se o A a B limit. B limity jsou platné pouze pro ročníky 2005 (2006) a mladší.",
     "calcualteTooltip": "Vypočítá Aqua Body z času.",
-    "clearTooltip": "Vynuluje všechna políčka.",
+    "clearTooltip": "Vynuluje čas a body.",
     "rateApp": "Ohodnoť aplikaci",
     "newFeature": "Nová Funkce",
     "newFeatureText": "Po dlouhém podržení řádku s limitem se vám zobrazí body namísto času.",

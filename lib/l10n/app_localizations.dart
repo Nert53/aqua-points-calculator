@@ -425,7 +425,7 @@ abstract class AppLocalizations {
   /// No description provided for @clearTooltip.
   ///
   /// In en, this message translates to:
-  /// **'Clear all fields.'**
+  /// **'Clear time and points.'**
   String get clearTooltip;
 
   /// No description provided for @rateApp.
