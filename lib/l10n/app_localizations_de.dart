@@ -179,7 +179,7 @@ class AppLocalizationsDe extends AppLocalizations {
   String get rateApp => 'Bewerten Sie die App';
 
   @override
-  String get newFeature => 'New Feature';
+  String get newFeature => 'Neue Funktion';
 
   @override
   String get newFeatureText =>

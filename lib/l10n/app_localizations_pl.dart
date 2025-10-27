@@ -179,7 +179,7 @@ class AppLocalizationsPl extends AppLocalizations {
   String get rateApp => 'Oceń aplikację';
 
   @override
-  String get newFeature => 'New Feature';
+  String get newFeature => 'Nowa funkcja';
 
   @override
   String get newFeatureText =>

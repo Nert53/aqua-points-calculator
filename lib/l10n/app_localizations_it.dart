@@ -179,7 +179,7 @@ class AppLocalizationsIt extends AppLocalizations {
   String get rateApp => 'Valuta l\'app';
 
   @override
-  String get newFeature => 'New Feature';
+  String get newFeature => 'Nuova funzionalità';
 
   @override
   String get newFeatureText =>
