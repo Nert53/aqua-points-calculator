@@ -1,9 +1,13 @@
 import 'package:fina_points_calculator/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class FeatureDialog extends StatelessWidget {
-  const FeatureDialog({super.key, required this.prefs, required this.limitLongPressFeatureCount});
+  const FeatureDialog(
+      {super.key,
+      required this.prefs,
+      required this.limitLongPressFeatureCount});
 
   final SharedPreferences prefs;
   final int limitLongPressFeatureCount;
@@ -13,10 +17,10 @@ class FeatureDialog extends StatelessWidget {
     return AlertDialog(
       title: Row(
         children: [
-          Image.asset(
-            'assets/icons/confetti.png',
-            height: 30,
-            width: 30,
+          SvgPicture.asset(
+            'assets/icons/party-popper.svg',
+            height: 35,
+            width: 35,
           ),
           SizedBox(width: 16),
           Text('${AppLocalizations.of(context)!.newFeature}!'),
