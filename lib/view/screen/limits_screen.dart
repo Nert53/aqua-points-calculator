@@ -1,13 +1,14 @@
+import 'dart:async';
 import 'dart:convert';
 import 'package:fina_points_calculator/model/limit_model.dart';
 import 'package:fina_points_calculator/utils/locale_func.dart';
 import 'package:fina_points_calculator/utils/points_func.dart';
 import 'package:fina_points_calculator/view/widget/feature_dialog.dart';
+import 'package:fina_points_calculator/view/widget/limits_skeleton.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:fina_points_calculator/l10n/app_localizations.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:skeletonizer/skeletonizer.dart';
 
 enum Competition {
   lublin2025('Lublin 2025', 2025, 'scm', 'europe', 'Lublin'),
@@ -33,7 +34,6 @@ class _LimitsScreenState extends State<LimitsScreen> {
   Competition selectedCompetition = Competition.values.first;
   // Track which limit is currently being long pressed
   int? currentlyLongPressed;
-  bool longPressActive = false;
   bool displayNewFeatureBanner = true;
 
   @override
@@ -173,45 +173,7 @@ class _LimitsScreenState extends State<LimitsScreen> {
                   'assets/limit_times/${selectedCompetition.type}_${selectedCompetition.course}_${selectedCompetition.year}.json'),
               builder: (context, model) {
                 if (model.connectionState == ConnectionState.waiting) {
-                  return Skeletonizer(
-                      child: ListView.separated(
-                    itemCount: 10,
-                    separatorBuilder: (context, index) => Divider(),
-                    itemBuilder: (context, index) {
-                      return SizedBox(
-                        height: 60,
-                        child: Row(
-                          children: [
-                            Expanded(
-                              flex: 3,
-                              child: Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Text('02:02.02'),
-                                ],
-                              ),
-                            ),
-                            Expanded(
-                              flex: 5,
-                              child: Center(
-                                child: Text(
-                                  '200m Breaststroke',
-                                ),
-                              ),
-                            ),
-                            Expanded(
-                              flex: 3,
-                              child: Column(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    Text('02:02.02'),
-                                  ]),
-                            ),
-                          ],
-                        ),
-                      );
-                    },
-                  ));
+                  return LimitsSkeleton();
                 } else {
                   return ListView.separated(
                     itemCount: model.data!.length,
@@ -223,91 +185,12 @@ class _LimitsScreenState extends State<LimitsScreen> {
                       Limit menLimit = currentLimit[0];
                       Limit womenLimit = currentLimit[1];
 
-                      return GestureDetector(
-                        onLongPressStart: (_) {
-                          setState(() {
-                            currentlyLongPressed = index;
-                            longPressActive = true;
-                          });
-                        },
-                        onLongPressCancel: () {
-                          setState(() {
-                            currentlyLongPressed = null;
-                            longPressActive = false;
-                          });
-                        },
-                        child: Opacity(
-                          opacity: longPressActive &&
-                                  currentlyLongPressed != null &&
-                                  currentlyLongPressed != index
-                              ? 0.3
-                              : 1.0,
-                          child: SizedBox(
-                            height: 60,
-                            child: Row(
-                              children: [
-                                Expanded(
-                                  flex: 3,
-                                  child: Column(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      Text(
-                                        currentlyLongPressed == index
-                                            ? "${menLimit.pointsA}"
-                                            : menLimit.timeA.toString(),
-                                        style: TextStyle(
-                                            fontSize: 16,
-                                            fontWeight: FontWeight.bold),
-                                      ),
-                                      menLimit.timeB.isEmpty
-                                          ? SizedBox()
-                                          : Text(
-                                              currentlyLongPressed == index
-                                                  ? "${menLimit.pointsB}"
-                                                  : menLimit.timeB.toString(),
-                                            ),
-                                    ],
-                                  ),
-                                ),
-                                Expanded(
-                                  flex: 5,
-                                  child: Center(
-                                    child: Text(
-                                      menLimit == womenLimit
-                                          ? '$discipline ${AppLocalizations.of(context)!.mixed}'
-                                          : discipline,
-                                      style: TextStyle(fontSize: 16),
-                                      textAlign: TextAlign.center,
-                                    ),
-                                  ),
-                                ),
-                                Expanded(
-                                  flex: 3,
-                                  child: Column(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      Text(
-                                        currentlyLongPressed == index
-                                            ? "${womenLimit.pointsA}"
-                                            : womenLimit.timeA.toString(),
-                                        style: TextStyle(
-                                            fontSize: 16,
-                                            fontWeight: FontWeight.bold),
-                                      ),
-                                      womenLimit.timeB.isEmpty
-                                          ? SizedBox()
-                                          : Text(
-                                              currentlyLongPressed == index
-                                                  ? "${womenLimit.pointsB}"
-                                                  : womenLimit.timeB.toString(),
-                                            ),
-                                    ],
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
+                      return LimitRow(
+                        index: index,
+                        menLimit: menLimit,
+                        womenLimit: womenLimit,
+                        discipline: discipline,
+                        isMixed: false,
                       );
                     },
                   );
@@ -315,6 +198,110 @@ class _LimitsScreenState extends State<LimitsScreen> {
               }),
         ),
       ],
+    );
+  }
+}
+
+class LimitRow extends StatefulWidget {
+  final int index;
+  final Limit menLimit;
+  final Limit womenLimit;
+  final String discipline;
+  final bool isMixed;
+
+  const LimitRow({
+    super.key,
+    required this.index,
+    required this.menLimit,
+    required this.womenLimit,
+    required this.discipline,
+    required this.isMixed,
+  });
+
+  @override
+  State<LimitRow> createState() => _LimitRowState();
+}
+
+class _LimitRowState extends State<LimitRow> {
+  bool _highlighted = false;
+
+  void _onLongPressStart(LongPressStartDetails _) {
+    setState(() {
+      _highlighted = true;
+    });
+  }
+
+  void _onLongPressEnd(LongPressEndDetails _) {
+    setState(() {
+      _highlighted = false;
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final men = widget.menLimit;
+    final women = widget.womenLimit;
+
+    return GestureDetector(
+      onLongPressStart: _onLongPressStart,
+      onLongPressEnd: _onLongPressEnd,
+      child: AnimatedContainer(
+        duration: const Duration(milliseconds: 350),
+        curve: Curves.easeOutCubic,
+        transform: Matrix4.identity()
+          ..setEntry(3, 2, 0.001) // perspective
+          ..rotateX(_highlighted ? -0.2 : 0.0)
+          ..scale(_highlighted ? 1.1 : 1.0),
+        transformAlignment: Alignment.center,
+        height: 60,
+        child: Row(
+          children: [
+            Expanded(
+              flex: 3,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    _highlighted ? "${men.pointsA}" : men.timeA.toString(),
+                    style: const TextStyle(fontWeight: FontWeight.bold),
+                  ),
+                  if (men.timeB.isNotEmpty)
+                    Text(
+                        _highlighted ? "${men.pointsB}" : men.timeB.toString()),
+                ],
+              ),
+            ),
+            Expanded(
+              flex: 5,
+              child: Center(
+                child: Text(
+                  widget.isMixed
+                      ? '${widget.discipline} ${AppLocalizations.of(context)!.mixed}'
+                      : widget.discipline,
+                  textAlign: TextAlign.center,
+                  style: const TextStyle(fontSize: 16),
+                ),
+              ),
+            ),
+            Expanded(
+              flex: 3,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    _highlighted ? "${women.pointsA}" : women.timeA.toString(),
+                    style: const TextStyle(fontWeight: FontWeight.bold),
+                  ),
+                  if (women.timeB.isNotEmpty)
+                    Text(_highlighted
+                        ? "${women.pointsB}"
+                        : women.timeB.toString()),
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }
