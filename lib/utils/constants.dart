@@ -13,4 +13,4 @@ String rateAppAndroid =
 String rateAppWeb =
     'mailto:vojtanetrh@gmail.com?subject=Thanks%20for%20Aqua%20Points';
 String appVersion =
-    '1.4.0'; // manual because of the problems with 'package_info_plus'
+    '1.4.1'; // manual because of the problems with 'package_info_plus'

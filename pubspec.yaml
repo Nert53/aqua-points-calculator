@@ -1,7 +1,7 @@
 name: fina_points_calculator
 description: "App for calculations between time and aqua points."
 publish_to: "none"
-version: 1.4.0+19
+version: 1.4.1+20
 
 environment:
   sdk: ">=3.4.3 <4.0.0"
