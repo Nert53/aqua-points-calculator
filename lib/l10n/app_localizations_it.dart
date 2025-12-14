@@ -37,7 +37,7 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get limitsText =>
-      '1) Campionati del mondo e Olimpiadi - I limiti sono presi dal sito ufficiale di World Aquatics. Per alcuni paesi i limiti potrebbero essere diversi (di solito più severi). \n\n2) Campionati Europei e Universiade - I limiti sono validi per la Czech Aquatics di Nuoto e per le altre federazioni saranno diversi. I limiti cechi sono basati sul 16° o 8° posto nelle migliori 3 ultime edizioni dei Campionati Europei o nell\'ultima Universiade.';
+      '1) Mondiali e Olimpiadi: I limiti sono presi da World Aquatics. Per alcuni paesi potrebbero essere più difficili. La qualificazione per il nuoto va dal 1 marzo 2027 al 18 giugno 2028 (incluso). I limiti B sono determinati aggiungendo l\'1% al tempo A. I limiti per i 50m (eccetto stile libero) sono validi solo per i nuotatori già qualificati in qualsiasi altro evento. La qualificazione diretta per i 50m avviene attraverso la Coppa del Mondo di nuoto. \n\n2) Europei e Universiadi: I limiti sono validi per Czech Aquatics e per qualsiasi altra federazione saranno diversi. I limiti cechi si basano sul 16° o 8° posto dei migliori degli ultimi 3 Campionati Europei o dell\'ultima Universiade.';
 
   @override
   String get men => 'Uomini';
@@ -79,10 +79,10 @@ class AppLocalizationsIt extends AppLocalizations {
   String get close => 'Chiudi';
 
   @override
-  String get lcm => 'LCM (50m)';
+  String get lcm => 'Lunga (50m)';
 
   @override
-  String get scm => 'SCM (25m)';
+  String get scm => 'Corta (25m)';
 
   @override
   String get season => 'Stagione';
@@ -167,7 +167,7 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get limitsInfo =>
-      'I limiti seguono le normative di Czech Aquatics. Quando sono indicate due volte, rappresentano i limiti A e B, con i limiti B validi solo per i nuotatori nati nel 2005 (2006) o successivamente.';
+      'I limiti seguono le normative di Czech Aquatics. Quando sono indicate due volte, rappresentano i limiti A e B limiti.';
 
   @override
   String get calcualteTooltip => 'Calcolo dei punti Aqua dal tempo.';

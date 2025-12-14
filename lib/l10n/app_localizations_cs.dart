@@ -37,7 +37,7 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String get limitsText =>
-      '1) Mistrovství světa a Olympijské hry - Limity jsou převzaty z oficiálních stránek World Aquatics. Pro některé země mohou být limity odlišné (obvykle přísnější). \n\n2) Mistrovství Evropy a Univerziáda - Limity platí pro Český svaz, pro jiné federace budou limity jiné. Česká kritéria jsou založena na 16. nebo 8. místě na nejlepších třech posledních evropských šampionátech nebo na poslední Univerziádě.';
+      '1) MS a olympiáda: Limity jsou převzaty od World Aquatics. Pro některé země mohou být tvrdší. Kvalifikace pro plavání probíhá od 1. března 2027 do 18. června 2028 (včetně). B limity jsou stanoveny připočtením 1 % k času A. Limity na 50 m (kromě volného způsobu) platí pouze pro plavce, kteří jsou již kvalifikováni v jiné disciplíně. Přímá kvalifikace na 50 m probíhá prostřednictvím Světového poháru v plavání. \n\n2) ME a Univerziáda: Limity platí pro Czech Aquatics (Český svaz plaveckých sportů) a pro jakoukoli jinou federaci se budou lišit. České limity vycházejí z 16. nebo 8. místa z nejlepších výkonů na posledních 3 mistrovstvích Evropy nebo poslední Univerziádě.';
 
   @override
   String get men => 'Muži';
@@ -166,7 +166,7 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String get limitsInfo =>
-      'Limity jsou dány podle pravidel ČSPS. Pokud jsou viditelné 2 časy jedná se o A a B limit. B limity jsou platné pouze pro ročníky 2005 (2006) a mladší.';
+      'Limity jsou dány podle pravidel ČSPS. Pokud jsou viditelné 2 časy jedná se o A a B limit.';
 
   @override
   String get calcualteTooltip => 'Vypočítá Aqua Body z času.';

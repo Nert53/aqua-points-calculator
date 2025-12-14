@@ -37,7 +37,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get limitsText =>
-      '1) Worlds and Olympics: Limits are taken from the official World Aquatics website. For some countries may be different (usually harder). \n\n2) Europeans and Universiade: Limits are valid for Czech Aquatics and for any other federation it will be different. Czech limits are based on 16th or 8th place on the best of last 3 European Championships or one last Universiade.';
+      '1) Olympics: Limits are taken from the World Aquatics. For some countries may be harder. Qualification for swimming is from 1 March 2027 to 18 June 2028 (include). B limits are determined by adding 1 % to the A time. Limits for 50s (except freestyle) are only valid for swimmers already qualified in any other event. Direct qualification for 50s is done through Swimming World Cup. \n\n2) Europeans and Universiade: Limits are valid for Czech Aquatics and for any other federation it will be different. Czech limits are based on 16th or 8th place on the best of last 3 European Championships or one last Universiade.';
 
   @override
   String get men => 'Men';
@@ -166,7 +166,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get limitsInfo =>
-      'Limits follow Czech Aquatics regulations. When two times are shown, they represent the A and B limit, with B limits applying only to swimmers born in 2005 (2006) or later.';
+      'Limits follow Czech Aquatics regulations. When two times are shown, they represent the A and B limit.';
 
   @override
   String get calcualteTooltip => 'Calculate Aqua Points from time.';

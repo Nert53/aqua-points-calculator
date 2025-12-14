@@ -37,7 +37,7 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get limitsText =>
-      '1) Mistrzostwa Świata i Igrzyska Olimpijskie: Limity są pobierane z oficjalnej strony World Aquatics. Dla niektórych krajów mogą być inne (zazwyczaj trudniejsze). \n\n2) Mistrzostwa Europy i Uniwersjada: Limity są ważne dla Czech Aquatics, a dla każdej innej federacji będą różne. Czeskie limity są oparte na 16. lub 8. miejscu z najlepszych ostatnich 3 Mistrzostw Europy lub ostatniej Uniwersjady.';
+      '1) MŚ i Igrzyska Olimpijskie: Limity są pobierane od World Aquatics. Dla niektórych krajów mogą być trudniejsze. Kwalifikacje pływackie trwają od 1 marca 2027 do 18 czerwca 2028 (włącznie). Limity B są ustalane poprzez dodanie 1% do czasu A. Limity na 50 m (z wyjątkiem stylu dowolnego) są ważne tylko dla pływaków już zakwalifikowanych w innej konkurencji. Bezpośrednia kwalifikacja na 50 m odbywa się poprzez Puchar Świata w pływaniu. \n\n2) Mistrzostwa Europy i Uniwersjada: Limity obowiązują dla Czech Aquatics, a dla każdej innej federacji będą inne. Czeskie limity opierają się na 16. lub 8. miejscu z najlepszych wyników ostatnich 3 Mistrzostw Europy lub ostatniej Uniwersjady.';
 
   @override
   String get men => 'Mężczyźni';
@@ -79,10 +79,10 @@ class AppLocalizationsPl extends AppLocalizations {
   String get close => 'Zamknij';
 
   @override
-  String get lcm => 'LCM (50m)';
+  String get lcm => '50m basen';
 
   @override
-  String get scm => 'SCM (25m)';
+  String get scm => '25m basen';
 
   @override
   String get season => 'Sezon';
