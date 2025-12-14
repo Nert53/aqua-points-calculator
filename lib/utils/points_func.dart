@@ -3,9 +3,15 @@ import 'package:fina_points_calculator/utils/records_func.dart';
 
 Future<int> calculatePoints(String time, String gender, String course,
     String distance, String stroke) async {
-  if (distance.contains('x')){
+  // because of relays
+  if (distance.contains('x')) {
     return 0;
-  }    
+  }
+
+  // because of some empty limit B times
+  if (time.isEmpty) {
+    return 0;
+  }
 
   gender = gender.toLowerCase();
   course = course.toLowerCase().substring(0, 3);

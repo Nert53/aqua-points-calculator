@@ -11,8 +11,8 @@ import 'package:fina_points_calculator/l10n/app_localizations.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 enum Competition {
-  lublin2025('Lublin 2025', 2025, 'scm', 'europe', 'Lublin'),
-  paris2026('Paris 2026', 2026, 'lcm', 'europe', 'Paris');
+  paris2026('Paris 2026', 2026, 'lcm', 'europe', 'Paris'),
+  olympics2028('Olympics 2028', 2028, 'lcm', 'olympics', 'Los Angeles');
 
   const Competition(
       this.displayName, this.year, this.course, this.type, this.city);
@@ -34,7 +34,7 @@ class _LimitsScreenState extends State<LimitsScreen> {
   Competition selectedCompetition = Competition.values.first;
   // Track which limit is currently being long pressed
   int? currentlyLongPressed;
-  bool displayNewFeatureBanner = true;
+  bool displayNewFeatureBanner = false;
 
   @override
   void initState() {
