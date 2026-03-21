@@ -66,7 +66,7 @@
       }
     }
   },
-  "tablesUpdated": "Ważne dla sezonu: zima {date}",
+  "tablesUpdated": "Ważne dla sezonu: lato {date}",
   "@tablesUpdated": {
     "placeholders": {
       "date": {
