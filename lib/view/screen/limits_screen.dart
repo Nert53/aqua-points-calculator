@@ -40,6 +40,7 @@ class _LimitsScreenState extends State<LimitsScreen> {
   void initState() {
     super.initState();
     WidgetsBinding.instance.addPostFrameCallback((_) async {
+      /* currently unsued dialog to promote NEW FEATURE
       final prefs = await SharedPreferences.getInstance();
       var limitLongPressFeatureCount =
           prefs.getInt('limitLongPressFeature') ?? 0;
@@ -52,6 +53,7 @@ class _LimitsScreenState extends State<LimitsScreen> {
                   limitLongPressFeatureCount: limitLongPressFeatureCount);
             });
       }
+      */
 
       _getLimits(
           'assets/limit_times/${selectedCompetition.type}_${selectedCompetition.course}_${selectedCompetition.year}.json');

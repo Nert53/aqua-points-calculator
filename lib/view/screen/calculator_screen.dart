@@ -91,7 +91,7 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
   }
 
   Gender? _gender = Gender.men;
-  Course? _course = Course.scm;
+  Course? _course = Course.lcm;
 
   final _minutesController = TextEditingController();
   final _secondsController = TextEditingController();

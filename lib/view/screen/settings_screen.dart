@@ -378,7 +378,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                                         ),
                                         TextSpan(
                                           text:
-                                              'If you have any questions or suggestions contact us directly through email ',
+                                              'If you have any questions, suggestions or see a bug please contact us using e-mail ',
                                         ),
                                         TextSpan(
                                           text: 'umimplavat@gmail.com',
