@@ -3,16 +3,16 @@ import 'dart:convert';
 import 'package:fina_points_calculator/model/limit_model.dart';
 import 'package:fina_points_calculator/utils/locale_func.dart';
 import 'package:fina_points_calculator/utils/points_func.dart';
-import 'package:fina_points_calculator/view/widget/feature_dialog.dart';
 import 'package:fina_points_calculator/view/widget/limits_skeleton.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:fina_points_calculator/l10n/app_localizations.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 enum Competition {
-  paris2026('Paris 2026', 2026, 'lcm', 'europe', 'Paris'),
-  olympics2028('Olympics 2028', 2028, 'lcm', 'olympics', 'Los Angeles');
+  paris2026("Paris '26", 2026, 'lcm', 'europe', 'Paris'),
+  beijing2026("Beijing '26", 2026, 'scm', 'worlds', 'Beijing'),
+  //budapest2027("Budapest '27", 2027, 'lcm', 'worlds', 'Budapest'),
+  olympics2028("Olympics '28", 2028, 'lcm', 'olympics', 'Los Angeles');
 
   const Competition(
       this.displayName, this.year, this.course, this.type, this.city);
@@ -122,25 +122,26 @@ class _LimitsScreenState extends State<LimitsScreen> {
         SizedBox(
           height: 8,
         ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            SegmentedButton<Competition>(
-              segments: Competition.values
-                  .map((competition) => ButtonSegment<Competition>(
-                        value: competition,
-                        label: Text(competition.displayName),
-                      ))
-                  .toList(),
-              selected: {selectedCompetition},
-              onSelectionChanged: (Set<Competition> newSelection) {
-                _changeCompetition(newSelection.first);
+        Wrap(
+          spacing: 4.0,
+          alignment: WrapAlignment.center,
+          children:
+              List<Widget>.generate(Competition.values.length, (int index) {
+            return ChoiceChip(
+              label: Text(Competition.values[index].displayName),
+              side: BorderSide(
+                color: selectedCompetition == Competition.values[index]
+                    ? Theme.of(context).colorScheme.primary
+                    : Colors.grey,
+              ),
+              selected: selectedCompetition == Competition.values[index],
+              onSelected: (bool selected) {
+                setState(() {
+                  _changeCompetition(Competition.values[index]);
+                });
               },
-            )
-          ],
-        ),
-        SizedBox(
-          height: 3,
+            );
+          }),
         ),
         Divider(
           thickness: 2,
