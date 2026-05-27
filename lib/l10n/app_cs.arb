@@ -58,6 +58,13 @@
     "newFeatureText": "Po dlouhém podržení řádku s limitem se vám zobrazí body namísto času.",
     "gotIt": "Rozumím",
     "dontShowAgain": "Nezobrazovat znovu",
+    "cityBudapest": "Budapešť",
+    "cityLosAngeles": "Los Angeles",
+    "cityBeijing": "Peking",
+    "cityParis": "Paříž",
+    "cityLublin": "Lublin",
+    "cityPrague": "Praha",
+    "olympics": "Olympiáda",
     "recordUpdated": "Rekordy aktualizovány: {date}",
     "@recordUpdated": {
         "placeholders": {

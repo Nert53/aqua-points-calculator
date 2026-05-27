@@ -58,6 +58,13 @@
   "newFeatureText": "Teraz możesz przytrzymać (długie naciśnięcie) wiersz limitu, aby zobaczyć punkty zamiast czasu.",
   "gotIt": "Rozumiem",
   "dontShowAgain": "Nie pokazuj ponownie",
+  "cityBudapest": "Budapeszt",
+  "cityLosAngeles": "Los Angeles",
+  "cityBeijing": "Pekin",
+  "cityParis": "Paryż",
+  "cityLublin": "Lublin",
+  "cityPrague": "Praga",
+  "olympics": "Olympiada",
   "recordUpdated": "Rekordy zaktualizowane: {date}",
   "@recordUpdated": {
     "placeholders": {

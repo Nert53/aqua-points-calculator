@@ -123,12 +123,19 @@ class _LimitsScreenState extends State<LimitsScreen> {
           height: 8,
         ),
         Wrap(
-          spacing: 4.0,
+          spacing: 8.0,
           alignment: WrapAlignment.center,
           children:
               List<Widget>.generate(Competition.values.length, (int index) {
+            String localizedCity =
+                getLocalizedCity(context, Competition.values[index].city);
+            if (Competition.values[index].displayName.contains('Olympics')) {
+              localizedCity = getLocalizedCity(context, 'olympics');
+            }
+
             return ChoiceChip(
-              label: Text(Competition.values[index].displayName),
+              label: Text(
+                  "$localizedCity '${Competition.values[index].year.toString().substring(2)}"),
               side: BorderSide(
                 color: selectedCompetition == Competition.values[index]
                     ? Theme.of(context).colorScheme.primary
@@ -169,7 +176,12 @@ class _LimitsScreenState extends State<LimitsScreen> {
             ),
           ),
         ]),
-        Divider(),
+        SizedBox(
+          height: 8,
+        ),
+        Divider(
+          height: 0,
+        ),
         Expanded(
           child: FutureBuilder(
               future: _getLimits(

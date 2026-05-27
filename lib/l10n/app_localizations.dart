@@ -458,6 +458,48 @@ abstract class AppLocalizations {
   /// **'Don\'t show again'**
   String get dontShowAgain;
 
+  /// No description provided for @cityBudapest.
+  ///
+  /// In en, this message translates to:
+  /// **'Budapest'**
+  String get cityBudapest;
+
+  /// No description provided for @cityLosAngeles.
+  ///
+  /// In en, this message translates to:
+  /// **'Los Angeles'**
+  String get cityLosAngeles;
+
+  /// No description provided for @cityBeijing.
+  ///
+  /// In en, this message translates to:
+  /// **'Beijing'**
+  String get cityBeijing;
+
+  /// No description provided for @cityParis.
+  ///
+  /// In en, this message translates to:
+  /// **'Paris'**
+  String get cityParis;
+
+  /// No description provided for @cityLublin.
+  ///
+  /// In en, this message translates to:
+  /// **'Lublin'**
+  String get cityLublin;
+
+  /// No description provided for @cityPrague.
+  ///
+  /// In en, this message translates to:
+  /// **'Prague'**
+  String get cityPrague;
+
+  /// No description provided for @olympics.
+  ///
+  /// In en, this message translates to:
+  /// **'Olympics'**
+  String get olympics;
+
   /// No description provided for @recordUpdated.
   ///
   /// In en, this message translates to:

@@ -191,6 +191,27 @@ class AppLocalizationsCs extends AppLocalizations {
   String get dontShowAgain => 'Nezobrazovat znovu';
 
   @override
+  String get cityBudapest => 'Budapešť';
+
+  @override
+  String get cityLosAngeles => 'Los Angeles';
+
+  @override
+  String get cityBeijing => 'Peking';
+
+  @override
+  String get cityParis => 'Paříž';
+
+  @override
+  String get cityLublin => 'Lublin';
+
+  @override
+  String get cityPrague => 'Praha';
+
+  @override
+  String get olympics => 'Olympiáda';
+
+  @override
   String recordUpdated(String date) {
     return 'Rekordy aktualizovány: $date';
   }

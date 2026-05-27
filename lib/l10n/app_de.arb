@@ -59,6 +59,13 @@
   "gotIt": "Verstanden",
   "dontShowAgain": "Nicht mehr anzeigen",
   "recordUpdated": "Rekorde aktualisiert: {date}",
+  "cityBudapest": "Budapest",
+  "cityLosAngeles": "Los Angeles",
+  "cityBeijing": "Peking",
+  "cityParis": "Paris",
+  "cityLublin": "Lublin",
+  "cityPrague": "Prag",
+  "olympics": "Olympische",
   "@recordUpdated": {
     "placeholders": {
       "date": {

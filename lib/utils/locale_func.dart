@@ -73,6 +73,25 @@ String getLocalizedMonth(BuildContext context, String month) {
   }
 }
 
+String getLocalizedCity(BuildContext context, String city) {
+  switch (city.toLowerCase()) {
+    case 'budapest':
+      return AppLocalizations.of(context)!.cityBudapest;
+    case 'los angeles':
+      return AppLocalizations.of(context)!.cityLosAngeles;
+    case 'paris':
+      return AppLocalizations.of(context)!.cityParis;
+    case 'beijing':
+      return AppLocalizations.of(context)!.cityBeijing;
+    case 'lublin':
+      return AppLocalizations.of(context)!.cityLublin;
+    case 'olympics':
+      return AppLocalizations.of(context)!.olympics;
+    default:
+      return AppLocalizations.of(context)!.cityPrague;
+  }
+}
+
 extension StringExtension on String {
   String capitalize() {
     return "${this[0].toUpperCase()}${substring(1).toLowerCase()}";

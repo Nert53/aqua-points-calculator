@@ -58,6 +58,13 @@
   "newFeatureText": "Ora puoi tenere premuta (pressione prolungata) la riga dei limiti per visualizzare i punti invece del tempo.",
   "gotIt": "Capito",
   "dontShowAgain": "Non mostrare più",
+  "cityBudapest": "Budapest",
+  "cityLosAngeles": "Los Angeles",
+  "cityBeijing": "Pechino",
+  "cityParis": "Parigi",
+  "cityLublin": "Lublin",
+  "cityPrague": "Praga",
+  "olympics": "Olimpiadi",
   "recordUpdated": "Records aggiornati al: {date}",
   "@recordUpdated": {
     "placeholders": {

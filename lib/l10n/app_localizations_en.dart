@@ -191,6 +191,27 @@ class AppLocalizationsEn extends AppLocalizations {
   String get dontShowAgain => 'Don\'t show again';
 
   @override
+  String get cityBudapest => 'Budapest';
+
+  @override
+  String get cityLosAngeles => 'Los Angeles';
+
+  @override
+  String get cityBeijing => 'Beijing';
+
+  @override
+  String get cityParis => 'Paris';
+
+  @override
+  String get cityLublin => 'Lublin';
+
+  @override
+  String get cityPrague => 'Prague';
+
+  @override
+  String get olympics => 'Olympics';
+
+  @override
   String recordUpdated(String date) {
     return 'Records updated: $date';
   }

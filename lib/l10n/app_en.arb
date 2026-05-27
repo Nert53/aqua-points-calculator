@@ -58,6 +58,13 @@
   "newFeatureText": "You can now hold (long press) the limit row to see the points instead of time.",
   "gotIt": "Got it",
   "dontShowAgain": "Don't show again",
+  "cityBudapest": "Budapest",
+  "cityLosAngeles": "Los Angeles",
+  "cityBeijing": "Beijing",
+  "cityParis": "Paris",
+  "cityLublin": "Lublin",
+  "cityPrague": "Prague",
+  "olympics": "Olympics",
   "recordUpdated": "Records updated: {date}",
   "@recordUpdated": {
     "placeholders": {
