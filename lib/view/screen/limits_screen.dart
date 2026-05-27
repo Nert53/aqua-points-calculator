@@ -180,7 +180,9 @@ class _LimitsScreenState extends State<LimitsScreen> {
                 } else {
                   return ListView.separated(
                     itemCount: model.data!.length,
-                    separatorBuilder: (context, index) => Divider(),
+                    separatorBuilder: (context, index) => Divider(
+                      height: 0,
+                    ),
                     itemBuilder: (context, index) {
                       List<Limit> currentLimit = model.data![index];
                       String discipline =
@@ -248,6 +250,7 @@ class _LimitRowState extends State<LimitRow> {
     return GestureDetector(
       onLongPressStart: _onLongPressStart,
       onLongPressEnd: _onLongPressEnd,
+      behavior: HitTestBehavior.opaque, // tap will react in padding area
       child: AnimatedContainer(
         duration: const Duration(milliseconds: 350),
         curve: Curves.easeOutCubic,
@@ -256,7 +259,7 @@ class _LimitRowState extends State<LimitRow> {
           ..rotateX(_highlighted ? -0.2 : 0.0)
           ..scale(_highlighted ? 1.1 : 1.0),
         transformAlignment: Alignment.center,
-        height: 60,
+        height: 80,
         child: Row(
           children: [
             Expanded(
