@@ -1,7 +1,7 @@
 name: fina_points_calculator
 description: "App for calculations between time and aqua points."
 publish_to: "none"
-version: 1.5.0+26
+version: 1.5.0+27
 
 environment:
   sdk: ">=3.4.3 <4.0.0"
@@ -68,7 +68,7 @@ flutter_launcher_icons:
 inno_bundle:
   id: 90636bc0-0d68-11f0-a960-759483543004
   publisher: Vojtech Netrh
-  version: 1.3.1
+  version: 1.5.0
   url: https://github.com/Nert53/aqua-points-calculator/blob/main/README.md
   updates_url: https://github.com/Nert53/aqua-points-calculator/releases
   installer_icon: assets/app_icon/installer_icon.ico
@@ -77,4 +77,5 @@ inno_bundle:
     - german
     - czech
     - italian
+    - polish
   admin: auto
