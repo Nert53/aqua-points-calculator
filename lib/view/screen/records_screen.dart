@@ -86,10 +86,11 @@ class _RecordsScreenState extends State<RecordsScreen> {
             height: 16,
           ),
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 24),
+            padding: const EdgeInsets.symmetric(horizontal: 28),
             child: ConstrainedBox(
               constraints: const BoxConstraints(maxWidth: 400),
               child: Row(
+                spacing: 16,
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   Expanded(
@@ -127,9 +128,6 @@ class _RecordsScreenState extends State<RecordsScreen> {
                         );
                       }).toList(),
                     ),
-                  ),
-                  const SizedBox(
-                    width: 24,
                   ),
                   Expanded(
                     flex: 3,
@@ -169,6 +167,9 @@ class _RecordsScreenState extends State<RecordsScreen> {
                 ],
               ),
             ),
+          ),
+          SizedBox(
+            height: 4,
           ),
           Divider(
             thickness: 2,

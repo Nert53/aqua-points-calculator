@@ -47,10 +47,14 @@ class _MainPageState extends State<MainPage> {
             if (widget.navigationShell.currentIndex == 1 ||
                 widget.navigationShell.currentIndex == 2)
               IconButton(
-                icon: SvgPicture.asset('assets/icons/quick_reference.svg',
-                    width: 24,
-                    height: 24,
-                    color: Theme.of(context).colorScheme.onPrimaryContainer),
+                icon: widget.navigationShell.currentIndex == 1
+                    ? Icon(Icons.touch_app_outlined)
+                    : SvgPicture.asset(
+                        'assets/icons/quick_reference.svg',
+                        width: 24,
+                        height: 24,
+                        color: Theme.of(context).iconTheme.color,
+                      ),
                 onPressed: () {
                   widget.navigationShell.currentIndex == 1
                       ? showInfoSnackbar(
