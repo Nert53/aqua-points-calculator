@@ -48,12 +48,16 @@ class _MainPageState extends State<MainPage> {
                 widget.navigationShell.currentIndex == 2)
               IconButton(
                 icon: widget.navigationShell.currentIndex == 1
-                    ? Icon(Icons.touch_app_outlined)
+                    ? Icon(Icons.touch_app_outlined,
+                        color: Theme.of(context).iconTheme.color)
                     : SvgPicture.asset(
                         'assets/icons/quick_reference.svg',
                         width: 24,
                         height: 24,
-                        color: Theme.of(context).iconTheme.color,
+                        colorFilter: ColorFilter.mode(
+                          Theme.of(context).iconTheme.color!,
+                          BlendMode.srcIn,
+                        ),
                       ),
                 onPressed: () {
                   widget.navigationShell.currentIndex == 1

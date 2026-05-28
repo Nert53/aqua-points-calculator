@@ -1,7 +1,7 @@
 import 'dart:io';
-
 import 'package:fina_points_calculator/theme/theme_provider.dart';
 import 'package:fina_points_calculator/utils/constants.dart';
+import 'package:fina_points_calculator/view/widget/info_simple_dialog.dart';
 import 'package:fina_points_calculator/view/widget/warning_snackbar.dart';
 import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:flutter/gestures.dart';
@@ -146,150 +146,28 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 showDialog(
                     context: context,
                     builder: (BuildContext context) {
-                      return Dialog(
-                        alignment: Alignment.topCenter,
-                        insetPadding: const EdgeInsets.only(top: 50),
-                        child: SizedBox(
-                          width: dialogWidth,
-                          child: Padding(
-                            padding: const EdgeInsets.symmetric(vertical: 12),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              mainAxisSize: MainAxisSize.min,
-                              children: [
-                                Padding(
-                                  padding: const EdgeInsets.symmetric(
-                                      horizontal: 16),
-                                  child: Row(
-                                    children: [
-                                      const Icon(Icons.scoreboard_outlined),
-                                      const SizedBox(width: 12),
-                                      Expanded(
-                                        child: Text(
-                                          AppLocalizations.of(context)!
-                                              .pointsSeason,
-                                          style: const TextStyle(
-                                              fontWeight: FontWeight.bold,
-                                              fontSize: 20),
-                                        ),
-                                      ),
-                                      IconButton(
-                                          onPressed: () {
-                                            Navigator.of(context).pop();
-                                          },
-                                          icon: const Icon(
-                                            Icons.close,
-                                            color: Colors.redAccent,
-                                          )),
-                                    ],
-                                  ),
-                                ),
-                                const Divider(),
-                                Padding(
-                                    padding: const EdgeInsets.only(
-                                        left: 16, right: 16, bottom: 12),
-                                    child: Column(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.start,
-                                      children: [
-                                        SelectableText.rich(TextSpan(
-                                            style: TextStyle(
-                                              color: Theme.of(context)
-                                                  .textTheme
-                                                  .bodyMedium!
-                                                  .color,
-                                            ),
-                                            children: [
-                                              TextSpan(
-                                                text: AppLocalizations.of(
-                                                        context)!
-                                                    .pointsSeasonText,
-                                              ),
-                                            ])),
-                                      ],
-                                    )),
-                              ],
-                            ),
-                          ),
-                        ),
-                      );
+                      return InfoSimpleDialog(
+                          dialogWidth: dialogWidth,
+                          mainIcon: Icons.scoreboard_outlined,
+                          title: AppLocalizations.of(context)!.pointsSeason,
+                          contentText:
+                              AppLocalizations.of(context)!.pointsSeasonText);
                     });
               },
             ),
             ListTile(
               title: Text(AppLocalizations.of(context)!.limits),
-              leading: const Icon(Icons.help_outline_outlined),
+              leading: const Icon(Icons.timer_outlined),
               onTap: () {
                 showDialog(
                     context: context,
                     builder: (BuildContext context) {
-                      return Dialog(
-                        alignment: Alignment.topCenter,
-                        insetPadding: const EdgeInsets.only(top: 50),
-                        child: SizedBox(
-                          width: dialogWidth,
-                          child: Padding(
-                            padding: const EdgeInsets.symmetric(vertical: 12),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              mainAxisSize: MainAxisSize.min,
-                              children: [
-                                Padding(
-                                  padding: const EdgeInsets.symmetric(
-                                      horizontal: 16),
-                                  child: Row(
-                                    children: [
-                                      const Icon(Icons.help_outline),
-                                      const SizedBox(width: 12),
-                                      Expanded(
-                                        child: Text(
-                                          AppLocalizations.of(context)!.limits,
-                                          style: const TextStyle(
-                                              fontWeight: FontWeight.bold,
-                                              fontSize: 20),
-                                        ),
-                                      ),
-                                      IconButton(
-                                          onPressed: () {
-                                            Navigator.of(context).pop();
-                                          },
-                                          icon: const Icon(
-                                            Icons.close,
-                                            color: Colors.redAccent,
-                                          )),
-                                    ],
-                                  ),
-                                ),
-                                const Divider(),
-                                Padding(
-                                    padding: const EdgeInsets.only(
-                                        left: 16, right: 16, bottom: 12),
-                                    child: Column(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.start,
-                                      children: [
-                                        SelectableText.rich(TextSpan(
-                                          style: TextStyle(
-                                            color: Theme.of(context)
-                                                .textTheme
-                                                .bodyMedium!
-                                                .color,
-                                          ),
-                                          children: [
-                                            TextSpan(
-                                              text:
-                                                  AppLocalizations.of(context)!
-                                                      .limitsText,
-                                            ),
-                                          ],
-                                        )),
-                                      ],
-                                    )),
-                              ],
-                            ),
-                          ),
-                        ),
-                      );
+                      return InfoSimpleDialog(
+                          dialogWidth: dialogWidth,
+                          mainIcon: Icons.timer_outlined,
+                          title: AppLocalizations.of(context)!.limits,
+                          contentText:
+                              AppLocalizations.of(context)!.limitsText);
                     });
               },
             ),
