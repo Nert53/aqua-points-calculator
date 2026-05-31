@@ -43,6 +43,24 @@ If you download the app from the mobile stores mentioned above and you like it, 
 
 ## Versions changelog 
 
+#### v1.5.0
+- Added limit for short course worlds in Beijing.
+- Added new 100 fly WR.
+- Updated UI for limit selection.
+- Fixed minor bugs.
+
+#### v1.4.3
+- Updated point tables.
+- Added 50 freestyle WR.
+
+#### v1.4.2
+- Added limits for LA 2028 Olympic Games.
+- Added WR from Lublin.
+
+#### v1.4.1
+- Introduced new feature - long press of limit to see the points.
+- Updated WR from World Cup in USA/Canada.
+
 #### v1.3.10
 - Added polish language.
 - Updated point tables.
@@ -72,7 +90,7 @@ If you download the app from the mobile stores mentioned above and you like it, 
 #### v1.3.0
 - Updated tables for year 2025
 - Added option to choose from past season tables
-- Added explenation window for limits and season points
+- Added explanation window for limits and season points
 - Improved translation
 
 #### v1.2.0
@@ -97,7 +115,7 @@ If you download the app from the mobile stores mentioned above and you like it, 
 - Fixed bug with no calcualtion in other languages
 
 #### v1.0.3
-- Fixed bug of calcualte button
+- Fixed bug of calculate button
 
 #### v1.0.2
 - Added German language
