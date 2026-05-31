@@ -64,7 +64,9 @@
   "cityParis": "Paryż",
   "cityLublin": "Lublin",
   "cityPrague": "Praga",
+  "cityMunich": "Monachium",
   "olympics": "Olympiada",
+  "juniorMode": "Tryb kategorii juniorów",
   "recordUpdated": "Rekordy zaktualizowane: {date}",
   "@recordUpdated": {
     "placeholders": {

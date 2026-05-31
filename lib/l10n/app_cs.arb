@@ -64,7 +64,9 @@
     "cityParis": "Paříž",
     "cityLublin": "Lublin",
     "cityPrague": "Praha",
+    "cityMunich": "Mnichov",
     "olympics": "Olympiáda",
+    "juniorMode": "Režim pro juniory",
     "recordUpdated": "Rekordy aktualizovány: {date}",
     "@recordUpdated": {
         "placeholders": {

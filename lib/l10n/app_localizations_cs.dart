@@ -209,7 +209,13 @@ class AppLocalizationsCs extends AppLocalizations {
   String get cityPrague => 'Praha';
 
   @override
+  String get cityMunich => 'Mnichov';
+
+  @override
   String get olympics => 'Olympiáda';
+
+  @override
+  String get juniorMode => 'Režim pro juniory';
 
   @override
   String recordUpdated(String date) {

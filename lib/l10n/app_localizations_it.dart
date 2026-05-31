@@ -210,7 +210,13 @@ class AppLocalizationsIt extends AppLocalizations {
   String get cityPrague => 'Praga';
 
   @override
+  String get cityMunich => 'Monaco di Baviera';
+
+  @override
   String get olympics => 'Olimpiadi';
+
+  @override
+  String get juniorMode => 'Modalità categoria junior';
 
   @override
   String recordUpdated(String date) {

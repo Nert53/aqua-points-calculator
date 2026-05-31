@@ -494,11 +494,23 @@ abstract class AppLocalizations {
   /// **'Prague'**
   String get cityPrague;
 
+  /// No description provided for @cityMunich.
+  ///
+  /// In en, this message translates to:
+  /// **'Munich'**
+  String get cityMunich;
+
   /// No description provided for @olympics.
   ///
   /// In en, this message translates to:
   /// **'Olympics'**
   String get olympics;
+
+  /// No description provided for @juniorMode.
+  ///
+  /// In en, this message translates to:
+  /// **'Junior category mode'**
+  String get juniorMode;
 
   /// No description provided for @recordUpdated.
   ///

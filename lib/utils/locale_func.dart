@@ -85,6 +85,8 @@ String getLocalizedCity(BuildContext context, String city) {
       return AppLocalizations.of(context)!.cityBeijing;
     case 'lublin':
       return AppLocalizations.of(context)!.cityLublin;
+    case 'munich':
+      return AppLocalizations.of(context)!.cityMunich;
     case 'olympics':
       return AppLocalizations.of(context)!.olympics;
     default:

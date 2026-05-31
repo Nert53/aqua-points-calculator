@@ -66,6 +66,8 @@
   "cityLublin": "Lublin",
   "cityPrague": "Prag",
   "olympics": "Olympische",
+  "cityMunich": "München",
+  "juniorMode": "Modus für die Juniorenklasse",
   "@recordUpdated": {
     "placeholders": {
       "date": {

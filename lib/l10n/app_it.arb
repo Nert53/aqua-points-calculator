@@ -64,7 +64,9 @@
   "cityParis": "Parigi",
   "cityLublin": "Lublin",
   "cityPrague": "Praga",
+  "cityMunich": "Monaco di Baviera",
   "olympics": "Olimpiadi",
+  "juniorMode": "Modalità categoria junior",
   "recordUpdated": "Records aggiornati al: {date}",
   "@recordUpdated": {
     "placeholders": {

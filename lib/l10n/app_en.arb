@@ -64,7 +64,9 @@
   "cityParis": "Paris",
   "cityLublin": "Lublin",
   "cityPrague": "Prague",
+  "cityMunich": "Munich",
   "olympics": "Olympics",
+  "juniorMode": "Junior category mode",
   "recordUpdated": "Records updated: {date}",
   "@recordUpdated": {
     "placeholders": {
