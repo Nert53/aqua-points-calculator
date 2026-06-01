@@ -5,7 +5,7 @@ import 'package:flutter/services.dart';
 Future<double> findRecordTime(String gender, String course, String distance,
     String stroke, String season) async {
   gender = gender.toLowerCase();
-  course = course.toLowerCase().substring(0, 3);
+  course = course == 'jun' ? 'lcm' : course.toLowerCase().substring(0, 3);
   distance = distance.toLowerCase().replaceAll(' ', '');
   stroke = stroke.toLowerCase();
 

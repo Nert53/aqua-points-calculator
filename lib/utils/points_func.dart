@@ -13,6 +13,11 @@ Future<int> calculatePoints(String time, String gender, String course,
     return 0;
   }
 
+  // juniors competition are only on lcm
+  if (course.toLowerCase() == 'jun') {
+    course = 'lcm';
+  }
+
   gender = gender.toLowerCase();
   course = course.toLowerCase().substring(0, 3);
   distance = distance.toLowerCase().replaceAll(' ', '');

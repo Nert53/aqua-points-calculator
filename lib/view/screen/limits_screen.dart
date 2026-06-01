@@ -7,19 +7,22 @@ import 'package:fina_points_calculator/view/widget/limits_skeleton.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:fina_points_calculator/l10n/app_localizations.dart';
+import 'package:fina_points_calculator/utils/shared_preference_service.dart';
+import 'package:fina_points_calculator/utils/junior_mode_notifier.dart';
 
 enum Competition {
-  paris2026("Paris '26", 2026, 'lcm', 'europe', 'Paris'),
-  beijing2026("Beijing '26", 2026, 'scm', 'worlds', 'Beijing'),
-  //budapest2027("Budapest '27", 2027, 'lcm', 'worlds', 'Budapest'),
-  olympics2028("Olympics '28", 2028, 'lcm', 'olympics', 'Los Angeles');
+  paris2026("Paris '26", 2026, 'lcm', 'europe', false, 'Paris'),
+  beijing2026("Beijing '26", 2026, 'scm', 'worlds', false, 'Beijing'),
+  munich2026("Munich '26", 2026, 'lcm', 'europe', true, 'Munich'),
+  olympics2028("Olympics '28", 2028, 'lcm', 'olympics', false, 'Los Angeles');
 
-  const Competition(
-      this.displayName, this.year, this.course, this.type, this.city);
+  const Competition(this.displayName, this.year, this.course, this.type,
+      this.isJunior, this.city);
   final String displayName;
   final int year;
   final String course;
   final String type;
+  final bool isJunior;
   final String city;
 }
 
@@ -35,28 +38,44 @@ class _LimitsScreenState extends State<LimitsScreen> {
   // Track which limit is currently being long pressed
   int? currentlyLongPressed;
   bool displayNewFeatureBanner = false;
+  late JuniorModeNotifier _juniorModeNotifier;
+
+  List<Competition> _availableCompetitions() {
+    bool junior = false;
+    try {
+      junior = PreferencesService.isJuniorMode();
+    } catch (_) {
+      junior = false;
+    }
+
+    if (junior) {
+      return Competition.values
+          .where((c) => c.isJunior || c.type == 'olympics')
+          .toList();
+    } else {
+      return Competition.values.where((c) => !c.isJunior).toList();
+    }
+  }
 
   @override
   void initState() {
+    _juniorModeNotifier = JuniorModeNotifier();
+    _juniorModeNotifier.addListener(_onJuniorModeChanged);
     super.initState();
     WidgetsBinding.instance.addPostFrameCallback((_) async {
-      /* currently unsued dialog to promote NEW FEATURE
-      final prefs = await SharedPreferences.getInstance();
-      var limitLongPressFeatureCount =
-          prefs.getInt('limitLongPressFeature') ?? 0;
-      if (limitLongPressFeatureCount < 3) {
-        showDialog(
-            context: context,
-            builder: (context) {
-              return FeatureDialog(
-                  prefs: prefs,
-                  limitLongPressFeatureCount: limitLongPressFeatureCount);
-            });
-      }
-      */
+      final available = _availableCompetitions();
+      setState(() {
+        selectedCompetition = available.first;
+      });
 
-      _getLimits(
-          'assets/limit_times/${selectedCompetition.type}_${selectedCompetition.course}_${selectedCompetition.year}.json');
+      if (PreferencesService.isJuniorMode() &&
+          selectedCompetition.type != 'olympics') {
+        _getLimits(
+            'assets/limit_times/${selectedCompetition.type}_${selectedCompetition.course}_junior_${selectedCompetition.year}.json');
+      } else {
+        _getLimits(
+            'assets/limit_times/${selectedCompetition.type}_${selectedCompetition.course}_${selectedCompetition.year}.json');
+      }
     });
   }
 
@@ -106,13 +125,41 @@ class _LimitsScreenState extends State<LimitsScreen> {
     return separetedLimits;
   }
 
+  void _onJuniorModeChanged() {
+    setState(() {
+      final available = _availableCompetitions();
+      selectedCompetition = available.first;
+      currentlyLongPressed = null;
+      if (PreferencesService.isJuniorMode() &&
+          selectedCompetition.type != 'olympics') {
+        _getLimits(
+            'assets/limit_times/${selectedCompetition.type}_${selectedCompetition.course}_junior_${selectedCompetition.year}.json');
+      } else {
+        _getLimits(
+            'assets/limit_times/${selectedCompetition.type}_${selectedCompetition.course}_${selectedCompetition.year}.json');
+      }
+    });
+  }
+
   void _changeCompetition(Competition competition) {
     setState(() {
       selectedCompetition = competition;
       currentlyLongPressed = null;
-      _getLimits(
-          'assets/limit_times/${selectedCompetition.type}_${selectedCompetition.course}_${selectedCompetition.year}.json');
+      if (PreferencesService.isJuniorMode() &&
+          selectedCompetition.type != 'olympics') {
+        _getLimits(
+            'assets/limit_times/${selectedCompetition.type}_${selectedCompetition.course}_junior_${selectedCompetition.year}.json');
+      } else {
+        _getLimits(
+            'assets/limit_times/${selectedCompetition.type}_${selectedCompetition.course}_${selectedCompetition.year}.json');
+      }
     });
+  }
+
+  @override
+  void dispose() {
+    _juniorModeNotifier.removeListener(_onJuniorModeChanged);
+    super.dispose();
   }
 
   @override
@@ -125,30 +172,33 @@ class _LimitsScreenState extends State<LimitsScreen> {
         Wrap(
           spacing: 8.0,
           alignment: WrapAlignment.center,
-          children:
-              List<Widget>.generate(Competition.values.length, (int index) {
-            String localizedCity =
-                getLocalizedCity(context, Competition.values[index].city);
-            if (Competition.values[index].displayName.contains('Olympics')) {
-              localizedCity = getLocalizedCity(context, 'olympics');
-            }
+          children: () {
+            final availableCompetitions = _availableCompetitions();
+            return List<Widget>.generate(availableCompetitions.length,
+                (int index) {
+              final comp = availableCompetitions[index];
+              String localizedCity = getLocalizedCity(context, comp.city);
+              if (comp.displayName.contains('Olympics')) {
+                localizedCity = getLocalizedCity(context, 'olympics');
+              }
 
-            return ChoiceChip(
-              label: Text(
-                  "$localizedCity '${Competition.values[index].year.toString().substring(2)}"),
-              side: BorderSide(
-                color: selectedCompetition == Competition.values[index]
-                    ? Theme.of(context).colorScheme.primary
-                    : Colors.grey,
-              ),
-              selected: selectedCompetition == Competition.values[index],
-              onSelected: (bool selected) {
-                setState(() {
-                  _changeCompetition(Competition.values[index]);
-                });
-              },
-            );
-          }),
+              return ChoiceChip(
+                label: Text(
+                    "$localizedCity '${comp.year.toString().substring(2)}"),
+                side: BorderSide(
+                  color: selectedCompetition == comp
+                      ? Theme.of(context).colorScheme.primary
+                      : Colors.grey,
+                ),
+                selected: selectedCompetition == comp,
+                onSelected: (bool selected) {
+                  setState(() {
+                    _changeCompetition(comp);
+                  });
+                },
+              );
+            });
+          }(),
         ),
         Divider(
           thickness: 2,
@@ -184,8 +234,12 @@ class _LimitsScreenState extends State<LimitsScreen> {
         ),
         Expanded(
           child: FutureBuilder(
-              future: _getLimits(
-                  'assets/limit_times/${selectedCompetition.type}_${selectedCompetition.course}_${selectedCompetition.year}.json'),
+              future: PreferencesService.isJuniorMode() &&
+                      selectedCompetition.type != 'olympics'
+                  ? _getLimits(
+                      'assets/limit_times/${selectedCompetition.type}_${selectedCompetition.course}_junior_${selectedCompetition.year}.json')
+                  : _getLimits(
+                      'assets/limit_times/${selectedCompetition.type}_${selectedCompetition.course}_${selectedCompetition.year}.json'),
               builder: (context, model) {
                 if (model.connectionState == ConnectionState.waiting) {
                   return LimitsSkeleton();

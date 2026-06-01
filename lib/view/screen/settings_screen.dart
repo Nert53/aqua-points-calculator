@@ -1,6 +1,8 @@
 import 'dart:io';
 import 'package:fina_points_calculator/theme/theme_provider.dart';
 import 'package:fina_points_calculator/utils/constants.dart';
+import 'package:fina_points_calculator/utils/shared_preference_service.dart';
+import 'package:fina_points_calculator/utils/junior_mode_notifier.dart';
 import 'package:fina_points_calculator/view/widget/info_simple_dialog.dart';
 import 'package:fina_points_calculator/view/widget/warning_snackbar.dart';
 import 'package:firebase_analytics/firebase_analytics.dart';
@@ -18,8 +20,7 @@ enum Language {
   cs('Čeština', 'cs'),
   de('Deutsch', 'de'),
   it('Italiano', 'it'),
-  pl('Polski', 'pl'),
-  ;
+  pl('Polski', 'pl');
 
   const Language(this.value, this.code);
   final String value;
@@ -137,6 +138,17 @@ class _SettingsScreenState extends State<SettingsScreen> {
                     label: AppLocalizations.of(context)!.dark,
                   ),
                 ],
+              ),
+            ),
+            ListTile(
+              title: Text(AppLocalizations.of(context)!.juniorMode),
+              leading: const Icon(Icons.child_care_outlined),
+              trailing: Switch(
+                value: PreferencesService.isJuniorMode(),
+                onChanged: (value) {
+                  JuniorModeNotifier().setJuniorMode(value);
+                  setState(() {});
+                },
               ),
             ),
             ListTile(

@@ -6,16 +6,17 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:fina_points_calculator/l10n/app_localizations.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:fina_points_calculator/utils/shared_preference_service.dart';
+import 'package:fina_points_calculator/utils/junior_mode_notifier.dart';
 
 enum Gender {
-  men('Men', Icons.male_outlined, Color.fromARGB(255, 8, 62, 156)),
-  women('Women', Icons.female_outlined, Color.fromARGB(255, 206, 24, 24)),
-  mixed('Mixed', Icons.circle_outlined, Color.fromARGB(255, 34, 34, 34));
+  men('Men', Icons.male_outlined),
+  women('Women', Icons.female_outlined),
+  mixed('Mixed', Icons.circle_outlined);
 
-  const Gender(this.name, this.icon, this.color);
+  const Gender(this.name, this.icon);
   final String name;
   final IconData icon;
-  final Color color;
 }
 
 enum Course {
@@ -39,12 +40,32 @@ class _RecordsScreenState extends State<RecordsScreen> {
   Gender? selectedGender = Gender.men;
   final TextEditingController courseController = TextEditingController();
   Course? selectedCourse = Course.lcm;
+  late JuniorModeNotifier _juniorModeNotifier;
 
   @override
   void initState() {
-    _getRecords(
-        'assets/wr_times/${selectedGender!.name.toLowerCase()}_${selectedCourse!.value.toLowerCase()}.json');
+    _juniorModeNotifier = JuniorModeNotifier();
+    _juniorModeNotifier.addListener(_onJuniorModeChanged);
+    if (PreferencesService.isJuniorMode()) {
+      _getRecords(
+          'assets/wr_times/juniors/${selectedGender!.name.toLowerCase().replaceAll(' ', '_')}_${selectedCourse!.value.toLowerCase()}_junior.json');
+    } else {
+      _getRecords(
+          'assets/wr_times/${selectedGender!.name.toLowerCase().replaceAll(' ', '_')}_${selectedCourse!.value.toLowerCase()}.json');
+    }
     super.initState();
+  }
+
+  void _onJuniorModeChanged() {
+    reloadRecords();
+  }
+
+  @override
+  void dispose() {
+    _juniorModeNotifier.removeListener(_onJuniorModeChanged);
+    genderController.dispose();
+    courseController.dispose();
+    super.dispose();
   }
 
   Future<List<WorldRecord>> _getRecords(String path) async {
@@ -57,10 +78,17 @@ class _RecordsScreenState extends State<RecordsScreen> {
   }
 
   void reloadRecords() {
-    setState(() {
-      _getRecords(
-          'assets/wr_times/${selectedGender!.name.toLowerCase()}_${selectedCourse!.value.toLowerCase()}.json');
-    });
+    if (PreferencesService.isJuniorMode()) {
+      setState(() {
+        _getRecords(
+            'assets/wr_times/juniors/${selectedGender!.name.toLowerCase().replaceAll(' ', '_')}_${selectedCourse!.value.toLowerCase()}_junior.json');
+      });
+    } else {
+      setState(() {
+        _getRecords(
+            'assets/wr_times/${selectedGender!.name.toLowerCase().replaceAll(' ', '_')}_${selectedCourse!.value.toLowerCase()}.json');
+      });
+    }
   }
 
   @override
@@ -72,8 +100,10 @@ class _RecordsScreenState extends State<RecordsScreen> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-                AppLocalizations.of(context)!
-                    .recordUpdated(lastRecordUpdateDate),
+                AppLocalizations.of(context)!.recordUpdated(
+                    PreferencesService.isJuniorMode()
+                        ? lastJuniorRecordUpdateDate
+                        : lastRecordUpdateDate),
                 style: TextStyle(
                   color: Theme.of(context).colorScheme.secondary,
                 )),
@@ -124,7 +154,8 @@ class _RecordsScreenState extends State<RecordsScreen> {
                           .map<DropdownMenuEntry<Gender>>((Gender gender) {
                         return DropdownMenuEntry<Gender>(
                           value: gender,
-                          label: getLocalizedGender(context, gender.name),
+                          label: getLocalizedGender(context, gender.name,
+                              PreferencesService.isJuniorMode()),
                         );
                       }).toList(),
                     ),
@@ -177,8 +208,9 @@ class _RecordsScreenState extends State<RecordsScreen> {
           Expanded(
             child: SelectionArea(
               child: FutureBuilder<List<WorldRecord>>(
-                future: _getRecords(
-                    'assets/wr_times/${selectedGender!.name.toLowerCase()}_${selectedCourse!.value.toLowerCase().substring(0, 3)}.json'),
+                future: _getRecords(PreferencesService.isJuniorMode()
+                    ? 'assets/wr_times/juniors/${selectedGender!.name.toLowerCase().replaceAll(' ', '_')}_${selectedCourse!.value.toLowerCase()}_junior.json'
+                    : 'assets/wr_times/${selectedGender!.name.toLowerCase().replaceAll(' ', '_')}_${selectedCourse!.value.toLowerCase().substring(0, 3)}.json'),
                 builder: (context, model) {
                   if (model.data?.isNotEmpty ?? false) {
                     return ListView.separated(
@@ -193,7 +225,9 @@ class _RecordsScreenState extends State<RecordsScreen> {
                         }
 
                         String recordGender = getLocalizedGender(
-                            context, record.event.split(' ')[0]);
+                            context,
+                            record.event.split(' ')[0],
+                            PreferencesService.isJuniorMode());
                         String recordStroke =
                             getLocalizedStroke(context, record.eventStroke);
                         String recordDistance = record.eventDistance;

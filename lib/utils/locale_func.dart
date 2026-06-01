@@ -18,7 +18,20 @@ String getLocalizedStroke(BuildContext context, String stroke) {
   }
 }
 
-String getLocalizedGender(BuildContext context, String gender) {
+String getLocalizedGender(BuildContext context, String gender, bool isJunior) {
+  if (isJunior) {
+    switch (gender.toLowerCase()) {
+      case 'men':
+        return AppLocalizations.of(context)!.boys;
+      case 'women':
+        return AppLocalizations.of(context)!.girls;
+      case 'mixed':
+        return AppLocalizations.of(context)!.mixed;
+      default:
+        return AppLocalizations.of(context)!.boys;
+    }
+  }
+
   switch (gender.toLowerCase()) {
     case 'men':
       return AppLocalizations.of(context)!.men;
