@@ -1,7 +1,7 @@
 name: fina_points_calculator
 description: "App for calculations between time and aqua points."
 publish_to: "none"
-version: 1.5.0+28
+version: 1.6.0+30
 
 environment:
   sdk: ">=3.4.3 <4.0.0"
@@ -43,6 +43,7 @@ flutter:
     - assets/table_base_times/24-25/
     - assets/table_base_times/25-26/
     - assets/wr_times/
+    - assets/wr_times/juniors/
     - assets/limit_times/
     - assets/
   generate: true
