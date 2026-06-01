@@ -1,0 +1,36 @@
+[
+  {
+    "Event": "Mixed 4x100m Freestyle Relay",
+    "Pool": "LCM",
+    "Record Description": "",
+    "Record": "",
+    "Time": "03:24.29",
+    "Athlete": "SOMMERVILLE Edward, SOUTHAM Flynn, JANSEN Milla, WUNSCH Olivia",
+    "NF Code": "AUS",
+    "Gender": "X",
+    "Competition": "World Aquatics Junior Championships 2023",
+    "Country": "Israel",
+    "City": "Netanya",
+    "Date": "06-Sep-23",
+    "Splits": "23.65, 48.58, 01:11.83, 01:37.12, 02:02.54, 02:30.74, 02:56.75, 03:24.29",
+    "Tags": "",
+    "Status": ""
+  },
+  {
+    "Event": "Mixed 4x100m Medley Relay",
+    "Pool": "LCM",
+    "Record Description": "",
+    "Record": "",
+    "Time": "03:44.84",
+    "Athlete": "HUSKE Torri, GRANT Will, MATHENY Josh, WALSH Gretchen",
+    "NF Code": "USA",
+    "Gender": "X",
+    "Competition": "7th FINA World Junior Swimming Championships 2019",
+    "Country": "Hungary",
+    "City": "Budapest",
+    "Date": "21-Aug-19",
+    "Splits": "26.29, 53.89, 01:21.48, 01:53.20, 02:19.87, 02:51.24, 03:16.64, 03:44.84",
+    "Tags": "",
+    "Status": ""
+  }
+]
