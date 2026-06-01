@@ -49,6 +49,12 @@ class AppLocalizationsCs extends AppLocalizations {
   String get mixed => 'Mix';
 
   @override
+  String get boys => 'Junioři';
+
+  @override
+  String get girls => 'Juniorky';
+
+  @override
   String get aquaPoints => 'Aqua Body';
 
   @override
@@ -182,7 +188,7 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String get newFeatureText =>
-      'Po dlouhém podržení řádku s limitem se vám zobrazí body namísto času.';
+      'V nastavení si můžete aktivovat mód pro juniory, který zobrazí limity na juniorské akce. Navíc místo dospělých světových rekordů zobrazí juniorské rekordy.';
 
   @override
   String get gotIt => 'Rozumím';

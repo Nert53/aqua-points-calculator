@@ -49,6 +49,12 @@ class AppLocalizationsPl extends AppLocalizations {
   String get mixed => 'Mieszane';
 
   @override
+  String get boys => 'Juniorzy';
+
+  @override
+  String get girls => 'Juniorki';
+
+  @override
   String get aquaPoints => 'Aqua Punkty';
 
   @override
@@ -183,7 +189,7 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get newFeatureText =>
-      'Teraz możesz przytrzymać (długie naciśnięcie) wiersz limitu, aby zobaczyć punkty zamiast czasu.';
+      'W ustawieniach można włączyć tryb juniorski, który wyświetla limity na zawody juniorskie. Ponadto zamiast światowych rekordów dorosłych wyświetlane będą rekordy juniorskie.';
 
   @override
   String get gotIt => 'Rozumiem';

@@ -49,6 +49,12 @@ class AppLocalizationsEn extends AppLocalizations {
   String get mixed => 'Mixed';
 
   @override
+  String get boys => 'Boys';
+
+  @override
+  String get girls => 'Girls';
+
+  @override
   String get aquaPoints => 'Aqua Points';
 
   @override
@@ -182,7 +188,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get newFeatureText =>
-      'You can now hold (long press) the limit row to see the points instead of time.';
+      'In the settings, you can enable junior mode, which displays the qualifying standards for junior events. It also displays junior records instead of adult world records.';
 
   @override
   String get gotIt => 'Got it';

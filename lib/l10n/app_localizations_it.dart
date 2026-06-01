@@ -49,6 +49,12 @@ class AppLocalizationsIt extends AppLocalizations {
   String get mixed => 'Mixed';
 
   @override
+  String get boys => 'Ragazzi';
+
+  @override
+  String get girls => 'Ragazze';
+
+  @override
   String get aquaPoints => 'Aqua Points';
 
   @override
@@ -183,7 +189,7 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get newFeatureText =>
-      'Ora puoi tenere premuta (pressione prolungata) la riga dei limiti per visualizzare i punti invece del tempo.';
+      'Nelle impostazioni è possibile attivare la modalità junior, che mostra i limiti relativi alle competizioni giovanili. Inoltre, al posto dei record mondiali assoluti, verranno visualizzati i record giovanili.';
 
   @override
   String get gotIt => 'Capito';

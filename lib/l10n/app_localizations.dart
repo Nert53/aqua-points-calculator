@@ -182,6 +182,18 @@ abstract class AppLocalizations {
   /// **'Mixed'**
   String get mixed;
 
+  /// No description provided for @boys.
+  ///
+  /// In en, this message translates to:
+  /// **'Boys'**
+  String get boys;
+
+  /// No description provided for @girls.
+  ///
+  /// In en, this message translates to:
+  /// **'Girls'**
+  String get girls;
+
   /// No description provided for @aquaPoints.
   ///
   /// In en, this message translates to:
@@ -443,7 +455,7 @@ abstract class AppLocalizations {
   /// No description provided for @newFeatureText.
   ///
   /// In en, this message translates to:
-  /// **'You can now hold (long press) the limit row to see the points instead of time.'**
+  /// **'In the settings, you can enable junior mode, which displays the qualifying standards for junior events. It also displays junior records instead of adult world records.'**
   String get newFeatureText;
 
   /// No description provided for @gotIt.
