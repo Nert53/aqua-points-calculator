@@ -1,6 +1,7 @@
 import 'dart:developer';
 import 'package:fina_points_calculator/firebase_options.dart';
 import 'package:fina_points_calculator/l10n/app_localizations.dart';
+import 'package:fina_points_calculator/utils/shared_preference_service.dart';
 import 'package:fina_points_calculator/view/screen/calculator_screen.dart';
 import 'package:fina_points_calculator/view/screen/limits_screen.dart';
 import 'package:fina_points_calculator/view/screen/main_page.dart';
@@ -12,19 +13,19 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   try {
     await Firebase.initializeApp(
-      options: DefaultFirebaseOptions.currentPlatform
-    );
+        options: DefaultFirebaseOptions.currentPlatform);
     FirebaseAnalytics analytics = FirebaseAnalytics.instance;
     analytics.setAnalyticsCollectionEnabled(true);
   } catch (e) {
     log("Failed to initialize Firebase: $e", time: DateTime.now());
   }
+
+  await PreferencesService.init();
 
   runApp(ChangeNotifierProvider(
     create: (context) => ThemeProvider(),
@@ -104,17 +105,12 @@ class _MainAppState extends State<MainApp> {
   }
 
   void loadLanguage() async {
-    SharedPreferences? prefs = await SharedPreferences.getInstance();
-    String? languageCode = prefs.getString('languageCode');
-
-    if (languageCode != null) {
-      _locale = Locale(languageCode);
-    }
+    String languageCode = PreferencesService.getLanguageCode();
+    _locale = Locale(languageCode);
   }
 
   void saveLanguage(Locale locale) async {
-    SharedPreferences? prefs = await SharedPreferences.getInstance();
-    await prefs.setString('languageCode', locale.languageCode);
+    PreferencesService.setLanguageCode(locale.languageCode);
   }
 
   @override

@@ -1,7 +1,7 @@
 import 'dart:ui';
 import 'package:fina_points_calculator/theme/theme.dart';
+import 'package:fina_points_calculator/utils/shared_preference_service.dart';
 import 'package:flutter/material.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 class ThemeProvider with ChangeNotifier, WidgetsBindingObserver {
   ThemeData _themeData = lightMode;
@@ -29,8 +29,7 @@ class ThemeProvider with ChangeNotifier, WidgetsBindingObserver {
   }
 
   void loadTheme() async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    _isSystemColorMode = prefs.getBool('isSystemColorMode') ?? false;
+      _isSystemColorMode = PreferencesService.isSystemColorMode();
 
     if (_isSystemColorMode) {
       final brightness = PlatformDispatcher.instance.platformBrightness;
@@ -38,23 +37,19 @@ class ThemeProvider with ChangeNotifier, WidgetsBindingObserver {
       return;
     }
 
-    bool isDark = prefs.getBool('isDarkMode') ?? false;
+    bool isDark = PreferencesService.isDarkMode();
     themeData = isDark ? darkMode : lightMode;
   }
 
   set themeData(ThemeData themeData) {
     _themeData = themeData;
-    SharedPreferences.getInstance().then((prefs) {
-      prefs.setBool('isDarMode', themeData == darkMode);
-    });
+    PreferencesService.setIsDarkMode(themeData == darkMode);
     notifyListeners();
   }
 
   void setSystemColorMode(bool value) {
     _isSystemColorMode = value;
-    SharedPreferences.getInstance().then((prefs) {
-      prefs.setBool('isSystemColorMode', value);
-    });
+    PreferencesService.setSystemColorMode(value);
     if (value) {
       final brightness = PlatformDispatcher.instance.platformBrightness;
       themeData = brightness == Brightness.dark ? darkMode : lightMode;
@@ -64,9 +59,7 @@ class ThemeProvider with ChangeNotifier, WidgetsBindingObserver {
 
   void setDarkMode(bool value) {
     themeData = value ? darkMode : lightMode;
-    SharedPreferences.getInstance().then((prefs) {
-      prefs.setBool('isDarkMode', value);
-    });
+    PreferencesService.setIsDarkMode(value);
     notifyListeners();
   }
 
