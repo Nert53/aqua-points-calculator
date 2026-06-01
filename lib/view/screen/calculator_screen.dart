@@ -2,6 +2,8 @@ import 'dart:math';
 import 'package:fina_points_calculator/utils/constants.dart';
 import 'package:fina_points_calculator/utils/locale_func.dart';
 import 'package:fina_points_calculator/utils/records_func.dart';
+import 'package:fina_points_calculator/utils/shared_preference_service.dart';
+import 'package:fina_points_calculator/view/widget/feature_dialog.dart';
 import 'package:fina_points_calculator/view/widget/time_field.dart';
 import 'package:fina_points_calculator/view/widget/warning_snackbar.dart';
 import 'package:firebase_analytics/firebase_analytics.dart';
@@ -256,6 +258,21 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
     }
 
     return true;
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((_) async {
+      var featureCount = PreferencesService.getNewFeatureCount('juniorMode');
+      if (featureCount < 3) {
+        showDialog(
+            context: context,
+            builder: (context) {
+              return FeatureDialog(juniorModeFeatureCount: featureCount);
+            });
+      }
+    });
   }
 
   @override
