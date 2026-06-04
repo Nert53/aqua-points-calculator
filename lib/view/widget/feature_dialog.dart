@@ -28,14 +28,14 @@ class FeatureDialog extends StatelessWidget {
           onPressed: () async {
             Navigator.of(context).pop();
             PreferencesService.setNewFeatureCount(
-                'juniorModeFeatureCount', juniorModeFeatureCount + 1);
+                'juniorModeFeature', juniorModeFeatureCount + 1);
           },
           child: Text(AppLocalizations.of(context)!.gotIt),
         ),
         TextButton(
           onPressed: () async {
             Navigator.of(context).pop();
-            PreferencesService.setNewFeatureCount('juniorModeFeatureCount', 5);
+            PreferencesService.setNewFeatureCount('juniorModeFeature', 5);
           },
           child: Text(
             AppLocalizations.of(context)!.dontShowAgain,

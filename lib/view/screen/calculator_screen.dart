@@ -264,7 +264,7 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
   void initState() {
     super.initState();
     WidgetsBinding.instance.addPostFrameCallback((_) async {
-      var featureCount = PreferencesService.getNewFeatureCount('juniorMode');
+      var featureCount = PreferencesService.getNewFeatureCount('juniorModeFeature');
       if (featureCount < 3) {
         showDialog(
             context: context,
