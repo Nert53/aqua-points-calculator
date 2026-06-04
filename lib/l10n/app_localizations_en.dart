@@ -67,7 +67,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get language => 'Language';
 
   @override
-  String get colorTheme => 'Color Theme';
+  String get colorTheme => 'Color theme';
 
   @override
   String get system => 'System';
@@ -79,7 +79,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get dark => 'Dark';
 
   @override
-  String get aboutApp => 'About App';
+  String get aboutApp => 'About the app';
 
   @override
   String get close => 'Close';

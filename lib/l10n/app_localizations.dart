@@ -221,7 +221,7 @@ abstract class AppLocalizations {
   /// No description provided for @colorTheme.
   ///
   /// In en, this message translates to:
-  /// **'Color Theme'**
+  /// **'Color theme'**
   String get colorTheme;
 
   /// No description provided for @system.
@@ -245,7 +245,7 @@ abstract class AppLocalizations {
   /// No description provided for @aboutApp.
   ///
   /// In en, this message translates to:
-  /// **'About App'**
+  /// **'About the app'**
   String get aboutApp;
 
   /// No description provided for @close.

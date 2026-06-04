@@ -67,7 +67,7 @@ class AppLocalizationsIt extends AppLocalizations {
   String get language => 'Lingua';
 
   @override
-  String get colorTheme => 'Colore Tema';
+  String get colorTheme => 'Colore tema';
 
   @override
   String get system => 'Sistema';

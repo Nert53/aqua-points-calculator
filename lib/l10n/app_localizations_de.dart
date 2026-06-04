@@ -79,7 +79,7 @@ class AppLocalizationsDe extends AppLocalizations {
   String get dark => 'Dunkel';
 
   @override
-  String get aboutApp => 'Über die App';
+  String get aboutApp => 'Über die app';
 
   @override
   String get close => 'Schließen';
