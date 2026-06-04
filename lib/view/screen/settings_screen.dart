@@ -208,8 +208,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   context: context,
                   builder: (BuildContext context) {
                     return Dialog(
-                      alignment: Alignment.topCenter,
-                      insetPadding: const EdgeInsets.only(top: 56),
+                      alignment: Alignment.center,
                       child: SizedBox(
                         width: dialogWidth, // 80% of screen width
                         child: Padding(
@@ -219,8 +218,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
                             mainAxisSize: MainAxisSize.min,
                             children: [
                               Padding(
-                                padding:
-                                    const EdgeInsets.symmetric(horizontal: 16),
+                                padding: const EdgeInsets.only(
+                                    left: 24, right: 24, top: 12, bottom: 12),
                                 child: Row(
                                   children: [
                                     const Icon(Icons.info_outline),
@@ -233,21 +232,12 @@ class _SettingsScreenState extends State<SettingsScreen> {
                                             fontSize: 20),
                                       ),
                                     ),
-                                    IconButton(
-                                        onPressed: () {
-                                          Navigator.of(context).pop();
-                                        },
-                                        icon: const Icon(
-                                          Icons.close,
-                                          color: Colors.redAccent,
-                                        )),
                                   ],
                                 ),
                               ),
-                              const Divider(),
                               Padding(
                                 padding:
-                                    const EdgeInsets.symmetric(horizontal: 16),
+                                    const EdgeInsets.symmetric(horizontal: 24),
                                 child: Column(children: [
                                   SelectableText.rich(
                                     TextSpan(
@@ -430,39 +420,52 @@ class _SettingsScreenState extends State<SettingsScreen> {
         context: context,
         builder: (BuildContext context) {
           return AlertDialog(
-            title: Text(AppLocalizations.of(context)!.language),
-            content: SizedBox(
-              width: 300,
-              height: containerHeight,
-              child: ListView.builder(
-                  itemCount: Language.values.length,
-                  itemBuilder: (context, index) {
-                    return ListTile(
-                      title: Text(Language.values[index].value),
-                      leading: ClipRRect(
-                        borderRadius: BorderRadius.circular(4),
-                        child: SvgPicture.asset(
-                          'assets/icons/flags/${Language.values[index].code}.svg',
-                          width: 18,
-                          height: 18,
-                        ),
-                      ),
-                      trailing:
-                          Language.values[index].code == currentLanguageCode
+            title: Row(
+              children: [
+                Icon(Icons.language_outlined),
+                SizedBox(width: 16),
+                Text(AppLocalizations.of(context)!.language),
+              ],
+            ),
+            content: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Divider(height: 0),
+                SizedBox(
+                  width: 300,
+                  height: containerHeight,
+                  child: ListView.builder(
+                      itemCount: Language.values.length,
+                      itemBuilder: (context, index) {
+                        return ListTile(
+                          title: Text(Language.values[index].value),
+                          leading: ClipRRect(
+                            borderRadius: BorderRadius.circular(4),
+                            child: SvgPicture.asset(
+                              'assets/icons/flags/${Language.values[index].code}.svg',
+                              width: 18,
+                              height: 18,
+                            ),
+                          ),
+                          trailing: Language.values[index].code ==
+                                  currentLanguageCode
                               ? Icon(
                                   Icons.check_circle,
                                   color: Theme.of(context).colorScheme.primary,
                                 )
                               : null,
-                      onTap: () {
-                        setState(() {
-                          MainApp.setLocale(
-                              context, Locale(Language.values[index].code));
-                          Navigator.of(context).pop();
-                        });
-                      },
-                    );
-                  }),
+                          onTap: () {
+                            setState(() {
+                              MainApp.setLocale(
+                                  context, Locale(Language.values[index].code));
+                              Navigator.of(context).pop();
+                            });
+                          },
+                        );
+                      }),
+                ),
+                Divider(height: 0),
+              ],
             ),
           );
         });

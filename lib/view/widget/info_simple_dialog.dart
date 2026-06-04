@@ -17,59 +17,51 @@ class InfoSimpleDialog extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SimpleDialog(
-      alignment: Alignment.topCenter,
-      insetPadding: const EdgeInsets.only(top: 50),
-      constraints: BoxConstraints(maxWidth: dialogWidth),
-      title: Column(
+    return AlertDialog(
+      title: Row(
         children: [
           Icon(mainIcon, size: 28),
-          SizedBox(height: 8),
+          SizedBox(width: 12),
           Text(
             title,
             style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
           ),
         ],
       ),
-      children: [
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            const Divider(),
-            Padding(
-                padding: const EdgeInsets.only(left: 16, right: 16, bottom: 12),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    SelectableText.rich(TextSpan(
-                        style: TextStyle(
-                          color: Theme.of(context).textTheme.bodyMedium!.color,
-                        ),
-                        children: [
-                          TextSpan(
-                            text: contentText,
-                          ),
-                        ])),
-                  ],
-                )),
-            Padding(
-              padding: const EdgeInsets.only(left: 16, right: 16),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  TextButton(
-                    onPressed: () {
-                      Navigator.of(context).pop();
-                    },
-                    child: Text(AppLocalizations.of(context)!.close),
+      content: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              SelectableText.rich(TextSpan(
+                  style: TextStyle(
+                    color: Theme.of(context).textTheme.bodyMedium!.color,
                   ),
-                ],
-              ),
-            )
-          ],
-        ),
-      ],
+                  children: [
+                    TextSpan(
+                      text: contentText,
+                    ),
+                  ])),
+            ],
+          ),
+          Padding(
+            padding: const EdgeInsets.only(left: 16, right: 16),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                TextButton(
+                  onPressed: () {
+                    Navigator.of(context).pop();
+                  },
+                  child: Text(AppLocalizations.of(context)!.close),
+                ),
+              ],
+            ),
+          )
+        ],
+      ),
     );
   }
 }
