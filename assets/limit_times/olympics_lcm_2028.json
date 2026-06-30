@@ -106,14 +106,14 @@
   },
   {
     "eventDistance": "200 m",
-    "eventStroke": "Individual Medley",
+    "eventStroke": "Medley",
     "limitTimeA": "1:57.54",
     "limitTimeB": "1:58.72",
     "gender": "men"
   },
   {
     "eventDistance": "400 m",
-    "eventStroke": "Individual Medley",
+    "eventStroke": "Medley",
     "limitTimeA": "4:11.52",
     "limitTimeB": "4:14.04",
     "gender": "men"
@@ -225,14 +225,14 @@
   },
   {
     "eventDistance": "200 m",
-    "eventStroke": "Individual Medley",
+    "eventStroke": "Medley",
     "limitTimeA": "2:09.90",
     "limitTimeB": "2:11.20",
     "gender": "women"
   },
   {
     "eventDistance": "400 m",
-    "eventStroke": "Individual Medley",
+    "eventStroke": "Medley",
     "limitTimeA": "4:37.33",
     "limitTimeB": "4:40.10",
     "gender": "women"
