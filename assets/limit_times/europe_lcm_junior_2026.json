@@ -120,21 +120,21 @@
   },
   {
     "eventDistance": "4x100 m",
-    "eventStroke": "Freestyle Relay",
+    "eventStroke": "Freestyle",
     "limitTimeA": "3:24.75",
     "limitTimeB": "",
     "gender": "men"
   },
   {
     "eventDistance": "4x200 m",
-    "eventStroke": "Freestyle Relay",
+    "eventStroke": "Freestyle",
     "limitTimeA": "7:28.90",
     "limitTimeB": "",
     "gender": "men"
   },
   {
     "eventDistance": "4x100 m",
-    "eventStroke": "Medley Relay",
+    "eventStroke": "Medley",
     "limitTimeA": "3:44.87",
     "limitTimeB": "",
     "gender": "men"
@@ -260,35 +260,35 @@
   },
   {
     "eventDistance": "4x100 m",
-    "eventStroke": "Freestyle Relay",
+    "eventStroke": "Freestyle",
     "limitTimeA": "3:47.83",
     "limitTimeB": "",
     "gender": "women"
   },
   {
     "eventDistance": "4x200 m",
-    "eventStroke": "Freestyle Relay",
+    "eventStroke": "Freestyle",
     "limitTimeA": "8:17.80",
     "limitTimeB": "",
     "gender": "women"
   },
   {
     "eventDistance": "4x100 m",
-    "eventStroke": "Medley Relay",
+    "eventStroke": "Medley",
     "limitTimeA": "4:12.99",
     "limitTimeB": "",
     "gender": "women"
   },
   {
     "eventDistance": "4x100 m",
-    "eventStroke": "Mixed Freestyle Relay",
+    "eventStroke": "Freestyle",
     "limitTimeA": "3:35.74",
     "limitTimeB": "",
     "gender": "mixed"
   },
   {
     "eventDistance": "4x100 m",
-    "eventStroke": "Mixed Medley Relay",
+    "eventStroke": "Medley",
     "limitTimeA": "3:56.32",
     "limitTimeB": "",
     "gender": "mixed"
