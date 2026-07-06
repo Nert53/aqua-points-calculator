@@ -93,23 +93,29 @@ class _RecordsScreenState extends State<RecordsScreen> {
 
   @override
   Widget build(BuildContext context) {
+    bool displayDateOnbottom = MediaQuery.of(context).size.width < 1200
+        ? true
+        : false; // in width screens the data is in navigation rail
+
     return Scaffold(
-      bottomNavigationBar: Padding(
-        padding: const EdgeInsets.only(bottom: 8, top: 8),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(
-                AppLocalizations.of(context)!.recordUpdated(
-                    PreferencesService.isJuniorMode()
-                        ? lastJuniorRecordUpdateDate
-                        : lastRecordUpdateDate),
-                style: TextStyle(
-                  color: Theme.of(context).colorScheme.secondary,
-                )),
-          ],
-        ),
-      ),
+      bottomNavigationBar: displayDateOnbottom
+          ? Padding(
+              padding: const EdgeInsets.only(bottom: 8, top: 8),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                      AppLocalizations.of(context)!.recordUpdated(
+                          PreferencesService.isJuniorMode()
+                              ? lastJuniorRecordUpdateDate
+                              : lastRecordUpdateDate),
+                      style: TextStyle(
+                        color: Theme.of(context).colorScheme.secondary,
+                      )),
+                ],
+              ),
+            )
+          : SizedBox(),
       body: Column(
         children: [
           const SizedBox(

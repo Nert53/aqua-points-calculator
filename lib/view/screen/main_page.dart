@@ -1,9 +1,11 @@
+import 'package:fina_points_calculator/utils/shared_preference_service.dart';
 import 'package:fina_points_calculator/view/widget/info_snackbar.dart';
 import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:flutter/material.dart';
 import 'package:fina_points_calculator/l10n/app_localizations.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
+import 'package:fina_points_calculator/utils/constants.dart';
 
 class MainPage extends StatefulWidget {
   final StatefulNavigationShell navigationShell;
@@ -39,6 +41,10 @@ class _MainPageState extends State<MainPage> {
     bool extendedNaviagtionRail = MediaQuery.of(context).size.width > 1200
         ? true
         : false; // extended nav rail will appear only on REALLY wide screens (pc, laptops)
+    bool showRecordsUpdateDate =
+        extendedNaviagtionRail && widget.navigationShell.currentIndex == 1;
+    bool showBaseTimeUpdateDate =
+        extendedNaviagtionRail && widget.navigationShell.currentIndex == 0;
 
     return Scaffold(
         appBar: AppBar(
@@ -128,6 +134,21 @@ class _MainPageState extends State<MainPage> {
                 selectedIndex: widget.navigationShell.currentIndex,
                 onDestinationSelected: _selectScreen,
                 extended: extendedNaviagtionRail,
+                trailing: showRecordsUpdateDate
+                    ? Text(
+                        AppLocalizations.of(context)!.recordUpdated(
+                            PreferencesService.isJuniorMode()
+                                ? lastJuniorRecordUpdateDate
+                                : lastRecordUpdateDate),
+                        softWrap: true,
+                      )
+                    : showBaseTimeUpdateDate
+                        ? Text(
+                            AppLocalizations.of(context)!
+                                .tablesUpdated(lastTableUpdateYear),
+                          )
+                        : SizedBox(),
+                trailingAtBottom: true,
                 minWidth: 96,
                 labelType: extendedNaviagtionRail
                     ? NavigationRailLabelType.none

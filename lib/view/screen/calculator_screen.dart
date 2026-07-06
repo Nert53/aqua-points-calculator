@@ -264,7 +264,8 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
   void initState() {
     super.initState();
     WidgetsBinding.instance.addPostFrameCallback((_) async {
-      var featureCount = PreferencesService.getNewFeatureCount('juniorModeFeature');
+      var featureCount =
+          PreferencesService.getNewFeatureCount('juniorModeFeature');
       if (featureCount < 3) {
         showDialog(
             context: context,
@@ -278,25 +279,30 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
   @override
   Widget build(BuildContext context) {
     _strokeController.text = getLocalizedStroke(context, _selectedStroke.name);
+    bool displayDateOnbottom = MediaQuery.of(context).size.width < 1200
+        ? true
+        : false; // in width screens the data is in navigation rail
 
     return GestureDetector(
       onTap: () => FocusManager.instance.primaryFocus
           ?.unfocus(), // dismiss keyboard on tap outside of it
       child: Scaffold(
-          bottomNavigationBar: Padding(
-            padding: const EdgeInsets.only(bottom: 8),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                    AppLocalizations.of(context)!
-                        .tablesUpdated(lastTableUpdateYear),
-                    style: TextStyle(
-                      color: Theme.of(context).colorScheme.secondary,
-                    )),
-              ],
-            ),
-          ),
+          bottomNavigationBar: displayDateOnbottom
+              ? Padding(
+                  padding: const EdgeInsets.only(bottom: 8),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                          AppLocalizations.of(context)!
+                              .tablesUpdated(lastTableUpdateYear),
+                          style: TextStyle(
+                            color: Theme.of(context).colorScheme.secondary,
+                          )),
+                    ],
+                  ),
+                )
+              : SizedBox(),
           body: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16),
             child: SingleChildScrollView(
