@@ -225,7 +225,7 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String recordUpdated(String date) {
-    return 'Rekordy aktualizovány: $date';
+    return 'Aktualizace k $date';
   }
 
   @override

@@ -69,7 +69,7 @@
   "cityMunich": "Monachium",
   "olympics": "Olympiada",
   "juniorMode": "Tryb kategorii juniorów",
-  "recordUpdated": "Rekordy zaktualizowane: {date}",
+  "recordUpdated": "Aktualizacja z dnia {date}",
   "@recordUpdated": {
     "placeholders": {
       "date": {

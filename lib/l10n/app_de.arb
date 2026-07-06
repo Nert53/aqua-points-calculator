@@ -77,7 +77,7 @@
       }
     }
   },
-  "tablesUpdated": "Gültig für die Saison: Sommer {date}",
+  "tablesUpdated": "Gültig für die: Sommer {date}",
   "@tablesUpdated": {
     "placeholders": {
       "date": {

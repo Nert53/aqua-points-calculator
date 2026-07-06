@@ -69,7 +69,7 @@
     "cityMunich": "Mnichov",
     "olympics": "Olympiáda",
     "juniorMode": "Režim pro juniory",
-    "recordUpdated": "Rekordy aktualizovány: {date}",
+    "recordUpdated": "Aktualizace k {date}",
     "@recordUpdated": {
         "placeholders": {
         "date": {
