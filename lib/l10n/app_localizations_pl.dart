@@ -226,7 +226,7 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String recordUpdated(String date) {
-    return 'Aktualizacja z dnia: $date';
+    return 'Aktualizacja z dnia $date';
   }
 
   @override
