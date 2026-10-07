@@ -11,9 +11,9 @@ import 'package:fina_points_calculator/utils/shared_preference_service.dart';
 import 'package:fina_points_calculator/utils/junior_mode_notifier.dart';
 
 enum Competition {
-  paris2026("Paris '26", 2026, 'lcm', 'europe', false, 'Paris'),
   beijing2026("Beijing '26", 2026, 'scm', 'worlds', false, 'Beijing'),
   munich2026("Munich '26", 2026, 'lcm', 'europe', true, 'Munich'),
+  budapest2027("Budapest '27", 2027, 'lcm', 'worlds', false, 'Budapest'),
   olympics2028("Olympics '28", 2028, 'lcm', 'olympics', false, 'Los Angeles');
 
   const Competition(this.displayName, this.year, this.course, this.type,

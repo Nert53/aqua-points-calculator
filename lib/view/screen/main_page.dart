@@ -45,11 +45,20 @@ class _MainPageState extends State<MainPage> {
         extendedNaviagtionRail && widget.navigationShell.currentIndex == 1;
     bool showBaseTimeUpdateDate =
         extendedNaviagtionRail && widget.navigationShell.currentIndex == 0;
+    bool showHideKeyboardButton = MediaQuery.of(context).viewInsets.bottom > 0;
 
     return Scaffold(
         appBar: AppBar(
           title: const Text('Aqua Points Calculator'),
           actions: [
+            if (showHideKeyboardButton)
+              IconButton(
+                icon: Icon(Icons.keyboard_hide_outlined,
+                    color: Theme.of(context).iconTheme.color),
+                onPressed: () {
+                  FocusScope.of(context).unfocus();
+                },
+              ),
             if (widget.navigationShell.currentIndex == 1 ||
                 widget.navigationShell.currentIndex == 2)
               IconButton(
