@@ -44,24 +44,24 @@ If you download the app from the mobile stores mentioned above and you like it, 
 ## Versions changelog 
 
 #### v1.6.3
-Added changelog.
-Fixed bugs.
-Addew new WR.
+- Added changelog.
+- Fixed bugs.
+- Added new WR.
 
 #### v1.6.2
-Updated tables for winter 2026.
-Added new button for hiding keyboard.
+- Updated tables for winter 2026.
+- Added new button for hiding keyboard.
 
 #### v1.6.1
-Added new WR.
-Added limit for Worlds 2027 in Budapest.
-Fixed bugs (better naming, correct name of relays, ...)
+- Added new WR.
+- Added limit for Worlds 2027 in Budapest.
+- Fixed bugs (better naming, correct name of relays, ...)
 
 #### v1.6.0
-Introduced new feature "junior mode".
-Unify all dialog windows.
-Fixed bugs.
-Added junior limits and junior WR.
+- Introduced new feature "junior mode".
+- Unify all dialog windows.
+- Fixed bugs.
+- Added junior limits and junior WR.
 
 #### v1.5.0
 - Added limit for short course worlds in Beijing.
