@@ -69,6 +69,7 @@
   "cityMunich": "Monaco di Baviera",
   "olympics": "Olimpiadi",
   "juniorMode": "Modalità categoria junior",
+  "changelog": "Registro delle modifiche",
   "recordUpdated": "Records aggiornati al: {date}",
   "@recordUpdated": {
     "placeholders": {

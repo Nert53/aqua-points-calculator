@@ -224,6 +224,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get juniorMode => 'Junior category mode';
 
   @override
+  String get changelog => 'Changelog';
+
+  @override
   String recordUpdated(String date) {
     return 'Records updated: $date';
   }

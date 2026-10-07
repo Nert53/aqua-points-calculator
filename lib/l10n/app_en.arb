@@ -69,6 +69,7 @@
   "cityMunich": "Munich",
   "olympics": "Olympics",
   "juniorMode": "Junior category mode",
+  "changelog": "Changelog",
   "recordUpdated": "Records updated: {date}",
   "@recordUpdated": {
     "placeholders": {

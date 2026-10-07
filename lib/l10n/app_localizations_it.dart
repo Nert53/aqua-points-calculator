@@ -225,6 +225,9 @@ class AppLocalizationsIt extends AppLocalizations {
   String get juniorMode => 'Modalità categoria junior';
 
   @override
+  String get changelog => 'Registro delle modifiche';
+
+  @override
   String recordUpdated(String date) {
     return 'Records aggiornati al: $date';
   }

@@ -224,6 +224,9 @@ class AppLocalizationsCs extends AppLocalizations {
   String get juniorMode => 'Režim pro juniory';
 
   @override
+  String get changelog => 'Seznam změn';
+
+  @override
   String recordUpdated(String date) {
     return 'Aktualizace k $date';
   }

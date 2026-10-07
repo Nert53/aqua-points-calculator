@@ -524,6 +524,12 @@ abstract class AppLocalizations {
   /// **'Junior category mode'**
   String get juniorMode;
 
+  /// No description provided for @changelog.
+  ///
+  /// In en, this message translates to:
+  /// **'Changelog'**
+  String get changelog;
+
   /// No description provided for @recordUpdated.
   ///
   /// In en, this message translates to:

@@ -70,6 +70,7 @@
   "olympics": "Olympische",
   "cityMunich": "München",
   "juniorMode": "Modus für die Juniorenklasse",
+  "changelog": "Änderungsprotokoll",
   "@recordUpdated": {
     "placeholders": {
       "date": {
