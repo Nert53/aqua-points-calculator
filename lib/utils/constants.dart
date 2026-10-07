@@ -1,5 +1,5 @@
 String lastTableUpdateYear = '2026';
-String lastRecordUpdateDate = '06. 07. 2026';
+String lastRecordUpdateDate = '08. 09. 2026';
 String lastJuniorRecordUpdateDate = '31. 05. 2026';
 
 String facebookUrl = 'https://www.facebook.com/umimplavat';
@@ -14,4 +14,4 @@ String rateAppAndroid =
 String rateAppWeb =
     'mailto:vojtanetrh@gmail.com?subject=Thanks%20for%20Aqua%20Points';
 String appVersion =
-    '1.6.1'; // manual because of the problems with 'package_info_plus'
+    '1.6.2'; // manual because of the problems with 'package_info_plus'

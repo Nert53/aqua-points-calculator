@@ -23,6 +23,7 @@ enum Gender {
 }
 
 enum Season {
+  s2627('26/27', '26-27'),
   s2526('25/26', '25-26'),
   s2425('24/25', '24-25'),
   s2324('23/24', '23-24'),
@@ -215,7 +216,11 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
     setState(() {
       _minutesController.text = minutes.toString();
       _secondsController.text = seconds.toString();
-      _hundredthsController.text = hundredths.toString();
+      if (hundredths < 10) {
+        _hundredthsController.text = '0$hundredths';
+      } else {
+        _hundredthsController.text = hundredths.toString();
+      }
     });
   }
 
@@ -264,8 +269,7 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
   void initState() {
     super.initState();
     WidgetsBinding.instance.addPostFrameCallback((_) async {
-      var featureCount =
-          PreferencesService.getNewFeatureCount('juniorModeFeature');
+      /* var featureCount = PreferencesService.getNewFeatureCount('juniorModeFeature');
       if (featureCount < 3) {
         showDialog(
             context: context,
@@ -273,6 +277,7 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
               return FeatureDialog(juniorModeFeatureCount: featureCount);
             });
       }
+      */
     });
   }
 
@@ -361,7 +366,7 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
                                           .colorScheme
                                           .primary)),
                               controller: _seasonController,
-                              initialSelection: Season.s2526,
+                              initialSelection: Season.s2627,
                               inputDecorationTheme: const InputDecorationTheme(
                                   border: OutlineInputBorder(
                                       borderRadius: BorderRadius.all(
