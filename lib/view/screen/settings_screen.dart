@@ -4,6 +4,7 @@ import 'package:fina_points_calculator/utils/constants.dart';
 import 'package:fina_points_calculator/utils/shared_preference_service.dart';
 import 'package:fina_points_calculator/utils/junior_mode_notifier.dart';
 import 'package:fina_points_calculator/view/widget/info_simple_dialog.dart';
+import 'package:fina_points_calculator/view/widget/markdown_simple_dialog.dart';
 import 'package:fina_points_calculator/view/widget/warning_snackbar.dart';
 import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:flutter/gestures.dart';
@@ -151,6 +152,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 },
               ),
             ),
+            Divider(),
             ListTile(
               title: Text(AppLocalizations.of(context)!.pointsSeason),
               leading: const Icon(Icons.scoreboard_outlined),
@@ -183,6 +185,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                     });
               },
             ),
+            Divider(),
             ListTile(
                 title: Text(AppLocalizations.of(context)!.rateApp),
                 leading: const Icon(Icons.star_outline),
@@ -200,6 +203,22 @@ class _SettingsScreenState extends State<SettingsScreen> {
                           : rateAppWeb;
                   launchUrl(Uri.parse(rateLink));
                 }),
+            ListTile(
+              title: Text(AppLocalizations.of(context)!.changelog),
+              leading: const Icon(Icons.history),
+              onTap: () {
+                showDialog(
+                  context: context,
+                  builder: (BuildContext context) {
+                    return MarkdownSimpleDialog(
+                        dialogWidth: dialogWidth,
+                        mainIcon: Icons.history,
+                        title: AppLocalizations.of(context)!.changelog,
+                        contentText: changeLogMarkdown);
+                  },
+                );
+              },
+            ),
             ListTile(
               title: Text(AppLocalizations.of(context)!.aboutApp),
               leading: const Icon(Icons.info_outline),
