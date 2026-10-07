@@ -34,6 +34,23 @@
         "Status": "Approved"
     },
     {
+        "Event": "Men 100m Freestyle",
+        "Pool": "SCM",
+        "Record Description": "Meet Record",
+        "Record": "WR",
+        "Time": "44.84",
+        "Athlete": "KORNEV Egor",
+        "NF Code": "RUS",
+        "Gender": "M",
+        "Competition": "Swimming World Cup 2026",
+        "Country": "Azerbaijan",
+        "City": "Baku",
+        "Date": "02-Oct-26",
+        "Splits": "10.13, 21.62, 33.26, 44.84",
+        "Tags": "",
+        "Status": ""
+    },
+    {
         "Event": "Men 200m Freestyle",
         "Pool": "SCM",
         "Record Description": "Meet Record",
