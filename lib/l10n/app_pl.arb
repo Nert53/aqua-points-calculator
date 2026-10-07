@@ -77,7 +77,7 @@
       }
     }
   },
-  "tablesUpdated": "Ważne dla sezonu: lato {date}",
+  "tablesUpdated": "Ważne dla sezonu: zima {date}",
   "@tablesUpdated": {
     "placeholders": {
       "date": {

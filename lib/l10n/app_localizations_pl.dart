@@ -231,6 +231,6 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String tablesUpdated(String date) {
-    return 'Ważne dla sezonu: lato $date';
+    return 'Ważne dla sezonu: zima $date';
   }
 }

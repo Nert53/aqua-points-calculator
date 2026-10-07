@@ -533,7 +533,7 @@ abstract class AppLocalizations {
   /// No description provided for @tablesUpdated.
   ///
   /// In en, this message translates to:
-  /// **'Valid for season: summer {date}'**
+  /// **'Valid for season: winter {date}'**
   String tablesUpdated(String date);
 }
 

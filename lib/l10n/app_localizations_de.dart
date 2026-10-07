@@ -231,6 +231,6 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String tablesUpdated(String date) {
-    return 'Gültig für die: Sommer $date';
+    return 'Gültig für die: Winter $date';
   }
 }
